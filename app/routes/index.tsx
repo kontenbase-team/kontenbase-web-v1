@@ -1,11 +1,17 @@
 import { Layout } from '~/components'
-import { HomeActionLast, HomeFeatures, HomeHero } from '~/features'
+import {
+  HomeActionLast,
+  HomeActionMiddle,
+  HomeFeatures,
+  HomeHero,
+} from '~/features'
 
 export default function Index() {
   return (
     <Layout>
       <HomeHero />
       <HomeFeatures />
+      <HomeActionMiddle />
       <HomeActionLast />
     </Layout>
   )

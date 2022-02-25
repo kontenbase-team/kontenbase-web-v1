@@ -18,12 +18,12 @@ export const themeData = {
   headings: {
     sizes: {
       h1: {
-        fontSize: '4rem',
+        fontSize: '3.5rem',
         fontWeight: 800,
         marginBottom: 0,
       },
       h2: {
-        fontSize: '2.5rem',
+        fontSize: '3rem',
         fontWeight: 800,
         margin: 0,
       },

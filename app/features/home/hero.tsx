@@ -8,16 +8,18 @@ export const HomeHero: FunctionComponent = () => {
 
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         paddingTop: '3rem',
         paddingBottom: '5rem',
+        paddingLeft: theme.spacing.xl,
+        paddingRight: theme.spacing.xl,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
         gap: '2rem',
-      }}
+      })}
     >
       <Title order={1} sx={{ maxWidth: '16ch' }}>
         <Text color="red" inherit component="span">

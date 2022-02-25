@@ -10,8 +10,8 @@ export const HomeFeatures: FunctionComponent = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '3rem',
-        gap: '3rem',
+        padding: `5rem ${theme.spacing.xl}px`,
+        gap: '5rem',
       })}
     >
       <Title order={2}>Focus on Products, Don’t Reinvent the Wheel!</Title>
