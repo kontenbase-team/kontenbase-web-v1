@@ -23,7 +23,14 @@ export const HomeActionLast: FunctionComponent = () => {
 
       <Group>
         {stacksData.map((item) => {
-          return <Image src={item.imageUrl} alt={item.name} fit="contain" />
+          return (
+            <Image
+              key={item.name}
+              src={item.imageUrl}
+              alt={item.name}
+              fit="contain"
+            />
+          )
         })}
       </Group>
 

@@ -64,7 +64,8 @@ export default function App() {
             <Outlet />
           </TypographyStylesProvider>
         </MantineProvider>
-        <ScrollRestoration />
+
+        {/* <ScrollRestoration /> */}
         <Scripts />
         <LiveReload />
       </body>

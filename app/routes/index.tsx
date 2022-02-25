@@ -2,6 +2,7 @@ import { Layout } from '~/components'
 import {
   HomeActionLast,
   HomeActionMiddle,
+  HomeExamples,
   HomeFeatures,
   HomeHero,
 } from '~/features'
@@ -12,6 +13,7 @@ export default function Index() {
       <HomeHero />
       <HomeFeatures />
       <HomeActionMiddle />
+      <HomeExamples />
       <HomeActionLast />
     </Layout>
   )
