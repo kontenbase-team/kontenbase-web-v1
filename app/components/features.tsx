@@ -85,7 +85,7 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
       )}
 
       {!feature.available && (
-        <Link to="/notify">
+        <Link to="/subscribe">
           <Button
             compact
             variant="light"
