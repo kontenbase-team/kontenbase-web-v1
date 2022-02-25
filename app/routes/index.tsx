@@ -1,7 +1,10 @@
+import { Button, Title } from '@mantine/core'
+
 export default function Index() {
   return (
     <div>
-      <h1>Kontenbase</h1>
+      <Title order={1}>Kontenbase</Title>
+      <Button>Sign Up for Free</Button>
     </div>
   )
 }

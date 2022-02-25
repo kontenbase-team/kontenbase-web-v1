@@ -8,6 +8,7 @@ import {
 } from 'remix'
 
 import type { MetaFunction } from 'remix'
+import { MantineProvider } from '@mantine/core'
 
 export const meta: MetaFunction = () => {
   const name = 'Kontenbase'
@@ -51,7 +52,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <MantineProvider theme={{}}>
+          <Outlet />
+        </MantineProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
