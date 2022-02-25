@@ -22,7 +22,7 @@ export const Features: FunctionComponent<FeaturesProps> = () => {
 
   return (
     <SimpleGrid
-      spacing="xs"
+      spacing="xl"
       cols={4}
       breakpoints={[
         { maxWidth: theme.breakpoints.md, cols: 3 },
@@ -47,8 +47,7 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
   const theme = useMantineTheme()
 
   return (
-    <Card
-      padding="lg"
+    <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -96,6 +95,6 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
           </Button>
         </Link>
       )}
-    </Card>
+    </Box>
   )
 }
