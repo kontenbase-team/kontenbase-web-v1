@@ -12,7 +12,7 @@ import {
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
-import { featuresData } from '~/data/features'
+import { featuresData } from '~/data'
 import { Icon } from '~/components'
 
 interface FeaturesProps {}

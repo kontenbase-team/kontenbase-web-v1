@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react'
 import { Box, Text, Button, Group, Title, useMantineTheme } from '@mantine/core'
 import { Icon } from '~/components'
+import { Link } from 'remix'
 
 export const HomeHero: FunctionComponent = () => {
   const theme = useMantineTheme()
@@ -35,22 +36,26 @@ export const HomeHero: FunctionComponent = () => {
       </Text>
 
       <Group>
-        <Button
-          size="lg"
-          radius="md"
-          variant="gradient"
-          gradient={{ from: 'red', to: 'orange', deg: 105 }}
-        >
-          Sign Up for Free
-        </Button>
-        <Button
-          size="lg"
-          radius="md"
-          variant="outline"
-          leftIcon={<Icon name="docs" />}
-        >
-          Documentation
-        </Button>
+        <Link to="/signup">
+          <Button
+            size="lg"
+            radius="md"
+            variant="gradient"
+            gradient={{ from: 'red', to: 'orange', deg: 105 }}
+          >
+            Sign Up for Free
+          </Button>
+        </Link>
+        <Link to="/docs">
+          <Button
+            size="lg"
+            radius="md"
+            variant="outline"
+            leftIcon={<Icon name="docs" />}
+          >
+            Documentation
+          </Button>
+        </Link>
       </Group>
     </Box>
   )
