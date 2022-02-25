@@ -1,3 +1,4 @@
+export * from './button-toggle-theme'
 export * from './examples'
 export * from './features'
 export * from './footer'

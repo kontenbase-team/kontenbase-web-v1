@@ -1,4 +1,4 @@
-import { Image, Button, Container, Group, Title } from '@mantine/core'
+import { Image, Button, Container, Group, Title, Anchor } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
@@ -24,13 +24,21 @@ export const HomeActionLast: FunctionComponent = () => {
       <Group spacing="xl" sx={{ justifyContent: 'center', maxWidth: '720px' }}>
         {stacksData.map((item) => {
           return (
-            <Image
-              key={item.name}
-              src={item.imageUrl}
-              alt={item.name}
-              fit="contain"
-              height={60}
-            />
+            <Anchor href="https://google.com">
+              <Image
+                key={item.name}
+                src={item.imageUrl}
+                alt={item.name}
+                fit="contain"
+                height={60}
+                sx={{
+                  filter: 'grayscale(1) contrast(0.5)',
+                  '&:hover': {
+                    filter: 'grayscale(0)',
+                  },
+                }}
+              />
+            </Anchor>
           )
         })}
       </Group>

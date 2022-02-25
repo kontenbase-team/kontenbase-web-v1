@@ -1,5 +1,4 @@
 export const themeData = {
-  colorScheme: 'light',
   colors: {
     brand: [
       '#F0BBDD',

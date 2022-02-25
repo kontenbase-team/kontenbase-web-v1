@@ -7,11 +7,18 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix'
-import { MantineProvider, TypographyStylesProvider } from '@mantine/core'
+import {
+  ColorScheme,
+  ColorSchemeProvider,
+  MantineProvider,
+  TypographyStylesProvider,
+} from '@mantine/core'
 import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
 
 import globalStylesUrl from '~/styles/global.css'
+import { useState } from 'react'
+import { useColorScheme } from '@mantine/hooks'
 
 export let links: LinksFunction = () => {
   return [{ rel: 'stylesheet', href: globalStylesUrl }]
@@ -50,6 +57,12 @@ export const meta: MetaFunction = () => {
 }
 
 export default function App() {
+  const preferredColorScheme = useColorScheme()
+  const [colorScheme, setColorScheme] =
+    useState<ColorScheme>(preferredColorScheme)
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+
   return (
     <html lang="en">
       <head>
@@ -59,11 +72,19 @@ export default function App() {
         <Links />
       </head>
       <body style={{ margin: 0 }}>
-        <MantineProvider theme={themeData as any}>
-          <TypographyStylesProvider>
-            <Outlet />
-          </TypographyStylesProvider>
-        </MantineProvider>
+        <ColorSchemeProvider
+          colorScheme={colorScheme}
+          toggleColorScheme={toggleColorScheme}
+        >
+          <MantineProvider
+            theme={{ ...themeData, colorScheme: colorScheme } as any}
+            withGlobalStyles
+          >
+            <TypographyStylesProvider>
+              <Outlet />
+            </TypographyStylesProvider>
+          </MantineProvider>
+        </ColorSchemeProvider>
 
         <ScrollRestoration />
         <Scripts />
