@@ -1,10 +1,10 @@
-import { Button, Title } from '@mantine/core'
+import { Layout } from '~/components'
+import { HomeHero } from '~/features'
 
 export default function Index() {
   return (
-    <div>
-      <Title order={1}>Kontenbase</Title>
-      <Button>Sign Up for Free</Button>
-    </div>
+    <Layout>
+      <HomeHero />
+    </Layout>
   )
 }

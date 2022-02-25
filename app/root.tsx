@@ -6,9 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix'
-
+import { MantineProvider, TypographyStylesProvider } from '@mantine/core'
 import type { MetaFunction } from 'remix'
-import { MantineProvider } from '@mantine/core'
+import { themeData } from '~/data'
 
 export const meta: MetaFunction = () => {
   const name = 'Kontenbase'
@@ -51,9 +51,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <MantineProvider theme={{}}>
-          <Outlet />
+      <body style={{ margin: 0 }}>
+        <MantineProvider theme={themeData as any}>
+          <TypographyStylesProvider>
+            <Outlet />
+          </TypographyStylesProvider>
         </MantineProvider>
         <ScrollRestoration />
         <Scripts />
