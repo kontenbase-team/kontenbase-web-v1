@@ -22,6 +22,23 @@ export const themeData = {
         fontWeight: 800,
         marginBottom: 0,
       },
+      h2: {
+        fontSize: '2.5rem',
+        fontWeight: 800,
+        margin: 0,
+      },
+      h3: {
+        margin: 0,
+      },
+      h4: {
+        margin: 0,
+      },
+      h5: {
+        margin: 0,
+      },
+      h6: {
+        margin: 0,
+      },
     },
   },
 }

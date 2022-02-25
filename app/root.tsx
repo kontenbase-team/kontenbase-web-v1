@@ -1,5 +1,6 @@
 import {
   Links,
+  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
@@ -9,6 +10,12 @@ import {
 import { MantineProvider, TypographyStylesProvider } from '@mantine/core'
 import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
+
+import globalStylesUrl from '~/styles/global.css'
+
+export let links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: globalStylesUrl }]
+}
 
 export const meta: MetaFunction = () => {
   const name = 'Kontenbase'

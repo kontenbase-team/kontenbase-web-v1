@@ -33,6 +33,7 @@ import {
   FaCog as CogIcon,
   FaBookOpen as DocsIcon,
 } from 'react-icons/fa'
+import { Text } from '@mantine/core'
 
 const switchFn =
   (lookupObject: any, defaultCase = '_default') =>
@@ -95,7 +96,7 @@ interface IconSpanProps {
 export const Icon: FunctionComponent<IconProps> = ({ name }) => iconSwitch(name)
 
 export const IconSpan: FunctionComponent<IconSpanProps> = ({ name }) => (
-  <span>
+  <Text component="span">
     <Icon name={name} />
-  </span>
+  </Text>
 )
