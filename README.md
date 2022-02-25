@@ -1,4 +1,25 @@
-# Welcome to Remix!
+# Kontenbase Website
+
+Kontenbase website for primary landing page and marketing purpose.
+
+- This is mostly for content-specific pages.
+- This is not the main platform application.
+
+## Tech Stack
+
+- TypeScript
+- React
+- Remix + React Router
+- Mantine UI
+- Playwright
+- Google Analytics
+- Splitbee
+- Vercel
+- Cloudflare DNS
+
+---
+
+# Remix App
 
 - [Remix Docs](https://remix.run/docs)
 
