@@ -35,7 +35,7 @@ export const HomeExamples: FunctionComponent<HomeExamplesProps> = () => {
         }}
       >
         Kontenbase can be used to build any app! Seriously, anything! Here some
-        example that you can clone andz try.
+        example that you can clone and try.
       </Text>
       <Examples />
     </Container>

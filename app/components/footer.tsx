@@ -14,7 +14,7 @@ export const Footer: FunctionComponent<FooterProps> = () => {
       })}
     >
       <Container size="lg">
-        Copyright 2022 Kontenbase. All rights reserved
+        Copyright &copy; 2022 Kontenbase. All rights reserved
       </Container>
     </Box>
   )

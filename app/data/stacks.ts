@@ -1,22 +1,22 @@
 export const stacksData = [
   {
     name: 'MongoDB',
-    imageUrl: '/images/mongodb.svg',
-  },
-  {
-    name: 'Golang',
-    imageUrl: '/images/golang.svg',
-  },
-  {
-    name: 'Kafka',
-    imageUrl: '/images/kafka.svg',
+    imageUrl: '/logos/mongodb.png',
   },
   {
     name: 'PostgreSQL',
-    imageUrl: '/images/postgresql.svg',
+    imageUrl: '/logos/postgresql.png',
   },
   {
     name: 'Redis',
-    imageUrl: '/images/redis.svg',
+    imageUrl: '/logos/redis.png',
+  },
+  {
+    name: 'Golang',
+    imageUrl: '/logos/golang.png',
+  },
+  {
+    name: 'Kafka',
+    imageUrl: '/logos/kafka.png',
   },
 ]

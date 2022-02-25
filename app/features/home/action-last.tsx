@@ -21,7 +21,7 @@ export const HomeActionLast: FunctionComponent = () => {
         Try our managed service with battle tested technology stack
       </Title>
 
-      <Group>
+      <Group spacing="xl" sx={{ justifyContent: 'center', maxWidth: '720px' }}>
         {stacksData.map((item) => {
           return (
             <Image
@@ -29,6 +29,7 @@ export const HomeActionLast: FunctionComponent = () => {
               src={item.imageUrl}
               alt={item.name}
               fit="contain"
+              height={60}
             />
           )
         })}

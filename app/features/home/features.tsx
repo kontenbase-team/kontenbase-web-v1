@@ -14,7 +14,9 @@ export const HomeFeatures: FunctionComponent = () => {
         gap: '5rem',
       })}
     >
-      <Title order={2}>Focus on Products, Don’t Reinvent the Wheel!</Title>
+      <Title order={2} sx={{ textAlign: 'center', maxWidth: '18ch' }}>
+        Focus on your products, don’t reinvent the wheel!
+      </Title>
       <Features />
     </Container>
   )
