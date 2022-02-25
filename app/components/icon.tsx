@@ -65,6 +65,13 @@ export const iconMaps = {
   // Person
   educator: <EducatorIcon />,
   developer: <DeveloperIcon />,
+  // Features
+  'feature-rest': <CircleIcon />,
+  'feature-auth': <CircleIcon />,
+  'feature-storage': <CircleIcon />,
+  'feature-functions': <CircleIcon />,
+  'feature-websocket': <CircleIcon />,
+  'feature-message-queue': <CircleIcon />,
   // Misc
   cv: <CVIcon />,
   bolt: <BoltIcon />,
