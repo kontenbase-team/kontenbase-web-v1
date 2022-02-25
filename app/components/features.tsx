@@ -8,6 +8,7 @@ import {
   SimpleGrid,
   ThemeIcon,
   Box,
+  Badge,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
@@ -17,14 +18,20 @@ import { Icon } from '~/components'
 interface FeaturesProps {}
 
 export const Features: FunctionComponent<FeaturesProps> = () => {
+  const theme = useMantineTheme()
+
   return (
-    <SimpleGrid cols={4}>
+    <SimpleGrid
+      spacing="xs"
+      cols={4}
+      breakpoints={[
+        { maxWidth: theme.breakpoints.md, cols: 3 },
+        { maxWidth: theme.breakpoints.sm, cols: 2 },
+        { maxWidth: theme.breakpoints.xs, cols: 1 },
+      ]}
+    >
       {featuresData.map((feature) => {
-        return (
-          <Box key={feature.icon}>
-            <FeatureCard feature={feature} />
-          </Box>
-        )
+        return <FeatureCard key={feature.icon} feature={feature} />
       })}
     </SimpleGrid>
   )
@@ -46,10 +53,15 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
         gap: theme.spacing.sm,
+        alignItems: 'flex-start',
       }}
     >
       <Box
-        sx={{ display: 'flex', gap: theme.spacing.md, alignItems: 'center' }}
+        sx={{
+          display: 'flex',
+          gap: theme.spacing.md,
+          alignItems: 'center',
+        }}
       >
         <ThemeIcon radius="md" size="xl" color="red">
           <Icon name={feature.icon} />
@@ -59,11 +71,31 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
 
       <Text size="sm">{feature.description}</Text>
 
-      <Link to="/docs">
-        <Button variant="light" fullWidth>
-          Explore docs
-        </Button>
-      </Link>
+      {!feature.available && <Badge variant="dot">Coming Soon</Badge>}
+
+      {feature.available && (
+        <Link to="/docs">
+          <Button
+            compact
+            variant="light"
+            rightIcon={<Icon name="arrow-right" />}
+          >
+            Explore docs
+          </Button>
+        </Link>
+      )}
+
+      {!feature.available && (
+        <Link to="/notify">
+          <Button
+            compact
+            variant="light"
+            rightIcon={<Icon name="arrow-right" />}
+          >
+            Get Notified
+          </Button>
+        </Link>
+      )}
     </Card>
   )
 }

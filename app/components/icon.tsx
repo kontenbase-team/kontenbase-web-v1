@@ -26,19 +26,24 @@ import {
   // Person
   FaChalkboardTeacher as EducatorIcon,
   FaUserNinja as DeveloperIcon,
+  // Features
+  FaDatabase as FeatureRestIcon,
+  FaShieldAlt as FeatureAuthIcon,
+  FaServer as FeatureStorageIcon,
+  // FaDatabase as FeatureFunctionsIcon,
+  FaShapes as FeatureWebsocketIcon,
+  FaCommentAlt as FeatureMessageQueueIcon,
   // Misc
   FaFileAlt as CVIcon,
   FaBolt as BoltIcon,
   FaCloud as CloudIcon,
   FaCog as CogIcon,
   FaBookOpen as DocsIcon,
+  FaArrowRight as ArrowRightIcon,
+  FaArrowLeft as ArrowLeftIcon,
 } from 'react-icons/fa'
+import { MdFunctions as FeatureFunctionsIcon } from 'react-icons/md'
 import { Text } from '@mantine/core'
-
-const switchFn =
-  (lookupObject: any, defaultCase = '_default') =>
-  (expression: string | number) =>
-    lookupObject[expression] || lookupObject[defaultCase]
 
 export const iconMaps = {
   // General
@@ -67,21 +72,28 @@ export const iconMaps = {
   educator: <EducatorIcon />,
   developer: <DeveloperIcon />,
   // Features
-  'feature-rest': <CircleIcon />,
-  'feature-auth': <CircleIcon />,
-  'feature-storage': <CircleIcon />,
-  'feature-functions': <CircleIcon />,
-  'feature-websocket': <CircleIcon />,
-  'feature-message-queue': <CircleIcon />,
+  'feature-rest': <FeatureRestIcon />,
+  'feature-auth': <FeatureAuthIcon />,
+  'feature-storage': <FeatureStorageIcon />,
+  'feature-functions': <FeatureFunctionsIcon />,
+  'feature-websocket': <FeatureWebsocketIcon />,
+  'feature-message-queue': <FeatureMessageQueueIcon />,
   // Misc
   cv: <CVIcon />,
   bolt: <BoltIcon />,
   cloud: <CloudIcon />,
   cog: <CogIcon />,
   docs: <DocsIcon />,
+  'arrow-right': <ArrowRightIcon />,
+  'arrow-left': <ArrowLeftIcon />,
   // Default
   default: <CircleIcon />,
 }
+
+const switchFn =
+  (lookupObject: any, defaultCase = '_default') =>
+  (expression: string | number) =>
+    lookupObject[expression] || lookupObject[defaultCase]
 
 const iconSwitch = switchFn(iconMaps, 'default')
 
