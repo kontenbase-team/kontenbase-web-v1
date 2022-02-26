@@ -2,6 +2,7 @@ import { Layout } from '~/components'
 import {
   HomeActionLast,
   HomeActionMiddle,
+  HomeDashboardAPI,
   HomeExamples,
   HomeFeatures,
   HomeHero,
@@ -13,6 +14,7 @@ export default function Index() {
     <Layout>
       <HomeHero />
       <HomeFeatures />
+      <HomeDashboardAPI />
       <HomeActionMiddle />
       <HomeExamples />
       <HomeVersus />
