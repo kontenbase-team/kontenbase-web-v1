@@ -10,6 +10,7 @@ import {
   Card,
   Group,
   Divider,
+  useMantineColorScheme,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { CustomTabs, Icon } from '~/components'
@@ -42,6 +43,9 @@ export const HomeDashboardAPI: FunctionComponent = () => {
 }
 
 export const ExplainDashboard: FunctionComponent = () => {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  const dark = colorScheme === 'dark'
+
   return (
     <Box sx={{ minHeight: 400 }}>
       <CustomTabs>
@@ -61,8 +65,11 @@ export const ExplainDashboard: FunctionComponent = () => {
                   <Text>{item.description}</Text>
                   {item.extraInfo && (
                     <Card
+                      radius="md"
                       sx={(theme) => ({
-                        background: theme.colors.gray[1],
+                        background: dark
+                          ? theme.colors.gray[9]
+                          : theme.colors.gray[1],
                       })}
                     >
                       <Text>{item.extraInfo}</Text>
