@@ -2,14 +2,17 @@ import {
   Image,
   Button,
   Container,
-  Group,
+  Text,
   Title,
   Anchor,
   Tabs,
   Box,
+  Card,
+  Group,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { CustomTabs } from '~/components'
+import { explainDashboardData } from '~/data'
 import { Link } from 'remix'
 
 export const HomeDashboardAPI: FunctionComponent = () => {
@@ -21,13 +24,14 @@ export const HomeDashboardAPI: FunctionComponent = () => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '3rem',
+        padding: '5rem 0',
       })}
     >
       <Title order={2} sx={{ maxWidth: '20ch', textAlign: 'center' }}>
         Easy to use Dashboard & Instant API Creation
       </Title>
 
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%', minHeight: 400 }}>
         <TabFeatureDatabase />
       </Box>
     </Container>
@@ -37,9 +41,26 @@ export const HomeDashboardAPI: FunctionComponent = () => {
 export const TabFeatureDatabase: FunctionComponent = () => {
   return (
     <CustomTabs>
-      <Tabs.Tab label="Database">First tab content</Tabs.Tab>
-      <Tabs.Tab label="Auth">Second tab content</Tabs.Tab>
-      <Tabs.Tab label="Storage">Third tab content</Tabs.Tab>
+      {explainDashboardData.map((item) => {
+        return (
+          <Tabs.Tab key={item.label} label={item.label}>
+            <Image src={item.imageUrl} alt={item.label} />
+            <Group direction="column" sx={{ maxWidth: '420px' }}>
+              <Title order={3}>{item.title}</Title>
+              <Text>{item.description}</Text>
+              {item.extraInfo && (
+                <Card
+                  sx={(theme) => ({
+                    background: theme.colors.gray[1],
+                  })}
+                >
+                  <Text>{item.extraInfo}</Text>
+                </Card>
+              )}
+            </Group>
+          </Tabs.Tab>
+        )
+      })}
     </CustomTabs>
   )
 }

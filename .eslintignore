@@ -1,13 +1,5 @@
 .cache
-.DS_Store
-.env
 .vscode
-**/build/*
-**/node_modules/*
-**/public/*
-**/public/*.js
-functions
-functions/\[\[path\]\].js
-node_modules
-public
-public/build
+api/_build/
+node_modules/
+public/

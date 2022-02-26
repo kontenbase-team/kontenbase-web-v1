@@ -12,6 +12,7 @@ export const CustomTabs: FunctionComponent<TabsProps> = (props) => {
           backgroundColor: 'none',
           color: theme.colors.red[7],
           fontSize: theme.fontSizes.md,
+          fontWeight: 'bold',
         },
         tabActive: {
           backgroundColor: theme.colors.red[7],
