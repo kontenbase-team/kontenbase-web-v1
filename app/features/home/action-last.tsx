@@ -24,7 +24,7 @@ export const HomeActionLast: FunctionComponent = () => {
       <Group spacing="xl" sx={{ justifyContent: 'center', maxWidth: '720px' }}>
         {stacksData.map((item) => {
           return (
-            <Anchor href="https://google.com">
+            <Anchor key={item.name} href="https://google.com">
               <Image
                 key={item.name}
                 src={item.imageUrl}
