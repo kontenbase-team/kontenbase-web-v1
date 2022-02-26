@@ -10,7 +10,9 @@ import {
   Card,
   List,
   ThemeIcon,
+  useMantineColorScheme,
 } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 import { FunctionComponent } from 'react'
 import { Icon } from '~/components'
 import { versusStacksData } from '~/data'
@@ -45,8 +47,7 @@ export const HomeVersus: FunctionComponent = () => {
         }}
       >
         Kontenbase replace a bunch of complex architecture. See how our
-        all-in-one price compares to when you combine VPS + Database + Object
-        Storage + Message Queue + Realtime/Multiplayer Server
+        all-in-one price compares to when you have to combine all of them.
       </Text>
 
       <VersusCards />
@@ -55,17 +56,28 @@ export const HomeVersus: FunctionComponent = () => {
 }
 
 export const VersusCards = () => {
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  const dark = colorScheme === 'dark'
+
   return (
     <Box
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexDirection: isDesktop ? 'row' : 'column',
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <Card withBorder shadow="md" radius="md" padding="xl">
           <Box sx={{ marginBottom: '1rem' }}>
+            <Image
+              width={200}
+              src={
+                dark ? '/images/logo-on-dark.svg' : '/images/logo-on-light.svg'
+              }
+            />
             <Text size="xl" sx={{ fontWeight: '900' }}>
               Kontenbase Managed Service
             </Text>
@@ -91,7 +103,7 @@ export const VersusCards = () => {
         </Card>
 
         <Box sx={{ textAlign: 'center' }}>
-          <Title order={3}>Start from $5-$99/month, then Pay as You Go.</Title>
+          <Title order={3}>Start from $5-$99/month, then pay as you go</Title>
           <Text>Grow as your company go without hidden cost!</Text>
         </Box>
       </Box>
@@ -109,8 +121,7 @@ export const VersusCards = () => {
           width: 100,
           fontSize: '2rem',
           fontWeight: '900',
-          margin: '0 -1rem',
-          marginBottom: '5rem',
+          margin: isDesktop ? '0 -1rem' : '1rem -1rem',
           zIndex: 1,
         })}
       >
@@ -127,10 +138,10 @@ export const VersusCards = () => {
         >
           {versusStacksData.map((item) => {
             return (
-              <Group>
-                <ThemeIcon color="orange" size={32} radius="xl">
+              <Group sx={{ alignItems: 'center' }}>
+                <Text color="orange" sx={{ fontSize: '2rem' }}>
                   <Icon name={item.icon} />
-                </ThemeIcon>
+                </Text>
                 <Box>
                   <Text sx={{ fontWeight: '900' }}>{item.name}</Text>
                   <Text>{item.price}</Text>
@@ -142,7 +153,7 @@ export const VersusCards = () => {
 
         <Box sx={{ textAlign: 'center' }}>
           <Title order={3}>$249.98/month with unmanaged service</Title>
-          <Text>Also you need to maintain each of them</Text>
+          <Text>Which need to maintain each of them</Text>
         </Box>
       </Box>
     </Box>

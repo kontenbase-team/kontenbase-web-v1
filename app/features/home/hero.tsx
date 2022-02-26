@@ -72,9 +72,14 @@ export const HomeHero: FunctionComponent = () => {
         src="/images/kontenbase-home-hero.png"
         fit="contain"
         radius="lg"
-        sx={{
+        sx={(theme) => ({
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          borderColor: theme.colors.gray[2],
+          borderRadius: theme.radius.lg,
           maxWidth: '960px',
-        }}
+          img: { margin: 0 },
+        })}
       />
     </Box>
   )

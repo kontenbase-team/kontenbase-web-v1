@@ -44,6 +44,13 @@ import {
   FaArrowLeft as ArrowLeftIcon,
 } from 'react-icons/fa'
 import { MdFunctions as FeatureFunctionsIcon } from 'react-icons/md'
+import {
+  SiAmazonaws as AmazonEC2Icon,
+  SiAmazons3 as AmazonS3Icon,
+  SiMongodb as MongoDBIcon,
+  SiApachekafka as KafkaIcon,
+  SiCircle as ColyseusIcon,
+} from 'react-icons/si'
 import { Text } from '@mantine/core'
 
 export const iconMaps = {
@@ -88,6 +95,12 @@ export const iconMaps = {
   docs: <DocsIcon />,
   'arrow-right': <ArrowRightIcon />,
   'arrow-left': <ArrowLeftIcon />,
+  // Products
+  'amazon-ec2': <AmazonEC2Icon />,
+  'amazon-s3': <AmazonS3Icon />,
+  mongodb: <MongoDBIcon />,
+  kafka: <KafkaIcon />,
+  colyseus: <ColyseusIcon />,
   // Default
   default: <CircleIcon />,
 }
