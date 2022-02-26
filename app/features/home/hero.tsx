@@ -1,5 +1,13 @@
 import { FunctionComponent } from 'react'
-import { Box, Text, Button, Group, Title, useMantineTheme } from '@mantine/core'
+import {
+  Box,
+  Text,
+  Button,
+  Group,
+  Title,
+  Image,
+  useMantineTheme,
+} from '@mantine/core'
 import { Icon } from '~/components'
 import { Link } from 'remix'
 
@@ -10,7 +18,6 @@ export const HomeHero: FunctionComponent = () => {
     <Box
       sx={(theme) => ({
         paddingTop: '3rem',
-        paddingBottom: '5rem',
         paddingLeft: theme.spacing.xl,
         paddingRight: theme.spacing.xl,
         display: 'flex',
@@ -59,6 +66,16 @@ export const HomeHero: FunctionComponent = () => {
           </Button>
         </Link>
       </Group>
+
+      <Image
+        alt="Kontenbase Screenshot"
+        src="/images/kontenbase-home-hero.png"
+        fit="contain"
+        radius="lg"
+        sx={{
+          maxWidth: '960px',
+        }}
+      />
     </Box>
   )
 }
