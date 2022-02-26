@@ -12,9 +12,10 @@ import {
   Divider,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
-import { CustomTabs } from '~/components'
+import { CustomTabs, Icon } from '~/components'
 import { explainAPIData, explainDashboardData } from '~/data'
 import { Link } from 'remix'
+import { Prism } from '@mantine/prism'
 
 export const HomeDashboardAPI: FunctionComponent = () => {
   return (
@@ -89,7 +90,7 @@ export const ExplainAPI: FunctionComponent = () => {
         flexWrap: 'wrap',
       }}
     >
-      <Group direction="column" sx={{ maxWidth: '40ch' }}>
+      <Group direction="column" sx={{ maxWidth: '42ch' }}>
         <Title order={3}>
           Auto generated API and SDK to speed up development time
         </Title>
@@ -103,7 +104,22 @@ export const ExplainAPI: FunctionComponent = () => {
         {explainAPIData.map((item) => {
           return (
             <Tabs.Tab key={item.label} label={item.label}>
-              <pre>Code here</pre>
+              <Prism.Tabs>
+                <Prism.Tab
+                  label="index.ts"
+                  language="typescript"
+                  icon={<Icon name="typescript" />}
+                  scrollAreaComponent="div"
+                  withLineNumbers
+                  copyLabel="Copy code"
+                  copiedLabel="Copied!"
+                  sx={{
+                    pre: { borderRadius: 0, marginTop: 0 },
+                  }}
+                >
+                  {item.code}
+                </Prism.Tab>
+              </Prism.Tabs>
             </Tabs.Tab>
           )
         })}
