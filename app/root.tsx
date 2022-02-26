@@ -57,9 +57,8 @@ export const meta: MetaFunction = () => {
 }
 
 export default function App() {
-  const preferredColorScheme = useColorScheme()
-  const [colorScheme, setColorScheme] =
-    useState<ColorScheme>(preferredColorScheme)
+  // const preferredColorScheme = useColorScheme()
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
 

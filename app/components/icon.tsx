@@ -34,6 +34,7 @@ import {
   FaShapes as FeatureWebsocketIcon,
   FaCommentAlt as FeatureMessageQueueIcon,
   // Misc
+  FaCheck as CheckIcon,
   FaFileAlt as CVIcon,
   FaBolt as BoltIcon,
   FaCloud as CloudIcon,
@@ -79,6 +80,7 @@ export const iconMaps = {
   'feature-websocket': <FeatureWebsocketIcon />,
   'feature-message-queue': <FeatureMessageQueueIcon />,
   // Misc
+  check: <CheckIcon />,
   cv: <CVIcon />,
   bolt: <BoltIcon />,
   cloud: <CloudIcon />,
