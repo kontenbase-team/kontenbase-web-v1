@@ -1,7 +1,7 @@
 import { Layout } from '~/components'
 import { HomeDashboardAPI } from '~/features'
 
-export default function FeaturesDashboardPage() {
+export default function FeaturesDashboardAPIPage() {
   return (
     <Layout>
       <HomeDashboardAPI />
