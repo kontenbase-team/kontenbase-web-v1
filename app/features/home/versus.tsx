@@ -1,10 +1,15 @@
-import { Container, Title, Text } from '@mantine/core'
+import {
+  Image,
+  Button,
+  Container,
+  Group,
+  Title,
+  Anchor,
+  Text,
+} from '@mantine/core'
 import { FunctionComponent } from 'react'
-import { Examples } from '~/components'
 
-interface HomeExamplesProps {}
-
-export const HomeExamples: FunctionComponent<HomeExamplesProps> = () => {
+export const HomeVersus: FunctionComponent = () => {
   return (
     <Container
       size="xl"
@@ -16,12 +21,11 @@ export const HomeExamples: FunctionComponent<HomeExamplesProps> = () => {
         gap: '3rem',
       })}
     >
-      <Title order={2} sx={{ textAlign: 'center' }}>
-        What can you build with{' '}
+      <Title order={2} sx={{ maxWidth: '30ch', textAlign: 'center' }}>
+        Save big with{' '}
         <Text color="red" inherit component="span">
           Kontenbase
         </Text>
-        ?
       </Title>
 
       <Text
@@ -29,16 +33,15 @@ export const HomeExamples: FunctionComponent<HomeExamplesProps> = () => {
         size="xl"
         sx={{
           textAlign: 'center',
-          maxWidth: '45ch',
+          maxWidth: '72ch',
           fontWeight: 500,
           fontSize: '1.5rem',
         }}
       >
-        Kontenbase can be used to build any app! Seriously, anything! Here some
-        example that you can clone and try.
+        Kontenbase replace a bunch of complex architecture. See how our
+        all-in-one price compares to when you combine VPS + Database + Object
+        Storage + Message Queue + Realtime/Multiplayer Server
       </Text>
-
-      <Examples />
     </Container>
   )
 }

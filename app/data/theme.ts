@@ -22,9 +22,9 @@ export const themeData = {
         marginBottom: 0,
       },
       h2: {
-        fontSize: '3rem',
         fontWeight: 800,
         margin: 0,
+        fontSize: '3rem',
       },
       h3: {
         margin: 0,
