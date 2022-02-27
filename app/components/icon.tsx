@@ -2,7 +2,6 @@ import { FunctionComponent } from 'react'
 import {
   BsSlack as SlackIcon,
   BsFillChatSquareFill as TwistIcon,
-  BsDiscord as DiscordIcon,
 } from 'react-icons/bs'
 import {
   // General
@@ -18,6 +17,7 @@ import {
   FaStopCircle as HashnodeIcon,
   FaInstagram as InstagramIcon,
   FaLinkedin as LinkedInIcon,
+  FaDiscord as DiscordIcon,
   FaTh as PolyworkIcon,
   FaTwitter as TwitterIcon,
   FaYoutube as YouTubeIcon,
