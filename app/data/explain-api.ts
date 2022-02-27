@@ -5,8 +5,9 @@ export const explainAPIData = [
 const app = express()
 const kontenbase = require('kontenbase')
 
-app.get('/articles', (req, res) => {
-  await kontenbase.get('/users')
+app.get('/articles', async (req, res) => {
+  const { data, error } = await kontenbase.service('articles').find()
+  res.send({ articles: data })
 })
 
 app.listen(3000)`,

@@ -57,8 +57,10 @@ export const ExplainDashboard: FunctionComponent = () => {
                   src={item.imageUrl}
                   alt={item.label}
                   fit="contain"
-                  width={600}
-                  height={300}
+                  sx={{
+                    width: '100%',
+                    maxWidth: 600,
+                  }}
                 />
                 <Group direction="column" sx={{ maxWidth: '450px' }}>
                   <Title order={3}>{item.title}</Title>
@@ -107,7 +109,7 @@ export const ExplainAPI: FunctionComponent = () => {
         </Text>
       </Group>
 
-      <CustomTabs>
+      <CustomTabs sx={{ width: '100%', maxWidth: '550px' }}>
         {explainAPIData.map((item) => {
           return (
             <Tabs.Tab key={item.label} label={item.label}>

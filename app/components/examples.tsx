@@ -20,7 +20,7 @@ export const Examples: FunctionComponent<ExamplesProps> = () => {
 
   return (
     <SimpleGrid
-      spacing="xl"
+      spacing="sm"
       cols={3}
       breakpoints={[
         { maxWidth: theme.breakpoints.md, cols: 2 },
