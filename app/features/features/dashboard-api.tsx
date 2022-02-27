@@ -52,16 +52,22 @@ export const ExplainDashboard: FunctionComponent = () => {
       <CustomTabs>
         {explainDashboardData.map((item) => (
           <Tabs.Tab key={item.label} label={item.label}>
-            <Group align="flex-start">
+            <Group align="flex-start" spacing="xl">
               <Box>
                 <Image
                   src={item.imageUrl}
                   alt={item.label}
                   fit="contain"
-                  sx={{
+                  radius="md"
+                  sx={(theme) => ({
                     width: '100%',
                     maxWidth: 600,
-                  }}
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: theme.colors.gray[2],
+                    borderRadius: theme.radius.md,
+                    img: { margin: 0 },
+                  })}
                 />
               </Box>
               <Group direction="column" sx={{ maxWidth: '450px' }}>
@@ -107,9 +113,9 @@ export const ExplainAPI: FunctionComponent = () => (
         We turn database schema to instantly provide API and SDK. So you can
         stop building repetitive CRUD API, and focus on your product.
       </Text>
-      <Group align="flex-start" sx={{ flexWrap: 'wrap' }}>
+      <Group align="flex-start" sx={{ flexWrap: 'wrap' }} spacing="xl">
         {explainAPILinksData.map((item) => (
-          <Card padding={0} sx={{ maxWidth: '200px' }}>
+          <Box sx={{ maxWidth: '170px' }}>
             <Group direction="column" spacing="xs">
               <Title order={5}>{item.name}</Title>
               <Text size="sm">{item.description}</Text>
@@ -123,7 +129,7 @@ export const ExplainAPI: FunctionComponent = () => (
                 </Button>
               </Anchor>
             </Group>
-          </Card>
+          </Box>
         ))}
       </Group>
     </Group>

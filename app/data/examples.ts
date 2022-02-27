@@ -12,7 +12,7 @@ export const examplesData = [
   {
     name: 'Writter, a simple Twitter Clone',
     description:
-      '🐦 Writter is a simple Twitter clone made with React and Remix as the frontend, with Kontenbase as the backend.',
+      '🐦 Writter is a simple Twitter clone made with React and Remix as the frontend, with Kontenbase as the backend, and Chakra UI as styling library.',
     demoUrl: 'https://writter.kontenbase.com',
     githubUrl: 'https://github.com/kontenbase-team/writter',
     creatorName: 'Kontenbase Team',

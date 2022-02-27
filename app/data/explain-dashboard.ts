@@ -1,7 +1,7 @@
 export const explainDashboardData = [
   {
     label: 'Database',
-    imageUrl: '/images/explains/database.png',
+    imageUrl: '/images/kontenbase-home-hero.png',
     title: 'Manage schema then manage data as simple as using spreadsheet',
     description:
       'Our schema editor is friendly even for non-technical users. Fill your data with the familiarity of spreadsheet.',

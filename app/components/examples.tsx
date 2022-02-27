@@ -66,8 +66,8 @@ export const ExampleCard: FunctionComponent<ExampleCardProps> = ({
         <Group>
           <Text weight="bold">Created by</Text>
           <Group spacing="xs">
-            <Avatar color="blue" alt="A" radius="xl">
-              A
+            <Avatar color="blue" alt={example.creatorName} radius="xl">
+              K
             </Avatar>
             <Text>{example.creatorName}</Text>
           </Group>
