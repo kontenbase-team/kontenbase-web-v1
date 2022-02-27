@@ -1,24 +1,19 @@
-import { FunctionComponent } from 'react'
 import { Anchor, Group } from '@mantine/core'
+import { FunctionComponent } from 'react'
+
 import { Icon } from '~/components'
 import { socialMediaLinks } from '~/data'
 
 interface SocialMediaLinksProps {
   enabledLinks?: string[]
-  withName?: boolean
 }
 
 interface SocialMediaLinkProps {
   link: any
 }
 
-interface SocialMediaLinkNamedProps {
-  link: any
-}
-
 export const SocialMediaLinks: FunctionComponent<SocialMediaLinksProps> = ({
   enabledLinks,
-  withName,
 }) => {
   // Check if there are enabledLinks array
   const filteredLinks = enabledLinks?.length

@@ -1,3 +1,4 @@
+import { Text } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import {
   BsSlack as SlackIcon,
@@ -51,7 +52,6 @@ import {
   SiApachekafka as KafkaIcon,
   SiCircle as ColyseusIcon,
 } from 'react-icons/si'
-import { Text } from '@mantine/core'
 
 export const iconMaps = {
   // General

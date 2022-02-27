@@ -1,5 +1,6 @@
 import { ActionIcon, useMantineColorScheme } from '@mantine/core'
 import { FunctionComponent } from 'react'
+
 import { Icon } from '~/components'
 
 interface ButtonToggleThemeProps {}

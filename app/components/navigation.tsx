@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react'
 import {
   Box,
   Button,
@@ -8,15 +7,16 @@ import {
   MediaQuery,
   useMantineColorScheme,
 } from '@mantine/core'
+import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
-import { navigationData } from '~/data'
 import { ButtonToggleTheme } from '~/components'
+import { navigationData } from '~/data'
 
 interface NavigationProps {}
 
 export const Navigation: FunctionComponent<NavigationProps> = () => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  const { colorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
 
   return (
@@ -48,13 +48,11 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
 
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
           <Group id="nav-links">
-            {navigationData.map((item) => {
-              return (
-                <Link key={item.to} to={item.to}>
-                  {item.text}
-                </Link>
-              )
-            })}
+            {navigationData.map((item) => (
+              <Link key={item.to} to={item.to}>
+                {item.text}
+              </Link>
+            ))}
           </Group>
         </MediaQuery>
 

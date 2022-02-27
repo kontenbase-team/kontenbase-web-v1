@@ -1,4 +1,11 @@
 import {
+  ColorScheme,
+  ColorSchemeProvider,
+  MantineProvider,
+  TypographyStylesProvider,
+} from '@mantine/core'
+import { useState } from 'react'
+import {
   Links,
   LinksFunction,
   LiveReload,
@@ -7,22 +14,15 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix'
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  MantineProvider,
-  TypographyStylesProvider,
-} from '@mantine/core'
+
 import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
 
 import globalStylesUrl from '~/styles/global.css'
-import { useState } from 'react'
-import { useColorScheme } from '@mantine/hooks'
 
-export let links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: globalStylesUrl }]
-}
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: globalStylesUrl },
+]
 
 export const meta: MetaFunction = () => {
   const name = 'Kontenbase'
@@ -76,7 +76,7 @@ export default function App() {
           toggleColorScheme={toggleColorScheme}
         >
           <MantineProvider
-            theme={{ ...themeData, colorScheme: colorScheme } as any}
+            theme={{ ...themeData, colorScheme } as any}
             withGlobalStyles
           >
             <TypographyStylesProvider>

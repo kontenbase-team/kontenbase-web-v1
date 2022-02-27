@@ -1,10 +1,8 @@
 import {
   Image,
-  Button,
   Container,
   Group,
   Title,
-  Anchor,
   Text,
   Box,
   Card,
@@ -14,50 +12,49 @@ import {
 } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { FunctionComponent } from 'react'
+
 import { Icon } from '~/components'
 import { versusStacksData } from '~/data'
 
-export const HomeVersus: FunctionComponent = () => {
-  return (
-    <Container
-      size="xl"
-      sx={(theme) => ({
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: `5rem ${theme.spacing.xl}px`,
-        gap: '3rem',
-      })}
-    >
-      <Title order={2} sx={{ maxWidth: '30ch', textAlign: 'center' }}>
-        Save big with{' '}
-        <Text color="red" inherit component="span">
-          Kontenbase
-        </Text>
-      </Title>
-
-      <Text
-        color="dimmed"
-        size="xl"
-        sx={{
-          textAlign: 'center',
-          maxWidth: '72ch',
-          fontWeight: 500,
-          fontSize: '1.5rem',
-        }}
-      >
-        Kontenbase replace a bunch of complex architecture. See how our
-        all-in-one price compares to when you have to combine all of them.
+export const HomeVersus: FunctionComponent = () => (
+  <Container
+    size="xl"
+    sx={(theme) => ({
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: `5rem ${theme.spacing.xl}px`,
+      gap: '3rem',
+    })}
+  >
+    <Title order={2} sx={{ maxWidth: '30ch', textAlign: 'center' }}>
+      Save big with{' '}
+      <Text color="red" inherit component="span">
+        Kontenbase
       </Text>
+    </Title>
 
-      <VersusCards />
-    </Container>
-  )
-}
+    <Text
+      color="dimmed"
+      size="xl"
+      sx={{
+        textAlign: 'center',
+        maxWidth: '72ch',
+        fontWeight: 500,
+        fontSize: '1.5rem',
+      }}
+    >
+      Kontenbase replace a bunch of complex architecture. See how our all-in-one
+      price compares to when you have to combine all of them.
+    </Text>
+
+    <VersusCards />
+  </Container>
+)
 
 export const VersusCards = () => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  const { colorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
 
   return (
@@ -136,19 +133,17 @@ export const VersusCards = () => {
           padding="xl"
           sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
         >
-          {versusStacksData.map((item) => {
-            return (
-              <Group sx={{ alignItems: 'center' }}>
-                <Text color="orange" sx={{ fontSize: '2rem' }}>
-                  <Icon name={item.icon} />
-                </Text>
-                <Box>
-                  <Text sx={{ fontWeight: '900' }}>{item.name}</Text>
-                  <Text>{item.price}</Text>
-                </Box>
-              </Group>
-            )
-          })}
+          {versusStacksData.map((item) => (
+            <Group sx={{ alignItems: 'center' }}>
+              <Text color="orange" sx={{ fontSize: '2rem' }}>
+                <Icon name={item.icon} />
+              </Text>
+              <Box>
+                <Text sx={{ fontWeight: '900' }}>{item.name}</Text>
+                <Text>{item.price}</Text>
+              </Box>
+            </Group>
+          ))}
         </Card>
 
         <Box sx={{ textAlign: 'center' }}>

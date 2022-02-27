@@ -1,5 +1,6 @@
-import { Layout } from '~/components'
 import { LoaderFunction, redirect } from 'remix'
+
+import { Layout } from '~/components'
 
 export const loader: LoaderFunction = async () =>
   redirect('https://app.kontenbase.com')

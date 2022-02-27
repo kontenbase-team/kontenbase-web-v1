@@ -10,8 +10,9 @@ import {
   Avatar,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
-import { examplesData } from '~/data'
+
 import { Icon } from '~/components'
+import { examplesData } from '~/data'
 
 interface ExamplesProps {}
 
@@ -28,9 +29,9 @@ export const Examples: FunctionComponent<ExamplesProps> = () => {
         { maxWidth: theme.breakpoints.xs, cols: 1 },
       ]}
     >
-      {examplesData.map((example) => {
-        return <ExampleCard key={example.name} example={example} />
-      })}
+      {examplesData.map((example) => (
+        <ExampleCard key={example.name} example={example} />
+      ))}
     </SimpleGrid>
   )
 }
