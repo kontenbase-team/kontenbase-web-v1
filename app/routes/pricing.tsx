@@ -1,5 +1,10 @@
 import { Layout } from '~/components'
+import { PricingHero } from '~/features'
 
 export default function PricingPage() {
-  return <Layout>Pricing</Layout>
+  return (
+    <Layout>
+      <PricingHero />
+    </Layout>
+  )
 }
