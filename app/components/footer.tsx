@@ -1,7 +1,7 @@
 import { Box, Container, Image, Group, Text, Title } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
-import { SocialMediaLinks } from '~/components'
+import { Sitemap, SocialMediaLinks } from '~/components'
 
 interface FooterProps {}
 
@@ -16,27 +16,25 @@ export const Footer: FunctionComponent<FooterProps> = () => {
       })}
     >
       <Container size="lg">
-        <Group align="flex-start" spacing="xl" sx={{ marginBottom: '2rem' }}>
+        <Group
+          align="flex-start"
+          spacing="xl"
+          sx={{ justifyContent: 'space-between', marginBottom: '2rem' }}
+        >
           <Box sx={{ maxWidth: '620px' }}>
             <Link to="/">
               <Image width={150} src="/images/logo-on-dark.svg" />
             </Link>
             <Text>
-              Kontenbase is one stop solution generator for your backend
+              Kontenbase is a one-stop solution generator for your backend
               application! From microservices, databases, API, GraphQL, Socket,
               Storage, CI/CD, Deployment, and much more. You don’t even need to
-              think about all of that repetitive stuff, Kontenbase do it for
+              think about all of that repetitive stuff, Kontenbase can do it for
               you!
             </Text>
           </Box>
 
-          <Group>
-            <Box>
-              <Title order={4} sx={{ color: '#fff' }}>
-                Products
-              </Title>
-            </Box>
-          </Group>
+          <Sitemap />
         </Group>
 
         <Group
