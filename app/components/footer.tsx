@@ -11,11 +11,11 @@ export const Footer: FunctionComponent<FooterProps> = () => (
     component="footer"
     sx={(theme) => ({
       background: theme.colors.gray[9],
-      padding: `2rem ${theme.spacing.xl}px`,
+      padding: `2rem 0`,
       color: theme.colors.gray[0],
     })}
   >
-    <Container size="lg">
+    <Container size="xl">
       <Group
         align="flex-start"
         spacing="xl"

@@ -28,12 +28,12 @@ import {
   FaChalkboardTeacher as EducatorIcon,
   FaUserNinja as DeveloperIcon,
   // Features
-  FaDatabase as FeatureRestIcon,
-  FaShieldAlt as FeatureAuthIcon,
-  FaServer as FeatureStorageIcon,
-  // FaDatabase as FeatureFunctionsIcon,
-  FaShapes as FeatureWebsocketIcon,
-  FaCommentAlt as FeatureMessageQueueIcon,
+  FaDatabase as DatabaseIcon,
+  FaShieldAlt as AuthIcon,
+  FaServer as StorageIcon,
+  // FaDatabase as FunctionsIcon,
+  FaShapes as WebsocketIcon,
+  FaCommentAlt as MessageQueueIcon,
   // Misc
   FaCheck as CheckIcon,
   FaFileAlt as CVIcon,
@@ -44,7 +44,7 @@ import {
   FaArrowRight as ArrowRightIcon,
   FaArrowLeft as ArrowLeftIcon,
 } from 'react-icons/fa'
-import { MdFunctions as FeatureFunctionsIcon } from 'react-icons/md'
+import { MdFunctions as FunctionsIcon } from 'react-icons/md'
 import {
   SiAmazonaws as AmazonEC2Icon,
   SiAmazons3 as AmazonS3Icon,
@@ -79,13 +79,17 @@ export const iconMaps = {
   // Person
   educator: <EducatorIcon />,
   developer: <DeveloperIcon />,
+  // Pricing
+  database: <DatabaseIcon />,
+  auth: <AuthIcon />,
+  storage: <StorageIcon />,
   // Features
-  'feature-rest': <FeatureRestIcon />,
-  'feature-auth': <FeatureAuthIcon />,
-  'feature-storage': <FeatureStorageIcon />,
-  'feature-functions': <FeatureFunctionsIcon />,
-  'feature-websocket': <FeatureWebsocketIcon />,
-  'feature-message-queue': <FeatureMessageQueueIcon />,
+  'feature-rest': <DatabaseIcon />,
+  'feature-auth': <AuthIcon />,
+  'feature-storage': <StorageIcon />,
+  'feature-functions': <FunctionsIcon />,
+  'feature-websocket': <WebsocketIcon />,
+  'feature-message-queue': <MessageQueueIcon />,
   // Misc
   check: <CheckIcon />,
   cv: <CVIcon />,

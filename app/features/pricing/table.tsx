@@ -42,7 +42,7 @@ export const PricingTable: FunctionComponent<PricingTableProps> = () => {
         marginBottom: '5rem',
       }}
     >
-      <Button radius="md" onClick={changeCurrency}>
+      <Button variant="outline" radius="md" onClick={changeCurrency}>
         Switch USD/IDR
       </Button>
 
@@ -76,8 +76,13 @@ export const PricingTableResponsive: FunctionComponent<
                   background: theme.colors.gray[1],
                 }}
               >
-                <Icon name={item.icon} />
-                <Text component="span" sx={{ textTransform: 'uppercase' }}>
+                <Text component="span" color="red">
+                  <Icon name={item.icon} />
+                </Text>
+                <Text
+                  component="span"
+                  sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
+                >
                   {item.name}
                 </Text>
               </Group>
@@ -123,8 +128,8 @@ export const PricingTableResponsive: FunctionComponent<
               key={item}
               sx={{
                 width: '100%',
-                padding: '1rem',
-                background: theme.colors.gray[1],
+                padding: '1rem 0',
+                background: item ? theme.white : theme.colors.gray[1],
               }}
             >
               {item ? (
@@ -136,6 +141,10 @@ export const PricingTableResponsive: FunctionComponent<
               )}
             </Box>
           ))}
+
+          <Link to={plan.button.to}>
+            <Button radius="md">{plan.button.text}</Button>
+          </Link>
         </Group>
       ))}
     </SimpleGrid>
