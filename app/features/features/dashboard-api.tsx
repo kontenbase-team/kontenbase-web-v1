@@ -14,7 +14,11 @@ import {
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { CustomTabs, Icon } from '~/components'
-import { explainAPIData, explainDashboardData } from '~/data'
+import {
+  explainAPIData,
+  explainAPILinksData,
+  explainDashboardData,
+} from '~/data'
 import { Link } from 'remix'
 import { Prism } from '@mantine/prism'
 
@@ -107,6 +111,27 @@ export const ExplainAPI: FunctionComponent = () => {
           We turn database schema to instantly provide API and SDK. So you can
           stop building repetitive CRUD API, and focus on your product.
         </Text>
+        <Group align="flex-start" sx={{ flexWrap: 'wrap' }}>
+          {explainAPILinksData.map((item) => {
+            return (
+              <Card padding={0} sx={{ maxWidth: '200px' }}>
+                <Group direction="column" spacing="xs">
+                  <Title order={5}>{item.name}</Title>
+                  <Text size="sm">{item.description}</Text>
+                  <Anchor href={item.url}>
+                    <Button
+                      compact
+                      variant="light"
+                      rightIcon={<Icon name="arrow-right" />}
+                    >
+                      Explore docs
+                    </Button>
+                  </Anchor>
+                </Group>
+              </Card>
+            )
+          })}
+        </Group>
       </Group>
 
       <CustomTabs sx={{ width: '100%', maxWidth: '550px' }}>
