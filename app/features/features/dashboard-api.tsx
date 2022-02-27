@@ -57,15 +57,17 @@ export const ExplainDashboard: FunctionComponent = () => {
           return (
             <Tabs.Tab key={item.label} label={item.label}>
               <Group align="flex-start">
-                <Image
-                  src={item.imageUrl}
-                  alt={item.label}
-                  fit="contain"
-                  sx={{
-                    width: '100%',
-                    maxWidth: 600,
-                  }}
-                />
+                <Box>
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.label}
+                    fit="contain"
+                    sx={{
+                      width: '100%',
+                      maxWidth: 600,
+                    }}
+                  />
+                </Box>
                 <Group direction="column" sx={{ maxWidth: '450px' }}>
                   <Title order={3}>{item.title}</Title>
                   <Text>{item.description}</Text>

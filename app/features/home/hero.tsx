@@ -7,6 +7,7 @@ import {
   Title,
   Image,
   useMantineTheme,
+  Anchor,
 } from '@mantine/core'
 import { Icon } from '~/components'
 import { Link } from 'remix'
@@ -55,7 +56,7 @@ export const HomeHero: FunctionComponent = () => {
             Sign Up for Free
           </Button>
         </Link>
-        <Link to="/docs">
+        <Anchor href="https://docs.kontenbase.com">
           <Button
             size="lg"
             radius="md"
@@ -64,7 +65,7 @@ export const HomeHero: FunctionComponent = () => {
           >
             Documentation
           </Button>
-        </Link>
+        </Anchor>
       </Group>
 
       <Image
