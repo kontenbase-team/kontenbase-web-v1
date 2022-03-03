@@ -1,3 +1,4 @@
+export * from './blog'
 export * from './contact'
 export * from './features'
 export * from './home'
