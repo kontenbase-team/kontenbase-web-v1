@@ -2,10 +2,10 @@ import { gql } from '@urql/core'
 import { json, useLoaderData } from 'remix'
 
 import type { MetaFunction, LoaderFunction } from 'remix'
-import { BlogHero } from '~/features'
+import { Layout } from '~/components'
+import { BlogHero, BlogContent } from '~/features'
 import { TBlogArticle } from '~/types'
 import { hashnodeClient, createMeta, ReactGA } from '~/utils'
-import { Layout } from '~/components'
 
 export const meta: MetaFunction = () =>
   createMeta({
@@ -41,12 +41,12 @@ export default function Blog() {
   ReactGA.send({ hitType: 'pageview', page: '/blog' })
 
   // eslint-disable-next-line no-unused-vars
-  const articles = useLoaderData<TBlogArticle[]>()
+  const data = useLoaderData<TBlogArticle[]>()
 
   return (
     <Layout>
       <BlogHero />
-      {/* <BlogContent /> */}
+      <BlogContent data={data} />
     </Layout>
   )
 }
