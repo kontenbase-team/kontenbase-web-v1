@@ -19,6 +19,7 @@ import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
 
 import globalStylesUrl from '~/styles/global.css'
+import { useHotkeys, useLocalStorageValue } from '@mantine/hooks'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalStylesUrl },
@@ -57,10 +58,15 @@ export const meta: MetaFunction = () => {
 }
 
 export default function App() {
-  // const preferredColorScheme = useColorScheme()
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
+  const [colorScheme, setColorScheme] = useLocalStorageValue<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+  })
+
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+
+  useHotkeys([['mod+J', () => toggleColorScheme()]])
 
   return (
     <html lang="en">
