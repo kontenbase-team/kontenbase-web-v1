@@ -8,6 +8,7 @@ export const explainDashboardData = [
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo:
       "We also support auto data migration. So you don't need to worry to switching data type anytime without losing your data.",
+    isAvailable: true,
   },
   {
     label: 'Auth',
@@ -16,6 +17,7 @@ export const explainDashboardData = [
     description: '',
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo: '',
+    isAvailable: false,
   },
   {
     label: 'Storage',
@@ -24,6 +26,7 @@ export const explainDashboardData = [
     description: '',
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo: '',
+    isAvailable: false,
   },
   {
     label: 'Function',
@@ -32,6 +35,7 @@ export const explainDashboardData = [
     description: '',
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo: '',
+    isAvailable: false,
   },
   {
     label: 'Socket',
@@ -40,5 +44,6 @@ export const explainDashboardData = [
     description: '',
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo: '',
+    isAvailable: false,
   },
 ]

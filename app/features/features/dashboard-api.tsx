@@ -54,21 +54,25 @@ export const ExplainDashboard: FunctionComponent = () => {
           <Tabs.Tab key={item.label} label={item.label}>
             <Group align="flex-start" spacing="xl">
               <Box>
-                <Image
-                  src={item.imageUrl}
-                  alt={item.label}
-                  fit="contain"
-                  radius="md"
-                  sx={(theme) => ({
-                    width: '100%',
-                    maxWidth: 600,
-                    borderWidth: '1px',
-                    borderStyle: 'solid',
-                    borderColor: theme.colors.gray[2],
-                    borderRadius: theme.radius.md,
-                    img: { margin: 0 },
-                  })}
-                />
+                {item.isAvailable ? (
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.label}
+                    fit="contain"
+                    radius="md"
+                    sx={(theme) => ({
+                      width: '100%',
+                      maxWidth: 600,
+                      borderWidth: '1px',
+                      borderStyle: 'solid',
+                      borderColor: theme.colors.gray[2],
+                      borderRadius: theme.radius.md,
+                      img: { margin: 0 },
+                    })}
+                  />
+                ) : (
+                  <Text>Coming Soon</Text>
+                )}
               </Box>
               <Group direction="column" sx={{ maxWidth: '450px' }}>
                 <Title order={3}>{item.title}</Title>
