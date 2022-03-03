@@ -49,13 +49,9 @@ export const PricingTable: FunctionComponent<PricingTableProps> = () => {
         Switch USD/IDR
       </Button>
 
-      <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-        <PricingTableDesktop currency={currency} />
-      </MediaQuery>
+      <PricingTableDesktop currency={currency} />
 
-      <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-        <PricingTableMobile currency={currency} />
-      </MediaQuery>
+      <PricingTableMobile currency={currency} />
     </Container>
   )
 }
@@ -66,98 +62,99 @@ export const PricingTableDesktop: FunctionComponent<
   const theme = useMantineTheme()
   const { colorScheme } = useMantineColorScheme()
   const isDark = colorScheme === 'dark'
-
   const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
   return (
-    <SimpleGrid spacing={0} cols={5} sx={{ marginBottom: '1rem' }}>
-      <Box>
-        <Box sx={{ height: 220 }} />
-        {pricingFeaturesData.map((item) => (
-          <Group key={item.name}>
-            {item.icon ? (
-              <Group
-                sx={{
-                  width: '100%',
-                  padding: '1rem',
-                  background: backgroundFirst,
-                }}
-              >
-                <Text component="span" color="red">
-                  <Icon name={item.icon} />
-                </Text>
+    <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+      <SimpleGrid spacing={0} cols={5} sx={{ marginBottom: '1rem' }}>
+        <Box>
+          <Box sx={{ height: 220 }} />
+          {pricingFeaturesData.map((item) => (
+            <Group key={item.name}>
+              {item.icon ? (
+                <Group
+                  sx={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: backgroundFirst,
+                  }}
+                >
+                  <Text component="span" color="red">
+                    <Icon name={item.icon} />
+                  </Text>
+                  <Text
+                    component="span"
+                    sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
+                  >
+                    {item.name}
+                  </Text>
+                </Group>
+              ) : (
+                <Box
+                  sx={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: backgroundSecond,
+                  }}
+                >
+                  <Text component="span" sx={{ fontWeight: 'bold' }}>
+                    {item.name}
+                  </Text>
+                </Box>
+              )}
+            </Group>
+          ))}
+        </Box>
+
+        {pricingData.map((plan) => (
+          <Group key={plan.name} direction="column" spacing={0}>
+            <Group direction="column" spacing="xs" sx={{ height: 220 }}>
+              <Title order={3}>{plan.name}</Title>
+              <Group spacing={5}>
                 <Text
                   component="span"
-                  sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
+                  sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
                 >
-                  {item.name}
+                  {currency === 'USD' ? '$' : 'Rp '}
+                  {plan?.price[currency]}
                 </Text>
+                <span>/project/month</span>
               </Group>
-            ) : (
+              <Text>{plan.info}</Text>
+              <Link to={plan.button.to}>
+                <Button radius="md">{plan.button.text}</Button>
+              </Link>
+            </Group>
+
+            {plan.features.map((item) => (
               <Box
+                key={item}
                 sx={{
                   width: '100%',
                   padding: '1rem',
-                  background: backgroundSecond,
+                  background: item ? backgroundSecond : backgroundFirst,
                 }}
               >
-                <Text component="span" sx={{ fontWeight: 'bold' }}>
-                  {item.name}
-                </Text>
+                {item ? (
+                  <Text component="span">{item}</Text>
+                ) : (
+                  <Text component="span" sx={{ opacity: 0 }}>
+                    -
+                  </Text>
+                )}
               </Box>
-            )}
+            ))}
+
+            <Box sx={{ marginTop: '1rem' }}>
+              <Link to={plan.button.to}>
+                <Button radius="md">{plan.button.text}</Button>
+              </Link>
+            </Box>
           </Group>
         ))}
-      </Box>
-
-      {pricingData.map((plan) => (
-        <Group key={plan.name} direction="column" spacing={0}>
-          <Group direction="column" spacing="xs" sx={{ height: 220 }}>
-            <Title order={4}>{plan?.name}</Title>
-            <Group spacing={5}>
-              <Text
-                component="span"
-                sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-              >
-                {currency === 'USD' ? '$' : 'Rp '}
-                {plan?.price[currency]}
-              </Text>
-              <span>/project/month</span>
-            </Group>
-            <Text>{plan.info}</Text>
-            <Link to={plan.button.to}>
-              <Button radius="md">{plan.button.text}</Button>
-            </Link>
-          </Group>
-
-          {plan.features.map((item) => (
-            <Box
-              key={item}
-              sx={{
-                width: '100%',
-                padding: '1rem 0',
-                background: item ? backgroundSecond : backgroundFirst,
-              }}
-            >
-              {item ? (
-                <span>{item}</span>
-              ) : (
-                <Text component="span" sx={{ opacity: 0 }}>
-                  -
-                </Text>
-              )}
-            </Box>
-          ))}
-
-          <Box sx={{ marginTop: '1rem' }}>
-            <Link to={plan.button.to}>
-              <Button radius="md">{plan.button.text}</Button>
-            </Link>
-          </Box>
-        </Group>
-      ))}
-    </SimpleGrid>
+      </SimpleGrid>
+    </MediaQuery>
   )
 }
 
@@ -172,16 +169,14 @@ export const PricingTableMobile: FunctionComponent<
   console.log({ currency, backgroundFirst, backgroundSecond })
 
   return (
-    <Box>
-      {pricingData.map((plan) => {
-        console.log('hello')
-
-        return (
+    <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+      <Box>
+        {pricingData.map((plan) => (
           <SimpleGrid
             key={plan.name}
             spacing={0}
             cols={2}
-            sx={{ marginBottom: '1rem' }}
+            sx={{ marginBottom: '5rem' }}
           >
             <Box>
               <Box sx={{ height: 180 }} />
@@ -200,7 +195,10 @@ export const PricingTableMobile: FunctionComponent<
                       </Text>
                       <Text
                         component="span"
-                        sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
+                        sx={{
+                          fontWeight: 'bold',
+                          textTransform: 'uppercase',
+                        }}
                       >
                         {item.name}
                       </Text>
@@ -225,12 +223,9 @@ export const PricingTableMobile: FunctionComponent<
             <Box>
               <Group key={plan.name} direction="column" spacing={0}>
                 <Group direction="column" spacing="xs" sx={{ height: 180 }}>
-                  <Title order={4}>{plan?.name}</Title>
+                  <Title order={3}>{plan.name}</Title>
                   <Group spacing={5}>
-                    <Text
-                      component="span"
-                      sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                    >
+                    <Text component="span" sx={{ fontWeight: 'bold' }}>
                       {currency === 'USD' ? '$' : 'Rp '}
                       {plan?.price[currency]}
                     </Text>
@@ -252,7 +247,7 @@ export const PricingTableMobile: FunctionComponent<
                     }}
                   >
                     {item ? (
-                      <span>{item}</span>
+                      <Text component="span">{item}</Text>
                     ) : (
                       <Text component="span" sx={{ opacity: 0 }}>
                         -
@@ -269,8 +264,8 @@ export const PricingTableMobile: FunctionComponent<
               </Group>
             </Box>
           </SimpleGrid>
-        )
-      })}
-    </Box>
+        ))}
+      </Box>
+    </MediaQuery>
   )
 }

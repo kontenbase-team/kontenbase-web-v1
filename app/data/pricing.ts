@@ -25,7 +25,7 @@ export const pricingData = [
     price: { USD: 5, IDR: 75_000 },
     info: 'Shared Container',
     button: {
-      text: 'Sign up now',
+      text: 'Sign up Hobby',
       to: '/signup',
     },
     features: [null, '250 MB', '5 GB', null, 500, null, '500 MB', '5 GB'],
@@ -35,7 +35,7 @@ export const pricingData = [
     price: { USD: 25, IDR: 360_000 },
     info: 'Dedicated Container',
     button: {
-      text: 'Sign up now',
+      text: 'Sign up Pro',
       to: '/signup',
     },
     features: [null, '8 GB', '50 GB', null, 50_000, null, '100 GB', '50 GB'],
