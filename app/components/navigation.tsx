@@ -2,9 +2,12 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Group,
   Image,
   MediaQuery,
+  Menu,
+  Text,
   useMantineColorScheme,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
@@ -86,9 +89,11 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
                   variant="gradient"
                   gradient={{ from: 'red', to: 'orange', deg: 105 }}
                 >
-                  Sign Up for Free
+                  Sign Up
                 </Button>
               </Link>
+
+              <NavigationMenu />
             </Group>
           </MediaQuery>
         </Group>
@@ -96,3 +101,26 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
     </Box>
   )
 }
+
+interface NavigationMenuProps {}
+
+export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
+  <Menu
+    size="xl"
+    shadow="xl"
+    control={
+      <Button variant="outline" radius="md">
+        Menu
+      </Button>
+    }
+  >
+    {navigationData.map((item) => (
+      <Menu.Item component={Link} key={item.to} to={item.to}>
+        {item.text}
+      </Menu.Item>
+    ))}
+    <Divider />
+    <Menu.Item>Sign In</Menu.Item>
+    <Menu.Item color="red">Sign Up</Menu.Item>
+  </Menu>
+)
