@@ -19,17 +19,17 @@ export const themeData = {
       h1: {
         marginBottom: 0,
         fontWeight: 800,
-        fontSize: '1.5rem',
         textAlign: 'center',
+        fontSize: '1.5rem',
         '@media (min-width: 540px)': {
-          fontSize: '3rem',
+          fontSize: '2rem',
         },
       },
       h2: {
         margin: 0,
         fontWeight: 800,
-        fontSize: '2rem',
         textAlign: 'center',
+        fontSize: '2rem',
         '@media (min-width: 540px)': {
           fontSize: '3rem',
         },

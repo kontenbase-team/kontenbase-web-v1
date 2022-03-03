@@ -19,7 +19,13 @@ export const HomeHero: FunctionComponent = () => (
     })}
   >
     <Title order={1} sx={{ fontSize: '3.5rem !important', maxWidth: '16ch' }}>
-      <Text color="red" inherit component="span">
+      <Text
+        inherit
+        component="span"
+        sx={(theme) => ({
+          color: theme.colors.red[7],
+        })}
+      >
         No Code
       </Text>{' '}
       Backend API, Fast and Easy!
