@@ -33,12 +33,16 @@ export const themeData = {
       },
       h4: {
         margin: 0,
+        fontWeight: 800,
+        fontSize: '1.25rem',
       },
       h5: {
         margin: 0,
+        fontSize: '1.1rem',
       },
       h6: {
         margin: 0,
+        fontSize: '1rem',
       },
     },
   },

@@ -7,7 +7,6 @@ import {
   Image,
   MediaQuery,
   Menu,
-  Text,
   useMantineColorScheme,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
