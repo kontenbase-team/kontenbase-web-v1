@@ -7,6 +7,7 @@ import {
   Text,
   Group,
   useMantineTheme,
+  useMantineColorScheme,
 } from '@mantine/core'
 import { FunctionComponent, useState } from 'react'
 import { Link } from 'remix'
@@ -55,6 +56,11 @@ export const PricingTableResponsive: FunctionComponent<
   PricingTableResponsiveProps
 > = ({ currency }) => {
   const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
+  const isDark = colorScheme === 'dark'
+
+  const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
+  const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
   return (
     <SimpleGrid
@@ -73,7 +79,7 @@ export const PricingTableResponsive: FunctionComponent<
                 sx={{
                   width: '100%',
                   padding: '1rem',
-                  background: theme.colors.gray[1],
+                  background: backgroundFirst,
                 }}
               >
                 <Text component="span" color="red">
@@ -91,7 +97,7 @@ export const PricingTableResponsive: FunctionComponent<
                 sx={{
                   width: '100%',
                   padding: '1rem',
-                  background: theme.white,
+                  background: backgroundSecond,
                 }}
               >
                 <Text component="span" sx={{ fontWeight: 'bold' }}>
@@ -129,7 +135,7 @@ export const PricingTableResponsive: FunctionComponent<
               sx={{
                 width: '100%',
                 padding: '1rem 0',
-                background: item ? theme.white : theme.colors.gray[1],
+                background: item ? backgroundSecond : backgroundFirst,
               }}
             >
               {item ? (
@@ -142,9 +148,11 @@ export const PricingTableResponsive: FunctionComponent<
             </Box>
           ))}
 
-          <Link to={plan.button.to}>
-            <Button radius="md">{plan.button.text}</Button>
-          </Link>
+          <Box sx={{ marginTop: '1rem' }}>
+            <Link to={plan.button.to}>
+              <Button radius="md">{plan.button.text}</Button>
+            </Link>
+          </Box>
         </Group>
       ))}
     </SimpleGrid>
