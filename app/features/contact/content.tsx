@@ -1,4 +1,14 @@
-import { Box, Container, Group, Title, Text, Anchor } from '@mantine/core'
+import {
+  Container,
+  Group,
+  Title,
+  Text,
+  Anchor,
+  SimpleGrid,
+  Card,
+  Avatar,
+  useMantineTheme,
+} from '@mantine/core'
 import { FunctionComponent } from 'react'
 
 import { AnchorButton } from '~/components'
@@ -45,7 +55,46 @@ export const ContactContent: FunctionComponent = () => (
         </Text>
       </Group>
 
-      <pre>{JSON.stringify(teamData, null, 2)}</pre>
+      <TeamMembers data={teamData} />
     </Group>
   </Container>
 )
+
+interface TeamMembersProps {
+  data: any
+}
+
+export const TeamMembers: FunctionComponent<TeamMembersProps> = ({ data }) => {
+  const theme = useMantineTheme()
+
+  return (
+    <Group direction="column" sx={{ width: '100%' }}>
+      {data.map((part: any) => (
+        <Group key={part.type} direction="column" sx={{ width: '100%' }}>
+          <Title order={4}>{part.type}</Title>
+          <SimpleGrid
+            spacing="sm"
+            cols={3}
+            sx={{ width: '100%' }}
+            breakpoints={[
+              { maxWidth: theme.breakpoints.md, cols: 3 },
+              { maxWidth: theme.breakpoints.sm, cols: 2 },
+              { maxWidth: theme.breakpoints.xs, cols: 1 },
+            ]}
+          >
+            {part.members.map((member: any) => (
+              <Card key={member.name} withBorder>
+                <Avatar src={member.avatarUrl} color="cyan" radius="xl">
+                  {member.name}
+                </Avatar>
+
+                <Text sx={{ fontWeight: 'bold' }}>{member.name}</Text>
+                <Text>{member.role}</Text>
+              </Card>
+            ))}
+          </SimpleGrid>
+        </Group>
+      ))}
+    </Group>
+  )
+}
