@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   Box,
   Button,
@@ -8,6 +9,7 @@ import {
   Group,
   useMantineTheme,
   useMantineColorScheme,
+  MediaQuery,
 } from '@mantine/core'
 import { FunctionComponent, useState } from 'react'
 import { Link } from 'remix'
@@ -47,12 +49,18 @@ export const PricingTable: FunctionComponent<PricingTableProps> = () => {
         Switch USD/IDR
       </Button>
 
-      <PricingTableResponsive currency={currency} />
+      <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+        <PricingTableDesktop currency={currency} />
+      </MediaQuery>
+
+      <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+        <PricingTableMobile currency={currency} />
+      </MediaQuery>
     </Container>
   )
 }
 
-export const PricingTableResponsive: FunctionComponent<
+export const PricingTableDesktop: FunctionComponent<
   PricingTableResponsiveProps
 > = ({ currency }) => {
   const theme = useMantineTheme()
@@ -63,13 +71,7 @@ export const PricingTableResponsive: FunctionComponent<
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
   return (
-    <SimpleGrid
-      spacing={0}
-      cols={5}
-      sx={{
-        marginBottom: '1rem',
-      }}
-    >
+    <SimpleGrid spacing={0} cols={5} sx={{ marginBottom: '1rem' }}>
       <Box>
         <Box sx={{ height: 220 }} />
         {pricingFeaturesData.map((item) => (
@@ -156,5 +158,119 @@ export const PricingTableResponsive: FunctionComponent<
         </Group>
       ))}
     </SimpleGrid>
+  )
+}
+
+export const PricingTableMobile: FunctionComponent<
+  PricingTableResponsiveProps
+> = ({ currency }) => {
+  const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
+  const isDark = colorScheme === 'dark'
+  const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
+  const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
+  console.log({ currency, backgroundFirst, backgroundSecond })
+
+  return (
+    <Box>
+      {pricingData.map((plan) => {
+        console.log('hello')
+
+        return (
+          <SimpleGrid
+            key={plan.name}
+            spacing={0}
+            cols={2}
+            sx={{ marginBottom: '1rem' }}
+          >
+            <Box>
+              <Box sx={{ height: 180 }} />
+              {pricingFeaturesData.map((item) => (
+                <Group key={item.name}>
+                  {item.icon ? (
+                    <Group
+                      sx={{
+                        width: '100%',
+                        padding: '1rem',
+                        background: backgroundFirst,
+                      }}
+                    >
+                      <Text component="span" color="red">
+                        <Icon name={item.icon} />
+                      </Text>
+                      <Text
+                        component="span"
+                        sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
+                      >
+                        {item.name}
+                      </Text>
+                    </Group>
+                  ) : (
+                    <Box
+                      sx={{
+                        width: '100%',
+                        padding: '1rem',
+                        background: backgroundSecond,
+                      }}
+                    >
+                      <Text component="span" sx={{ fontWeight: 'bold' }}>
+                        {item.name}
+                      </Text>
+                    </Box>
+                  )}
+                </Group>
+              ))}
+            </Box>
+
+            <Box>
+              <Group key={plan.name} direction="column" spacing={0}>
+                <Group direction="column" spacing="xs" sx={{ height: 180 }}>
+                  <Title order={4}>{plan?.name}</Title>
+                  <Group spacing={5}>
+                    <Text
+                      component="span"
+                      sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
+                    >
+                      {currency === 'USD' ? '$' : 'Rp '}
+                      {plan?.price[currency]}
+                    </Text>
+                    <span>/project/month</span>
+                  </Group>
+                  <Text>{plan.info}</Text>
+                  <Link to={plan.button.to}>
+                    <Button radius="md">{plan.button.text}</Button>
+                  </Link>
+                </Group>
+
+                {plan.features.map((item) => (
+                  <Box
+                    key={item}
+                    sx={{
+                      width: '100%',
+                      padding: '1rem 0',
+                      background: item ? backgroundSecond : backgroundFirst,
+                    }}
+                  >
+                    {item ? (
+                      <span>{item}</span>
+                    ) : (
+                      <Text component="span" sx={{ opacity: 0 }}>
+                        -
+                      </Text>
+                    )}
+                  </Box>
+                ))}
+
+                <Box sx={{ marginTop: '1rem' }}>
+                  <Link to={plan.button.to}>
+                    <Button radius="md">{plan.button.text}</Button>
+                  </Link>
+                </Box>
+              </Group>
+            </Box>
+          </SimpleGrid>
+        )
+      })}
+    </Box>
   )
 }
