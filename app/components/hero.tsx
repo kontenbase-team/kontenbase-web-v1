@@ -13,9 +13,7 @@ export const Hero: FunctionComponent<HeroProps> = ({ children }) => (
       paddingRight: theme.spacing.xl,
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
       alignItems: 'center',
-      textAlign: 'center',
       gap: '1rem',
     })}
   >

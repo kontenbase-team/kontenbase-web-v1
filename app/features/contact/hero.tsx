@@ -9,7 +9,6 @@ export const ContactHero: FunctionComponent = () => (
       order={1}
       sx={(theme) => ({
         color: theme.colors.red[7],
-        fontSize: '2rem !important',
       })}
     >
       Contact

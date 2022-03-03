@@ -9,15 +9,12 @@ export const PricingHero: FunctionComponent = () => (
       order={1}
       sx={(theme) => ({
         color: theme.colors.red[7],
-        fontSize: '2rem !important',
       })}
     >
       Pricing
     </Title>
-    <Title order={2}>
-      Predictable pricing, no surprises
-      <br />
-      Scale to millions of users
+    <Title order={2} sx={{ maxWidth: '25ch' }}>
+      Predictable pricing, no surprises. Scale to millions of users
     </Title>
   </Hero>
 )

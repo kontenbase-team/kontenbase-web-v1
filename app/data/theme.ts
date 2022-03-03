@@ -19,12 +19,20 @@ export const themeData = {
       h1: {
         marginBottom: 0,
         fontWeight: 800,
-        fontSize: '3.5rem',
+        fontSize: '1.5rem',
+        textAlign: 'center',
+        '@media (min-width: 540px)': {
+          fontSize: '3rem',
+        },
       },
       h2: {
         margin: 0,
         fontWeight: 800,
-        fontSize: '3rem',
+        fontSize: '2rem',
+        textAlign: 'center',
+        '@media (min-width: 540px)': {
+          fontSize: '3rem',
+        },
       },
       h3: {
         margin: 0,

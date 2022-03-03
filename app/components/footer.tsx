@@ -11,7 +11,7 @@ export const Footer: FunctionComponent<FooterProps> = () => (
     component="footer"
     sx={(theme) => ({
       background: theme.colors.gray[9],
-      padding: `2rem 0`,
+      padding: `3rem 0`,
       color: theme.colors.gray[0],
     })}
   >

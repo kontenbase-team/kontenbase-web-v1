@@ -18,7 +18,7 @@ export const HomeHero: FunctionComponent = () => (
       gap: '2rem',
     })}
   >
-    <Title order={1} sx={{ maxWidth: '16ch' }}>
+    <Title order={1} sx={{ fontSize: '3.5rem !important', maxWidth: '16ch' }}>
       <Text color="red" inherit component="span">
         No Code
       </Text>{' '}

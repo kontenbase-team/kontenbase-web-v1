@@ -15,7 +15,7 @@ export const pricingData = [
     price: { USD: 0, IDR: 0 },
     info: 'Shared Container',
     button: {
-      text: 'Sign up for free',
+      text: 'Sign up for Free',
       to: '/signup',
     },
     features: [null, '50 MB', '500 MB', null, 50, null, '250 MB', '500 MB'],
@@ -25,7 +25,7 @@ export const pricingData = [
     price: { USD: 5, IDR: 75_000 },
     info: 'Shared Container',
     button: {
-      text: 'Sign up Hobby',
+      text: 'Sign up for Hobby',
       to: '/signup',
     },
     features: [null, '250 MB', '5 GB', null, 500, null, '500 MB', '5 GB'],
@@ -35,7 +35,7 @@ export const pricingData = [
     price: { USD: 25, IDR: 360_000 },
     info: 'Dedicated Container',
     button: {
-      text: 'Sign up Pro',
+      text: 'Sign up for Pro',
       to: '/signup',
     },
     features: [null, '8 GB', '50 GB', null, 50_000, null, '100 GB', '50 GB'],
@@ -68,7 +68,7 @@ export const pricingDataLegacy = {
       name: 'Free',
       price: { USD: 0, IDR: 0 },
       info: 'Shared Container',
-      buttonText: 'Sign up for free',
+      buttonText: 'Sign up for Free',
       buttonTo: '/signup',
     },
     {
@@ -111,7 +111,7 @@ export const pricingDataLegacy = {
   ],
   foot: [
     {
-      buttonText: 'Sign up for free',
+      buttonText: 'Sign up for Free',
       buttonTo: '/signup',
     },
     {
