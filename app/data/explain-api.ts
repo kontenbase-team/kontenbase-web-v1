@@ -1,35 +1,49 @@
 export const explainAPIData = [
   {
     label: 'Read',
-    code: `const express = require('express')
-const app = express()
-const kontenbase = require('kontenbase')
-
-app.get('/articles', async (req, res) => {
-  const { data, error } = await kontenbase.service('articles').find()
-  res.send({ articles: data })
-})
-
-app.listen(3000)`,
+    code: `const { data, error } = await kontenbase.service('articles').find()`,
   },
   {
     label: 'Create',
-    code: `const express = require('express')`,
+    code: `const { data, error } = await kontenbase.service('articles').create({
+  title: 'My First Post',
+  content: 'Hello this is the first post.',
+  category: "abcdefghijk123456789" // link to other service by id
+})`,
   },
   {
     label: 'Update',
-    code: `const express = require('express')`,
+    code: `const { data, error } = await kontenbase.service('articles')
+  .update({ where: { tags: "software" } }, {
+    like: -1,
+  })`,
   },
   {
     label: 'Delete',
-    code: `const express = require('express')`,
+    code: `const { data, error } = await kontenbase.service('articles').delete({
+  where: { tags: "software" }
+})`,
   },
   {
     label: 'Register User',
-    code: `const express = require('express')`,
+    code: `const { user, error } = await kontenbase.auth.register({
+  firstName: 'Your',
+  lastName: 'Name',
+  email: 'yourname@mail.com',
+  password: 'secure_your_password123',
+})`,
+  },
+  {
+    label: 'Login User',
+    code: `const { user, error } = await kontenbase.auth.login({
+  email: 'yourname@mail.com',
+  password: 'secure_your_password123',
+})`,
   },
   {
     label: 'Real Time',
-    code: `const express = require('express')`,
+    code: `kontenbase.realtime.subscribe('articles', { event: 'CREATE_RECORD', where: { tags: 'sport' } }, (message) => {
+  console.log(message)
+})`,
   },
 ]

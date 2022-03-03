@@ -97,22 +97,23 @@ export const ExplainDashboard: FunctionComponent = () => {
 export const ExplainAPI: FunctionComponent = () => (
   <Group
     id="ExplainAPI"
-    align="flex-start"
     sx={{
       width: '100%',
-      justifyContent: 'space-between',
-      minHeight: 400,
       flexWrap: 'wrap',
+      gap: '3rem',
     }}
   >
-    <Group direction="column" sx={{ maxWidth: '42ch' }}>
-      <Title order={3}>
-        Auto generated API and SDK to speed up development time
-      </Title>
-      <Text>
-        We turn database schema to instantly provide API and SDK. So you can
-        stop building repetitive CRUD API, and focus on your product.
-      </Text>
+    <Group sx={{ width: '100%', justifyContent: 'space-between' }}>
+      <Group sx={{ maxWidth: '42ch' }}>
+        <Title order={3}>
+          Auto generated API and SDK to speed up development time
+        </Title>
+        <Text>
+          We turn database schema to instantly provide API and SDK. So you can
+          stop building repetitive CRUD API, and focus on your product.
+        </Text>
+      </Group>
+
       <Group align="flex-start" sx={{ flexWrap: 'wrap' }} spacing="xl">
         {explainAPILinksData.map((item) => (
           <Box key={item.name} sx={{ maxWidth: '170px' }}>
@@ -134,25 +135,21 @@ export const ExplainAPI: FunctionComponent = () => (
       </Group>
     </Group>
 
-    <CustomTabs sx={{ width: '100%', maxWidth: '550px' }}>
+    <CustomTabs sx={{ width: '100%', height: 200 }}>
       {explainAPIData.map((item) => (
         <Tabs.Tab key={item.label} label={item.label}>
-          <Prism.Tabs>
-            <Prism.Tab
-              label="index.ts"
-              language="typescript"
-              icon={<Icon name="typescript" />}
-              scrollAreaComponent="div"
-              withLineNumbers
-              copyLabel="Copy code"
-              copiedLabel="Copied!"
-              sx={{
-                pre: { borderRadius: 0, marginTop: 0 },
-              }}
-            >
-              {item.code}
-            </Prism.Tab>
-          </Prism.Tabs>
+          <Prism
+            language="typescript"
+            scrollAreaComponent="div"
+            withLineNumbers
+            copyLabel="Copy code"
+            copiedLabel="Copied!"
+            sx={{
+              pre: { borderRadius: 0, marginTop: 0 },
+            }}
+          >
+            {item.code}
+          </Prism>
         </Tabs.Tab>
       ))}
     </CustomTabs>
