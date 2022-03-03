@@ -115,7 +115,7 @@ export const ExplainAPI: FunctionComponent = () => (
       </Text>
       <Group align="flex-start" sx={{ flexWrap: 'wrap' }} spacing="xl">
         {explainAPILinksData.map((item) => (
-          <Box sx={{ maxWidth: '170px' }}>
+          <Box key={item.name} sx={{ maxWidth: '170px' }}>
             <Group direction="column" spacing="xs">
               <Title order={5}>{item.name}</Title>
               <Text size="sm">{item.description}</Text>

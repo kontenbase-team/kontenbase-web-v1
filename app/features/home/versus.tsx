@@ -134,7 +134,7 @@ export const VersusCards = () => {
           sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
         >
           {versusStacksData.map((item) => (
-            <Group sx={{ alignItems: 'center' }}>
+            <Group key={item.name} sx={{ alignItems: 'center' }}>
               <Text color="orange" sx={{ fontSize: '2rem' }}>
                 <Icon name={item.icon} />
               </Text>

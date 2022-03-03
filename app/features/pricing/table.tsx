@@ -67,7 +67,7 @@ export const PricingTableResponsive: FunctionComponent<
       <Box>
         <Box sx={{ height: 220 }} />
         {pricingFeaturesData.map((item) => (
-          <Group>
+          <Group key={item.name}>
             {item.icon ? (
               <Group
                 sx={{

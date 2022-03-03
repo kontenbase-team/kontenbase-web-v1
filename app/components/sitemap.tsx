@@ -13,7 +13,7 @@ export const Sitemap: FunctionComponent<SitemapProps> = () => (
     sx={{ justifyContent: 'space-between' }}
   >
     {sitemapData.map((group) => (
-      <Box>
+      <Box key={group.text}>
         <Title order={4} sx={{ color: '#fff' }}>
           {group.text}
         </Title>
