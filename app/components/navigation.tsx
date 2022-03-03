@@ -82,19 +82,9 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
           </MediaQuery>
 
           <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-            <Group id="nav-auth">
-              <Link to="/signup">
-                <Button
-                  radius="md"
-                  variant="gradient"
-                  gradient={{ from: 'red', to: 'orange', deg: 105 }}
-                >
-                  Sign Up
-                </Button>
-              </Link>
-
+            <Box>
               <NavigationMenu />
-            </Group>
+            </Box>
           </MediaQuery>
         </Group>
       </Container>
@@ -109,7 +99,11 @@ export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
     size="xl"
     shadow="xl"
     control={
-      <Button variant="outline" radius="md">
+      <Button
+        radius="md"
+        variant="gradient"
+        gradient={{ from: 'red', to: 'orange', deg: 105 }}
+      >
         Menu
       </Button>
     }
