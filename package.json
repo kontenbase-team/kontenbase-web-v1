@@ -22,12 +22,16 @@
     "@remix-run/react": "^1.2.2",
     "@remix-run/vercel": "^1.2.2",
     "@splitbee/web": "0.3.0",
+    "@urql/core": "2.4.3",
     "axios": "0.26.0",
     "dayjs": "1.10.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-ga4": "1.4.1",
     "react-icons": "4.3.1",
-    "remix": "^1.2.2"
+    "remix": "^1.2.2",
+    "string-to-color": "2.2.2",
+    "urql": "2.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.2.2",
