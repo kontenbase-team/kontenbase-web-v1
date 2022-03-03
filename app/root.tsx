@@ -4,7 +4,7 @@ import {
   MantineProvider,
   TypographyStylesProvider,
 } from '@mantine/core'
-import { useState } from 'react'
+import { useHotkeys, useLocalStorageValue } from '@mantine/hooks'
 import {
   Links,
   LinksFunction,
@@ -19,7 +19,6 @@ import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
 
 import globalStylesUrl from '~/styles/global.css'
-import { useHotkeys, useLocalStorageValue } from '@mantine/hooks'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalStylesUrl },
