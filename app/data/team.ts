@@ -53,13 +53,8 @@ export const teamData = [
         avatarUrl: '',
       },
       {
-        name: 'Sugeng Agung Suganda',
-        role: 'Lead DevOps',
-        avatarUrl: '',
-      },
-      {
         name: 'Elga',
-        role: 'Co-lead DevOps',
+        role: 'DevOps Engineer',
         avatarUrl: '',
       },
       {
