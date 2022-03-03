@@ -13,6 +13,7 @@ import { FunctionComponent } from 'react'
 
 import { Icon } from '~/components'
 import { examplesData } from '~/data'
+import { getNameInitials } from '~/utils'
 
 interface ExamplesProps {}
 
@@ -66,8 +67,13 @@ export const ExampleCard: FunctionComponent<ExampleCardProps> = ({
         <Group>
           <Text weight="bold">Created by</Text>
           <Group spacing="xs">
-            <Avatar color="blue" alt={example.creatorName} radius="xl">
-              K
+            <Avatar
+              color="red"
+              src={example.creatorAvatarUrl}
+              alt={example.creatorName}
+              radius="xl"
+            >
+              {getNameInitials(example.creatorName)}
             </Avatar>
             <Text>{example.creatorName}</Text>
           </Group>

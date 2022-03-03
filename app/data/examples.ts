@@ -6,7 +6,7 @@ export const examplesData = [
     imageUrl: '/images/tree/main/examples/talkink.png',
     demoUrl: 'https://talk.ink',
     githubUrl: 'https://github.com/talk-ink/talk-ink',
-    creatorName: 'Talk.ink Team',
+    creatorName: 'Talk.ink',
     creatorAvatarUrl: '/images/avatars/talkink.png',
   },
   {
@@ -15,7 +15,7 @@ export const examplesData = [
       '🐦 Writter is a simple Twitter clone made with React and Remix as the frontend, with Kontenbase as the backend, and Chakra UI as styling library.',
     demoUrl: 'https://writter.kontenbase.com',
     githubUrl: 'https://github.com/kontenbase-team/writter',
-    creatorName: 'Kontenbase Team',
+    creatorName: 'Kontenbase',
     creatorAvatarUrl: '/images/avatars/kontenbase.png',
   },
   {
@@ -24,7 +24,7 @@ export const examplesData = [
       'Simple form input with submit button using Kontenbase SDK via CDN. No other library/framework necessary.',
     githubUrl:
       'https://github.com/kontenbase/kontenbase/tree/main/examples/form-html',
-    creatorName: 'Kontenbase Team',
+    creatorName: 'Kontenbase',
     creatorAvatarUrl: '/images/avatars/kontenbase.png',
   },
   {
@@ -34,7 +34,7 @@ export const examplesData = [
     demoUrl: 'https://kontenbase-blog.vercel.app',
     githubUrl:
       'https://github.com/kontenbase/kontenbase/tree/main/examples/nextjs-blog',
-    creatorName: 'Kontenbase Team',
+    creatorName: 'Kontenbase',
     creatorAvatarUrl: '/images/avatars/kontenbase.png',
   },
   {
@@ -44,7 +44,7 @@ export const examplesData = [
     demoUrl: 'https://kontenbase-todo.vercel.app',
     githubUrl:
       'https://github.com/kontenbase/kontenbase/tree/main/examples/nextjs-todo',
-    creatorName: 'Kontenbase Team',
+    creatorName: 'Kontenbase',
     creatorAvatarUrl: '/images/avatars/kontenbase.png',
   },
   {
@@ -54,7 +54,7 @@ export const examplesData = [
     demoUrl: 'https://kontenbase-chat.vercel.app',
     githubUrl:
       'https://github.com/kontenbase/kontenbase/tree/main/examples/reactjs-chat',
-    creatorName: 'Kontenbase Team',
+    creatorName: 'Kontenbase',
     creatorAvatarUrl: '/images/avatars/kontenbase.png',
   },
 ]
