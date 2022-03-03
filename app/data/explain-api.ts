@@ -42,8 +42,12 @@ export const explainAPIData = [
   },
   {
     label: 'Real Time',
-    code: `kontenbase.realtime.subscribe('articles', { event: 'CREATE_RECORD', where: { tags: 'sport' } }, (message) => {
-  console.log(message)
-})`,
+    code: `kontenbase.realtime.subscribe(
+  'articles',
+  { event: 'CREATE_RECORD', where: { tags: 'software' } },
+  (message) => {
+    console.log(message)
+  }
+)`,
   },
 ]
