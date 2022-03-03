@@ -225,7 +225,10 @@ export const PricingTableMobile: FunctionComponent<
                 <Group direction="column" spacing="xs" sx={{ height: 180 }}>
                   <Title order={3}>{plan.name}</Title>
                   <Group spacing={5}>
-                    <Text component="span" sx={{ fontWeight: 'bold' }}>
+                    <Text
+                      component="span"
+                      sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
+                    >
                       {currency === 'USD' ? '$' : 'Rp '}
                       {plan?.price[currency]}
                     </Text>
