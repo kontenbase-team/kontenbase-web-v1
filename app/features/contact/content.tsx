@@ -8,11 +8,13 @@ import {
   Card,
   Avatar,
   useMantineTheme,
+  Box,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
 
 import { AnchorButton } from '~/components'
 import { teamData } from '~/data'
+import { getNameColor, getNameInitials } from '~/utils'
 
 export const ContactContent: FunctionComponent = () => (
   <Container
@@ -82,16 +84,32 @@ export const TeamMembers: FunctionComponent<TeamMembersProps> = ({ data }) => {
               { maxWidth: theme.breakpoints.xs, cols: 1 },
             ]}
           >
-            {part.members.map((member: any) => (
-              <Card key={member.name} withBorder>
-                <Avatar src={member.avatarUrl} color="cyan" radius="xl">
-                  {member.name}
-                </Avatar>
+            {part.members.map((member: any) => {
+              const nameInitials = getNameInitials(member.name)
+              const nameColor = getNameColor(nameInitials)
 
-                <Text sx={{ fontWeight: 'bold' }}>{member.name}</Text>
-                <Text>{member.role}</Text>
-              </Card>
-            ))}
+              return (
+                <Card key={member.name} withBorder>
+                  <Avatar
+                    src={member.avatarUrl}
+                    alt={member.name}
+                    size="lg"
+                    radius="xl"
+                    color="red"
+                    sx={{ backgroundColor: nameColor }}
+                  >
+                    {nameInitials}
+                  </Avatar>
+
+                  <Box sx={{ marginTop: '0.5rem' }}>
+                    <Text sx={{ fontWeight: 'bold', fontSize: '1.2rem' }}>
+                      {member.name}
+                    </Text>
+                    <Text>{member.role}</Text>
+                  </Box>
+                </Card>
+              )
+            })}
           </SimpleGrid>
         </Group>
       ))}

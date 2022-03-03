@@ -10,7 +10,7 @@ export const AnchorButton: FunctionComponent<AnchorButtonProps> = ({
   href,
   children,
 }) => (
-  <Anchor href={href}>
+  <Anchor href={href} target="_blank">
     <Button>{children}</Button>
   </Anchor>
 )
