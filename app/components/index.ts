@@ -1,4 +1,5 @@
 export * from './anchor-button'
+export * from './blog-article'
 export * from './button-toggle-theme'
 export * from './examples'
 export * from './features'
