@@ -6,6 +6,7 @@ import type { MetaFunction, LoaderFunction } from 'remix'
 import { BlogArticle, Layout } from '~/components'
 import { TBlogArticle } from '~/types'
 import { createMeta, hashnodeClient, ReactGA } from '~/utils'
+import { Container } from '@mantine/core'
 
 export const meta: MetaFunction = ({ data: article, params }) => {
   if (!article) {
@@ -57,6 +58,25 @@ export default function BlogArticleSlug() {
   return (
     <Layout>
       <BlogArticle article={article} />
+    </Layout>
+  )
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  // eslint-disable-next-line no-console
+  console.error(error)
+
+  return (
+    <Layout>
+      <Container
+        size="lg"
+        sx={{
+          marginTop: '1rem',
+          marginBottom: '1rem',
+        }}
+      >
+        <p>Failed to get blog articles, please refresh to try again.</p>
+      </Container>
     </Layout>
   )
 }

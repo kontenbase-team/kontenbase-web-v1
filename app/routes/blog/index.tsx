@@ -1,3 +1,4 @@
+import { Box, Container, Text } from '@mantine/core'
 import { gql } from '@urql/core'
 import { json, useLoaderData } from 'remix'
 
@@ -47,6 +48,26 @@ export default function Blog() {
     <Layout>
       <BlogHero />
       <BlogContent data={data} />
+    </Layout>
+  )
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  // eslint-disable-next-line no-console
+  console.error(error)
+
+  return (
+    <Layout>
+      <BlogHero />
+      <Container
+        size="lg"
+        sx={{
+          marginTop: '1rem',
+          marginBottom: '1rem',
+        }}
+      >
+        <p>Failed to get blog articles, please refresh to try again.</p>
+      </Container>
     </Layout>
   )
 }
