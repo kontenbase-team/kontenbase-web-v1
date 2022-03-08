@@ -144,6 +144,7 @@ export const ExplainAPI: FunctionComponent = () => (
       {explainAPIData.map((item) => (
         <Tabs.Tab key={item.label} label={item.label}>
           <Prism
+            colorScheme="dark"
             language="typescript"
             scrollAreaComponent="div"
             withLineNumbers
