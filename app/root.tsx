@@ -5,6 +5,8 @@ import {
   TypographyStylesProvider,
 } from '@mantine/core'
 import { useHotkeys, useLocalStorageValue } from '@mantine/hooks'
+import NProgress from 'nprogress'
+import { useEffect } from 'react'
 import {
   Links,
   LinksFunction,
@@ -13,15 +15,24 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useTransition,
 } from 'remix'
 
 import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
 
 import globalStylesUrl from '~/styles/global.css'
+import nProgressStyles from '~/styles/nprogress.css'
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: globalStylesUrl },
+  {
+    rel: 'stylesheet',
+    href: globalStylesUrl,
+  },
+  {
+    rel: 'stylesheet',
+    href: nProgressStyles,
+  },
 ]
 
 export const meta: MetaFunction = () => {
@@ -57,6 +68,16 @@ export const meta: MetaFunction = () => {
 }
 
 export default function App() {
+  const transition = useTransition()
+
+  useEffect(() => {
+    // when the state is idle then we can to complete the progress bar
+    if (transition.state === 'idle') NProgress.done()
+    // and when it's something else it means it's either submitting a form or
+    // waiting for the loaders of the next location so we start it
+    else NProgress.start()
+  }, [transition.state])
+
   const [colorScheme, setColorScheme] = useLocalStorageValue<ColorScheme>({
     key: 'mantine-color-scheme',
     defaultValue: 'light',
