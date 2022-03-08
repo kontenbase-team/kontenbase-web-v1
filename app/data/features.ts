@@ -32,7 +32,7 @@ export const featuresData = [
   {
     icon: 'feature-websocket',
     title: 'Web Socket',
-    description: 'Built in realtime support with battle tested performance!',
+    description: 'Built in real-time support with battle tested performance!',
     to: '/features/websocket',
     isAvailable: true,
   },

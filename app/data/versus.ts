@@ -21,7 +21,7 @@ export const versusStacksData = [
   },
   {
     icon: 'colyseus',
-    name: 'Colyseus: Realtime/Multiplayer Server',
+    name: 'Colyseus: Real-time/Multiplayer Server',
     price: '$10 for 1GB Memory',
   },
 ]

@@ -106,7 +106,7 @@ export const VersusCards = () => {
               <List.Item>Database</List.Item>
               <List.Item>Object Storage</List.Item>
               <List.Item>Message Queue</List.Item>
-              <List.Item>Realtime/Multiplayer Server</List.Item>
+              <List.Item>Real-time/Multiplayer Server</List.Item>
             </List>
           </Box>
         </Card>

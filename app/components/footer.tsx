@@ -26,11 +26,9 @@ export const Footer: FunctionComponent<FooterProps> = () => (
             <Image width={150} src="/images/logo-on-dark.svg" />
           </Link>
           <Text>
-            Kontenbase is a one-stop solution generator for your backend
-            application! From microservices, databases, API, GraphQL, Socket,
-            Storage, CI/CD, Deployment, and much more. You don’t even need to
-            think about all of that repetitive stuff, Kontenbase can do it for
-            you!
+            Create backend API, auth, and storage in less than 1 minute with
+            Kontenbase no-code platform. Also called Backend as a Service
+            (BaaS).
           </Text>
         </Box>
 

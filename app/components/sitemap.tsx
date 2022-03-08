@@ -27,7 +27,7 @@ export const Sitemap: FunctionComponent<SitemapProps> = () => (
               )
             }
             return (
-              <Anchor key={link.href} href={link.href}>
+              <Anchor key={link.href} href={link.href} target="_blank">
                 {link.text}
               </Anchor>
             )
