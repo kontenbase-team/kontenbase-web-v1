@@ -44,11 +44,6 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
               src={
                 dark ? '/images/logo-on-dark.svg' : '/images/logo-on-light.svg'
               }
-              sx={{
-                img: {
-                  margin: 0,
-                },
-              }}
             />
           </Link>
         </Group>
