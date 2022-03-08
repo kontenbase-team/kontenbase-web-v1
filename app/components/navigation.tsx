@@ -37,19 +37,24 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
           alignItems: 'center',
         }}
       >
-        <Group id="nav-logo" sx={{ marginRight: '3rem' }}>
+        <Group id="nav-logo">
           <Link to="/">
             <Image
               height={42}
               src={
                 dark ? '/images/logo-on-dark.svg' : '/images/logo-on-light.svg'
               }
+              sx={{
+                img: {
+                  margin: 0,
+                },
+              }}
             />
           </Link>
         </Group>
 
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-          <Group id="nav-links">
+          <Group id="nav-links" sx={{ marginLeft: '5rem' }}>
             {navigationData.map((item) => (
               <Link key={item.to} to={item.to}>
                 {item.text}
@@ -58,7 +63,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
           </Group>
         </MediaQuery>
 
-        <Group>
+        <Group spacing="sm">
           <ButtonToggleTheme />
 
           <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
@@ -95,7 +100,7 @@ interface NavigationMenuProps {}
 
 export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
   <Menu
-    size="xl"
+    size="lg"
     shadow="xl"
     control={
       <Button

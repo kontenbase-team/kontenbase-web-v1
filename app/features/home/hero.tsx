@@ -18,7 +18,16 @@ export const HomeHero: FunctionComponent = () => (
       gap: '2rem',
     })}
   >
-    <Title order={1} sx={{ fontSize: '3.5rem !important', maxWidth: '16ch' }}>
+    <Title
+      order={1}
+      sx={{
+        maxWidth: '16ch',
+        fontSize: '3rem !important',
+        '@media (min-width: 540px)': {
+          fontSize: '3.5rem',
+        },
+      }}
+    >
       <Text
         inherit
         component="span"
@@ -40,7 +49,12 @@ export const HomeHero: FunctionComponent = () => (
       less than 1 minute without coding.
     </Text>
 
-    <Group>
+    <Group
+      sx={{
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <Link to="/signup">
         <Button
           size="lg"
