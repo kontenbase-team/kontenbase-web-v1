@@ -20,10 +20,22 @@ export const BlogArticle: FunctionComponent<BlogArticleProps> = ({
     }}
   >
     <Image radius="md" src={article.coverImage} alt={article.title} />
-    <Title order={2}>{article.title}</Title>
-    <Text component="time" dateTime={article.dateAdded}>
-      {getDate(article.dateAdded)}
-    </Text>
+
+    <Box
+      sx={{
+        textAlign: 'center',
+      }}
+    >
+      <Title order={2}>{article.title}</Title>
+      <Text
+        component="time"
+        dateTime={article.dateAdded}
+        sx={{ fontWeight: 'bold' }}
+      >
+        {getDate(article.dateAdded)}
+      </Text>
+    </Box>
+
     <Box sx={{ marginTop: '2rem', fontSize: '1.2rem' }}>
       {parse(String(article?.html))}
     </Box>
