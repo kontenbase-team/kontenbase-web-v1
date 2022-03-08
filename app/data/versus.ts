@@ -2,7 +2,7 @@ export const versusStacksData = [
   {
     icon: 'amazon-ec2',
     name: 'Amazon EC2: VPS',
-    price: '$15.40/month/environment × 3 env = $46.2',
+    price: '$15.40/month/environment',
   },
   {
     icon: 'mongodb',

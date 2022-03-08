@@ -53,9 +53,11 @@ export const HomeVersus: FunctionComponent = () => (
 )
 
 export const VersusCards = () => {
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
   const { colorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
+
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  const cardHeight = isDesktop ? 370 : '100%'
 
   return (
     <Box
@@ -67,8 +69,18 @@ export const VersusCards = () => {
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        <Card withBorder shadow="md" radius="md" padding="xl">
-          <Box sx={{ marginBottom: '1rem' }}>
+        <Card
+          withBorder
+          shadow="md"
+          radius="md"
+          padding="xl"
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            height: cardHeight,
+          }}
+        >
+          <Box>
             <Image
               width={200}
               src={
@@ -78,29 +90,29 @@ export const VersusCards = () => {
             <Text size="xl" sx={{ fontWeight: '900' }}>
               Kontenbase Managed Service
             </Text>
-            <Text size="xl">Start from $5-$99 / project /month</Text>
+            <Text size="xl">Start from $5-$25 / project /month</Text>
+            <List
+              center
+              spacing="md"
+              size="xl"
+              sx={{ paddingLeft: '0 !important' }}
+              icon={
+                <ThemeIcon color="green" size={24} radius="xl">
+                  <Icon name="check" />
+                </ThemeIcon>
+              }
+            >
+              <List.Item>VPS</List.Item>
+              <List.Item>Database</List.Item>
+              <List.Item>Object Storage</List.Item>
+              <List.Item>Message Queue</List.Item>
+              <List.Item>Realtime/Multiplayer Server</List.Item>
+            </List>
           </Box>
-          <List
-            center
-            spacing="md"
-            size="xl"
-            sx={{ paddingLeft: '0 !important' }}
-            icon={
-              <ThemeIcon color="green" size={24} radius="xl">
-                <Icon name="check" />
-              </ThemeIcon>
-            }
-          >
-            <List.Item>VPS with 3 Environment</List.Item>
-            <List.Item>Database</List.Item>
-            <List.Item>Object Storage</List.Item>
-            <List.Item>Message Queue</List.Item>
-            <List.Item>Realtime/Multiplayer Server</List.Item>
-          </List>
         </Card>
 
         <Box sx={{ textAlign: 'center' }}>
-          <Title order={3}>Start from $5-$99/month, then pay as you go</Title>
+          <Title order={3}>Start from $5-$25/month, then pay as you go</Title>
           <Text>Grow as your company go without hidden cost!</Text>
         </Box>
       </Box>
@@ -110,16 +122,17 @@ export const VersusCards = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          textAlign: 'center',
           background: theme.colors.red[7],
           color: theme.colors.gray[1],
           padding: '1rem',
-          borderRadius: '50%',
-          height: 100,
-          width: 100,
           fontSize: '2rem',
           fontWeight: '900',
           margin: isDesktop ? '0 -1rem' : '1rem -1rem',
           zIndex: 1,
+          minWidth: '100px',
+          minHeight: '100px',
+          borderRadius: '50%',
         })}
       >
         <span>VS</span>
@@ -131,7 +144,13 @@ export const VersusCards = () => {
           shadow="md"
           radius="md"
           padding="xl"
-          sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            justifyContent: 'center',
+            height: cardHeight,
+          }}
         >
           {versusStacksData.map((item) => (
             <Group key={item.name} sx={{ alignItems: 'center' }}>
@@ -147,8 +166,8 @@ export const VersusCards = () => {
         </Card>
 
         <Box sx={{ textAlign: 'center' }}>
-          <Title order={3}>$249.98/month with unmanaged service</Title>
-          <Text>Which need to maintain each of them</Text>
+          <Title order={3}>$219.18/month with unmanaged service</Title>
+          <Text>Also additional costs to maintain on growth</Text>
         </Box>
       </Box>
     </Box>
