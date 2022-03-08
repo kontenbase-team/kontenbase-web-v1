@@ -1,8 +1,8 @@
 export const examplesData = [
   {
-    name: 'Talk.ink, a Slack/Twist Clone',
+    name: 'Talk.ink',
     description:
-      'A Slack/Twist clone using Kontenbase as the backend, React.js as frontend, and Tailwind CSS as styling library.',
+      'Talk.ink is a Slack or Twist clone using Kontenbase as the backend, React.js as frontend, and Tailwind CSS as styling library.',
     imageUrl: '/images/tree/main/examples/talkink.png',
     demoUrl: 'https://talk.ink',
     githubUrl: 'https://github.com/talk-ink/talk-ink',
@@ -10,7 +10,7 @@ export const examplesData = [
     creatorAvatarUrl: '/images/avatars/talkink.png',
   },
   {
-    name: 'Writter, a simple Twitter Clone',
+    name: 'Writter',
     description:
       '🐦 Writter is a simple Twitter clone made with React and Remix as the frontend, with Kontenbase as the backend, and Chakra UI as styling library.',
     demoUrl: 'https://writter.kontenbase.com',
@@ -19,7 +19,7 @@ export const examplesData = [
     creatorAvatarUrl: '/images/avatars/kontenbase.png',
   },
   {
-    name: 'Simple Form HTML Example',
+    name: 'HTML Form',
     description:
       'Simple form input with submit button using Kontenbase SDK via CDN. No other library/framework necessary.',
     githubUrl:
