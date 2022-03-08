@@ -14,7 +14,7 @@ import {
 import { FunctionComponent, useState } from 'react'
 import { Link } from 'remix'
 
-import { Icon } from '~/components'
+import { Flex, Icon } from '~/components'
 import { pricingData, pricingFeaturesData } from '~/data'
 
 type TCurrency = 'USD' | 'IDR'
@@ -23,6 +23,10 @@ interface PricingTableProps {}
 
 interface PricingTableResponsiveProps {
   currency: TCurrency
+}
+
+interface AdaptiveLinkButtonProps {
+  plan: any
 }
 
 export const PricingTable: FunctionComponent<PricingTableProps> = () => {
@@ -41,18 +45,38 @@ export const PricingTable: FunctionComponent<PricingTableProps> = () => {
     <Container
       size="xl"
       sx={{
-        marginTop: '5rem',
+        marginTop: '1rem',
         marginBottom: '5rem',
       }}
     >
-      <Button variant="outline" radius="md" onClick={changeCurrency}>
-        Switch USD/IDR
-      </Button>
+      <Flex sx={{ justifyContent: 'center', marginBottom: '5rem' }}>
+        <Button variant="outline" radius="md" onClick={changeCurrency}>
+          Switch USD/IDR
+        </Button>
+      </Flex>
 
       <PricingTableDesktop currency={currency} />
 
       <PricingTableMobile currency={currency} />
     </Container>
+  )
+}
+
+export const AdaptiveLinkButton: FunctionComponent<AdaptiveLinkButtonProps> = ({
+  plan,
+}) => {
+  if (plan.button.to) {
+    return (
+      <Link to={plan.button.to}>
+        <Button radius="md">{plan.button.text}</Button>
+      </Link>
+    )
+  }
+
+  return (
+    <Button radius="md" variant="outline">
+      {plan.button.text}
+    </Button>
   )
 }
 
@@ -122,9 +146,7 @@ export const PricingTableDesktop: FunctionComponent<
                 <span>/project/month</span>
               </Group>
               <Text>{plan.info}</Text>
-              <Link to={plan.button.to}>
-                <Button radius="md">{plan.button.text}</Button>
-              </Link>
+              <AdaptiveLinkButton plan={plan} />
             </Group>
 
             {plan.features.map((item) => (
@@ -147,9 +169,7 @@ export const PricingTableDesktop: FunctionComponent<
             ))}
 
             <Box sx={{ marginTop: '1rem' }}>
-              <Link to={plan.button.to}>
-                <Button radius="md">{plan.button.text}</Button>
-              </Link>
+              <AdaptiveLinkButton plan={plan} />
             </Box>
           </Group>
         ))}
@@ -235,9 +255,7 @@ export const PricingTableMobile: FunctionComponent<
                     <span>/project/month</span>
                   </Group>
                   <Text>{plan.info}</Text>
-                  <Link to={plan.button.to}>
-                    <Button radius="md">{plan.button.text}</Button>
-                  </Link>
+                  <AdaptiveLinkButton plan={plan} />
                 </Group>
 
                 {plan.features.map((item) => (
@@ -260,9 +278,7 @@ export const PricingTableMobile: FunctionComponent<
                 ))}
 
                 <Box sx={{ marginTop: '1rem' }}>
-                  <Link to={plan.button.to}>
-                    <Button radius="md">{plan.button.text}</Button>
-                  </Link>
+                  <AdaptiveLinkButton plan={plan} />
                 </Box>
               </Group>
             </Box>
