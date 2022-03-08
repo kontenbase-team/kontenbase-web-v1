@@ -16,6 +16,7 @@ import { FunctionComponent } from 'react'
 
 import { CustomTabs, Icon } from '~/components'
 import {
+  explainAPICodeImport,
   explainAPIData,
   explainAPILinksData,
   explainDashboardData,
@@ -124,7 +125,7 @@ export const ExplainAPI: FunctionComponent = () => (
             <Group direction="column" spacing="xs">
               <Title order={5}>{item.name}</Title>
               <Text size="sm">{item.description}</Text>
-              <Anchor href={item.url}>
+              <Anchor href={item.url} target="_blank">
                 <Button
                   compact
                   variant="light"
@@ -139,7 +140,7 @@ export const ExplainAPI: FunctionComponent = () => (
       </Group>
     </Group>
 
-    <CustomTabs sx={{ width: '100%', height: 200 }}>
+    <CustomTabs sx={{ width: '100%', minHeight: 330 }}>
       {explainAPIData.map((item) => (
         <Tabs.Tab key={item.label} label={item.label}>
           <Prism
@@ -152,7 +153,7 @@ export const ExplainAPI: FunctionComponent = () => (
               pre: { borderRadius: 0, marginTop: 0 },
             }}
           >
-            {item.code}
+            {explainAPICodeImport + item.code}
           </Prism>
         </Tabs.Tab>
       ))}
