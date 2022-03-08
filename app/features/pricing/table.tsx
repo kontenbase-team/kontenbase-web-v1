@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
   Box,
   Button,
@@ -186,7 +185,6 @@ export const PricingTableMobile: FunctionComponent<
   const isDark = colorScheme === 'dark'
   const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
-  console.log({ currency, backgroundFirst, backgroundSecond })
 
   return (
     <MediaQuery largerThan="md" styles={{ display: 'none' }}>
