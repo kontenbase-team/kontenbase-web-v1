@@ -7,7 +7,7 @@ export const examplesData = [
     demoUrl: 'https://talk.ink',
     githubUrl: 'https://github.com/talk-ink/talk-ink',
     creatorName: 'Talk.ink',
-    creatorAvatarUrl: '/images/avatars/talkink.png',
+    creatorAvatarUrl: '/images/avatars/talk-ink.png',
   },
   {
     name: 'Writter',
