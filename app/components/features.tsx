@@ -69,28 +69,16 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
 
       <Text size="sm">{feature.description}</Text>
 
-      {!feature.available && <Badge variant="dot">Coming Soon</Badge>}
+      {feature.isComingSoon && <Badge variant="dot">Coming Soon</Badge>}
 
-      {feature.available && (
-        <Link to="/docs">
+      {feature.isAvailable && feature.to && (
+        <Link to={feature.to}>
           <Button
             compact
             variant="light"
             rightIcon={<Icon name="arrow-right" />}
           >
-            Explore docs
-          </Button>
-        </Link>
-      )}
-
-      {!feature.available && (
-        <Link to="/subscribe">
-          <Button
-            compact
-            variant="light"
-            rightIcon={<Icon name="arrow-right" />}
-          >
-            Get Notified
+            Learn more
           </Button>
         </Link>
       )}
