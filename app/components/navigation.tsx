@@ -6,11 +6,13 @@ import {
   Group,
   Image,
   MediaQuery,
+  Text,
   Menu,
   useMantineColorScheme,
+  useMantineTheme,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
-import { Link } from 'remix'
+import { Link, useLocation } from 'remix'
 
 import { ButtonToggleTheme } from '~/components'
 import { navigationData } from '~/data'
@@ -18,7 +20,10 @@ import { navigationData } from '~/data'
 interface NavigationProps {}
 
 export const Navigation: FunctionComponent<NavigationProps> = () => {
+  const location = useLocation()
+
   const { colorScheme } = useMantineColorScheme()
+  const theme = useMantineTheme()
   const dark = colorScheme === 'dark'
 
   return (
@@ -50,11 +55,23 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
 
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
           <Group id="nav-links" sx={{ marginLeft: '5rem' }}>
-            {navigationData.map((item) => (
-              <Link key={item.to} to={item.to}>
-                {item.text}
-              </Link>
-            ))}
+            {navigationData.map((item) => {
+              const isCurrentPage = location.pathname === item.to
+              const color = dark ? theme.white : theme.black
+
+              return (
+                <Link key={item.to} to={item.to}>
+                  <Text
+                    sx={{
+                      fontWeight: 'bold',
+                      color: isCurrentPage ? theme.colors.red[7] : color,
+                    }}
+                  >
+                    {item.text}
+                  </Text>
+                </Link>
+              )
+            })}
           </Group>
         </MediaQuery>
 
