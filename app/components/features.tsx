@@ -64,7 +64,7 @@ export const FeatureCard: FunctionComponent<FeatureCardProps> = ({
         <ThemeIcon radius="md" size="xl" color="red">
           <Icon name={feature.icon} />
         </ThemeIcon>
-        <Title order={5}>{feature.name}</Title>
+        <Title order={5}>{feature.title}</Title>
       </Box>
 
       <Text size="sm">{feature.description}</Text>
