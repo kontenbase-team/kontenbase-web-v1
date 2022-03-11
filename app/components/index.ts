@@ -1,6 +1,7 @@
 export * from './anchor-button'
 export * from './blog-article'
 export * from './button-toggle-theme'
+export * from './decoration'
 export * from './examples'
 export * from './features'
 export * from './flex'
