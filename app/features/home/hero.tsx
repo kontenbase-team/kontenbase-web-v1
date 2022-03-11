@@ -1,8 +1,17 @@
-import { Box, Text, Button, Group, Title, Image, Anchor } from '@mantine/core'
+import {
+  Box,
+  Text,
+  Button,
+  Group,
+  Title,
+  Image,
+  Anchor,
+  MediaQuery,
+} from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
-import { Icon } from '~/components'
+import { Decoration, Icon } from '~/components'
 
 export const HomeHero: FunctionComponent = () => (
   <Box
@@ -77,19 +86,42 @@ export const HomeHero: FunctionComponent = () => (
       </Anchor>
     </Group>
 
-    <Image
-      alt="Kontenbase Screenshot"
-      src="/images/kontenbase-home-hero.png"
-      fit="contain"
-      radius="lg"
-      sx={(theme) => ({
-        borderWidth: '1px',
-        borderStyle: 'solid',
-        borderColor: theme.colors.gray[2],
-        borderRadius: theme.radius.lg,
-        maxWidth: '960px',
-        img: { margin: 0 },
-      })}
-    />
+    <HomeHeroDecoration>
+      <Box
+        sx={(theme) => ({
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          borderColor: theme.colors.gray[2],
+          borderRadius: theme.radius.lg,
+          maxWidth: '960px',
+          img: {
+            borderRadius: theme.radius.lg,
+            objectFit: 'contain',
+            margin: 0,
+          },
+        })}
+      >
+        <img
+          alt="Kontenbase Screenshot"
+          src="/images/kontenbase-home-hero.png"
+        />
+      </Box>
+    </HomeHeroDecoration>
+  </Box>
+)
+
+export const HomeHeroDecoration: FunctionComponent = ({ children }) => (
+  <Box sx={{ position: 'relative' }}>
+    {children}
+    <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+      <Box>
+        <Decoration index={0} />
+        <Decoration index={1} />
+        <Decoration index={2} />
+        <Decoration index={3} />
+        <Decoration index={4} />
+        <Decoration index={5} />
+      </Box>
+    </MediaQuery>
   </Box>
 )
