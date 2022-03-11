@@ -20,7 +20,7 @@ export const HomeActionLast: FunctionComponent = () => (
       Try our managed service with battle tested technology stack
     </Title>
 
-    <Group spacing="xl" sx={{ justifyContent: 'center', maxWidth: '720px' }}>
+    <Group spacing="xl" sx={{ justifyContent: 'center', maxWidth: '780px' }}>
       {stacksData.map((item) => (
         <Anchor key={item.name} href={item.url} target="_blank">
           <Image

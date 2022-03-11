@@ -15,13 +15,18 @@ export const stacksData = [
     url: 'https://redis.io',
   },
   {
+    name: 'PostgreSQL',
+    imageUrl: '/logos/postgresql.png',
+    url: 'https://postgresql.org',
+  },
+  {
     name: 'MongoDB',
     imageUrl: '/logos/mongodb.png',
     url: 'https://mongodb.com',
   },
   {
-    name: 'PostgreSQL',
-    imageUrl: '/logos/postgresql.png',
-    url: 'https://postgresql.org',
+    name: 'Kubernetes',
+    imageUrl: '/logos/kubernetes.png',
+    url: 'https://kubernetes.io',
   },
 ]
