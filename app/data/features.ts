@@ -1,8 +1,9 @@
 export const featuresData = [
   {
     icon: 'feature-rest',
-    title: 'REST API & SDK',
-    description: 'Auto generated REST API & SDK from database schema.',
+    title: 'Database to REST API & SDK',
+    description:
+      'Auto generated REST API & SDK from database schema. Change schema on the fly! SDK for better developer experience.',
     to: '/features/rest-api-sdk',
     isAvailable: true,
   },
@@ -17,7 +18,8 @@ export const featuresData = [
   {
     icon: 'feature-storage',
     title: 'Storage',
-    description: 'Organize files and assets with GUI and storage API.',
+    description:
+      'Organize files and assets with GUI and storage API. Attach, upload, and download them through the services.',
     to: '/features/storage',
     isAvailable: true,
   },
@@ -31,8 +33,9 @@ export const featuresData = [
   },
   {
     icon: 'feature-websocket',
-    title: 'Web Socket',
-    description: 'Built in real-time support with battle tested performance!',
+    title: 'Real Time',
+    description:
+      'Built in real-time support via WebSocket with battle tested performance!',
     to: '/features/websocket',
     isAvailable: true,
   },

@@ -51,11 +51,12 @@ export const ExplainDashboard: FunctionComponent = () => {
   return (
     <Box sx={{ minHeight: 400 }}>
       <CustomTabs>
-        {explainDashboardData.map((item) => (
-          <Tabs.Tab key={item.label} label={item.label}>
-            <Group align="flex-start" spacing="xl">
-              <Box>
-                {item.isAvailable ? (
+        {explainDashboardData
+          .filter((item) => item.isAvailable)
+          .map((item) => (
+            <Tabs.Tab key={item.label} label={item.label}>
+              <Group align="flex-start" spacing="xl">
+                <Box>
                   <Image
                     src={item.imageUrl}
                     alt={item.label}
@@ -71,29 +72,26 @@ export const ExplainDashboard: FunctionComponent = () => {
                       img: { margin: 0 },
                     })}
                   />
-                ) : (
-                  <Text>Coming Soon</Text>
-                )}
-              </Box>
-              <Group direction="column" sx={{ maxWidth: '450px' }}>
-                <Title order={3}>{item.title}</Title>
-                <Text>{item.description}</Text>
-                {item.extraInfo && (
-                  <Card
-                    radius="md"
-                    sx={(theme) => ({
-                      background: dark
-                        ? theme.colors.gray[9]
-                        : theme.colors.gray[1],
-                    })}
-                  >
-                    <Text>{item.extraInfo}</Text>
-                  </Card>
-                )}
+                </Box>
+                <Group direction="column" sx={{ maxWidth: '450px' }}>
+                  <Title order={3}>{item.title}</Title>
+                  <Text>{item.description}</Text>
+                  {item.extraInfo && (
+                    <Card
+                      radius="md"
+                      sx={(theme) => ({
+                        background: dark
+                          ? theme.colors.gray[9]
+                          : theme.colors.gray[1],
+                      })}
+                    >
+                      <Text>{item.extraInfo}</Text>
+                    </Card>
+                  )}
+                </Group>
               </Group>
-            </Group>
-          </Tabs.Tab>
-        ))}
+            </Tabs.Tab>
+          ))}
       </CustomTabs>
     </Box>
   )
