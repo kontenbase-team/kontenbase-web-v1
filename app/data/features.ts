@@ -24,20 +24,20 @@ export const featuresData = [
     isAvailable: true,
   },
   {
-    icon: 'feature-functions',
-    title: 'Functions',
-    description:
-      'Write custom code, to trigger event using pub sub, creating hook, and cron jobs without deploying or scaling servers.',
-    to: '/features/functions',
-    isComingSoon: true,
-  },
-  {
     icon: 'feature-real-time',
     title: 'Real Time',
     description:
       'Built in real-time support via WebSocket with battle tested performance!',
     to: '/features/real-time',
     isAvailable: true,
+  },
+  {
+    icon: 'feature-functions',
+    title: 'Functions',
+    description:
+      'Write custom code, to trigger event using pub sub, creating hook, and cron jobs without deploying or scaling servers.',
+    to: '/features/functions',
+    isComingSoon: true,
   },
   {
     icon: 'feature-message-queue',
