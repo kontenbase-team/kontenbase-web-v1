@@ -1,7 +1,7 @@
 import { Box, Modal } from '@mantine/core'
 import { FunctionComponent, useState } from 'react'
 
-import { Flex } from '~/components'
+import { Flex, VideoYouTube } from '~/components'
 
 interface HomeHeroVideoProps {}
 
@@ -20,7 +20,14 @@ export const HomeHeroVideo: FunctionComponent<HomeHeroVideoProps> = () => {
         opened={opened}
         onClose={() => setOpened(false)}
       >
-        YouTube Video
+        <Box sx={{ minHeight: '450px' }}>
+          <VideoYouTube
+            data={{
+              title: 'Kontenbase - Alpha - Product Demo',
+              videoEmbedId: '0eDLqFZPxXw',
+            }}
+          />
+        </Box>
       </Modal>
 
       <Box
@@ -39,7 +46,7 @@ export const HomeHeroVideo: FunctionComponent<HomeHeroVideoProps> = () => {
       >
         <Flex sx={{ justifyContent: 'center', alignItems: 'center' }}>
           <img
-            alt="Kontenbase Screenshot"
+            alt="Kontenbase Platform Screenshot"
             src="/images/kontenbase-home-hero.png"
           />
           <Box
@@ -55,7 +62,11 @@ export const HomeHeroVideo: FunctionComponent<HomeHeroVideoProps> = () => {
               },
             }}
           >
-            <img src="/images/play-button.svg" alt="Play Video" width={100} />
+            <img
+              src="/images/play-button.svg"
+              alt="Play Introduction Video"
+              width={100}
+            />
           </Box>
         </Flex>
       </Box>
