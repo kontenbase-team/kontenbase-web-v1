@@ -12,7 +12,8 @@ export const featureStorageData = {
   codeExamples: [
     {
       label: 'Upload file',
-      code: ``,
+      code: `const file = event.target.files[0] // or via FormData
+const { data, error } = await kontenbase.storage.upload(file)`,
     },
     {
       label: 'Get file',

@@ -12,11 +12,25 @@ export const featureRealTimeData = {
   codeExamples: [
     {
       label: 'Subscribe',
-      code: ``,
+      code: `kontenbase.realtime.subscribe(
+  'articles',
+  { event: 'CREATE_RECORD', where: { tags: 'news' } },
+  (message) => {
+    console.log(message)
+  }
+)`,
     },
     {
       label: 'Unsubscribe',
-      code: ``,
+      code: `const subscription = await kontenbase.realtime.subscribe(
+  'articles',
+  { event: 'CREATE_RECORD', where: { tags: 'sport' } },
+  (message) => {
+    console.log(message)
+  }
+)
+
+kontenbase.realtime.unsubscribe(subscription)`,
     },
   ],
 }
