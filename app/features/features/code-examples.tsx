@@ -14,15 +14,12 @@ import { CustomTabs, Icon } from '~/components'
 import { explainAPICodeImport } from '~/data'
 
 interface FeatureCodeExamplesProps {
-  subTitle: string
-  subDescription: string
-  docsUrl: string
-  codeExamples: any[]
+  feature: any
 }
 
 export const FeatureCodeExamples: FunctionComponent<
   FeatureCodeExamplesProps
-> = ({ subTitle, subDescription, docsUrl, codeExamples }) => (
+> = ({ feature }) => (
   <Container
     size="lg"
     sx={(theme) => ({
@@ -36,9 +33,9 @@ export const FeatureCodeExamples: FunctionComponent<
     <Group sx={{ width: '100%', flexWrap: 'wrap', gap: '3rem' }}>
       <Group sx={{ width: '100%', justifyContent: 'space-between' }}>
         <Group sx={{ maxWidth: '42ch' }}>
-          <Title order={3}>{subTitle}</Title>
-          <Text>{subDescription}</Text>
-          <Anchor href={docsUrl} target="_blank">
+          <Title order={3}>{feature.subTitle}</Title>
+          <Text>{feature.subDescription}</Text>
+          <Anchor href={feature.docsUrl} target="_blank">
             <Button
               compact
               variant="light"
@@ -51,7 +48,7 @@ export const FeatureCodeExamples: FunctionComponent<
       </Group>
 
       <CustomTabs sx={{ width: '100%', minHeight: 330 }}>
-        {codeExamples.map((item: any) => (
+        {feature.codeExamples.map((item: any) => (
           <Tabs.Tab key={item.label} label={item.label}>
             <Prism
               colorScheme="dark"
