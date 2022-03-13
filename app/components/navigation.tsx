@@ -155,12 +155,21 @@ export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
       </Button>
     }
   >
+    <Menu.Label>Website</Menu.Label>
     {navigationData.map((item) => (
       <Menu.Item component={Link} key={item.to} to={item.to}>
         {item.text}
       </Menu.Item>
     ))}
     <Divider />
+    <Menu.Label>Features</Menu.Label>
+    {navigationFeaturesData.map((item) => (
+      <Menu.Item component={Link} key={item.to} to={item.to}>
+        {item.text}
+      </Menu.Item>
+    ))}
+    <Divider />
+    <Menu.Label>Account</Menu.Label>
     <Menu.Item>Sign In</Menu.Item>
     <Menu.Item color="red">Sign Up</Menu.Item>
   </Menu>
