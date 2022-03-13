@@ -39,12 +39,14 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
         display: 'flex',
         justifyContent: 'space-between',
         gap: '1rem',
+        flexWrap: 'wrap',
       }}
     >
       <Group
         direction="column"
         sx={{
-          maxWidth: 500,
+          maxWidth: 480,
+          justifyContent: 'center',
         }}
       >
         <Box
@@ -103,7 +105,8 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
           fit="contain"
           radius="md"
           sx={{
-            width: 600,
+            width: '100%',
+            maxWidth: 600,
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: theme.colors.gray[2],

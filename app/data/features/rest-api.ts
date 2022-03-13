@@ -1,1 +1,1 @@
-export const featureRESTAPISDKData = {}
+export const featureRESTAPISDKCodeExamples = {}

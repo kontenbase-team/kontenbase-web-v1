@@ -1,1 +1,1 @@
-export const featureStorageData = {}
+export const featureStorageCodeExamples = {}

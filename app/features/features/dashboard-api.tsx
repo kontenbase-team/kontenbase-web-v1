@@ -63,7 +63,8 @@ export const ExplainDashboard: FunctionComponent = () => {
                     fit="contain"
                     radius="md"
                     sx={(theme) => ({
-                      width: 600,
+                      width: '100%',
+                      maxWidth: 600,
                       borderWidth: '1px',
                       borderStyle: 'solid',
                       borderColor: theme.colors.gray[2],
@@ -72,7 +73,7 @@ export const ExplainDashboard: FunctionComponent = () => {
                     })}
                   />
                 </Box>
-                <Group direction="column" sx={{ maxWidth: '450px' }}>
+                <Group direction="column" sx={{ maxWidth: '420px' }}>
                   <Title order={3}>{item.title}</Title>
                   <Text>{item.description}</Text>
                   {item.extraInfo && (

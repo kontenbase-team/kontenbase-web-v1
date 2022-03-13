@@ -1,4 +1,4 @@
-import { Box, Modal } from '@mantine/core'
+import { Box, Image, Modal, useMantineTheme } from '@mantine/core'
 import { FunctionComponent, useState } from 'react'
 
 import { Flex, VideoYouTube } from '~/components'
@@ -7,6 +7,7 @@ interface HomeHeroVideoProps {}
 
 export const HomeHeroVideo: FunctionComponent<HomeHeroVideoProps> = () => {
   const [opened, setOpened] = useState(false)
+  const theme = useMantineTheme()
 
   return (
     <>
@@ -31,23 +32,25 @@ export const HomeHeroVideo: FunctionComponent<HomeHeroVideoProps> = () => {
       </Modal>
 
       <Box
-        sx={(theme) => ({
+        sx={{
           borderWidth: '1px',
           borderStyle: 'solid',
           borderColor: theme.colors.gray[2],
           borderRadius: theme.radius.lg,
           maxWidth: '960px',
-          img: {
-            borderRadius: theme.radius.lg,
-            objectFit: 'contain',
-            margin: 0,
-          },
-        })}
+        }}
       >
         <Flex sx={{ justifyContent: 'center', alignItems: 'center' }}>
-          <img
+          <Image
             alt="Kontenbase Platform Screenshot"
             src="/images/kontenbase-home-hero.png"
+            sx={{
+              img: {
+                borderRadius: theme.radius.lg,
+                objectFit: 'contain',
+                margin: '0 !important',
+              },
+            }}
           />
           <Box
             onClick={() => setOpened(true)}

@@ -1,1 +1,1 @@
-export const featureRealTimeData = {}
+export const featureRealTimeCodeExamples = {}
