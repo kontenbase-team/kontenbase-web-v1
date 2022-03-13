@@ -1,4 +1,4 @@
-import { Box, Container, Text } from '@mantine/core'
+import { Container } from '@mantine/core'
 import { gql } from '@urql/core'
 import { json, useLoaderData } from 'remix'
 

@@ -1,3 +1,4 @@
+import { Container } from '@mantine/core'
 import { gql } from '@urql/core'
 import { marked } from 'marked'
 import { json, useLoaderData } from 'remix'
@@ -6,7 +7,6 @@ import type { MetaFunction, LoaderFunction } from 'remix'
 import { BlogArticle, Layout } from '~/components'
 import { TBlogArticle } from '~/types'
 import { createMeta, hashnodeClient, ReactGA } from '~/utils'
-import { Container } from '@mantine/core'
 
 export const meta: MetaFunction = ({ data: article, params }) => {
   if (!article) {
