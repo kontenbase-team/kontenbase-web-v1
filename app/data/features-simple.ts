@@ -1,4 +1,4 @@
-export const featuresData = [
+export const featuresSimpleData = [
   {
     icon: 'feature-rest',
     title: 'Database to REST API & SDK',

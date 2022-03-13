@@ -12,7 +12,7 @@ import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
 import { Icon } from '~/components'
-import { featuresData } from '~/data'
+import { featuresSimpleData } from '~/data'
 
 interface FeaturesProps {}
 
@@ -29,7 +29,7 @@ export const Features: FunctionComponent<FeaturesProps> = () => {
         { maxWidth: theme.breakpoints.xs, cols: 1 },
       ]}
     >
-      {featuresData.map((feature) => (
+      {featuresSimpleData.map((feature) => (
         <FeatureCard key={feature.icon} feature={feature} />
       ))}
     </SimpleGrid>
