@@ -19,7 +19,7 @@ export const featuresData = [
     icon: 'feature-storage',
     title: 'Storage',
     description:
-      'Organize files and assets with GUI and storage API. Attach, upload, and download them through the services.',
+      'Organize files and assets with storage API. Attach, upload, and download them through the services.',
     to: '/features/storage',
     isAvailable: true,
   },

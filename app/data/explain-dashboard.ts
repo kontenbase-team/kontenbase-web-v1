@@ -1,7 +1,7 @@
 export const explainDashboardData = [
   {
     label: 'REST API',
-    imageUrl: '/images/kontenbase-home-hero.png',
+    imageUrl: '/images/features/rest-api.png',
     title: 'Create database with automatic REST API generation',
     description:
       'Database is accessible instantly through REST API and SDK. ALl essential HTTP methods are provided out of the box.',
@@ -12,7 +12,7 @@ export const explainDashboardData = [
   },
   {
     label: 'Data Table',
-    imageUrl: '/images/explains/datatable.png',
+    imageUrl: '/images/features/data-table.png',
     title: 'Manage schema then manage data as simple as using spreadsheet',
     description:
       'Our schema editor is friendly even for non-technical users. Fill your data with the familiarity of spreadsheet.',
@@ -22,7 +22,7 @@ export const explainDashboardData = [
   },
   {
     label: 'Auth',
-    imageUrl: '/images/explains/auth.png',
+    imageUrl: '/images/features/auth.png',
     title: 'Authentication & Authorization',
     description:
       'Built in basic authentication, 3rd party auth, and authorization like role management without coding. Fast and secure!',
@@ -32,17 +32,17 @@ export const explainDashboardData = [
   },
   {
     label: 'Storage',
-    imageUrl: '/images/explains/storage.png',
+    imageUrl: '/images/features/storage.png',
     title: 'Files and Assets Storage',
     description:
-      'Organize files and assets with GUI and storage API. Attach, upload, and download them through the services.',
+      'Organize files and assets with storage API. Attach, upload, and download them through the services.',
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo: '',
     isAvailable: true,
   },
   {
     label: 'Real Time',
-    imageUrl: '/images/explains/websocket.png',
+    imageUrl: '/images/features/real-time.png',
     title: 'Real Time with WebSocket',
     description: 'Built in real-time support with battle tested performance!',
     docsUrl: 'https://docs.kontenbase.com',
@@ -51,7 +51,7 @@ export const explainDashboardData = [
   },
   {
     label: 'Functions',
-    imageUrl: '/images/explains/functions.png',
+    imageUrl: '/images/features/functions.png',
     title: 'Functions',
     description:
       'Write custom code, to trigger event using pub sub, creating hook, and cron jobs without deploying or scaling servers.',

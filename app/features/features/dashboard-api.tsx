@@ -63,8 +63,7 @@ export const ExplainDashboard: FunctionComponent = () => {
                     fit="contain"
                     radius="md"
                     sx={(theme) => ({
-                      width: '100%',
-                      maxWidth: 600,
+                      width: 600,
                       borderWidth: '1px',
                       borderStyle: 'solid',
                       borderColor: theme.colors.gray[2],
