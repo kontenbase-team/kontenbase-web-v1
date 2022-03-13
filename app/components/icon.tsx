@@ -32,7 +32,7 @@ import {
   FaShieldAlt as AuthIcon,
   FaServer as StorageIcon,
   // FaDatabase as FunctionsIcon,
-  FaShapes as WebsocketIcon,
+  FaShapes as RealTimeIcon,
   FaCommentAlt as MessageQueueIcon,
   // Misc
   FaCheck as CheckIcon,
@@ -87,9 +87,9 @@ export const iconMaps = {
   'feature-rest': <DatabaseIcon />,
   'feature-auth': <AuthIcon />,
   'feature-storage': <StorageIcon />,
-  'feature-functions': <FunctionsIcon />,
-  'feature-websocket': <WebsocketIcon />,
+  'feature-real-time': <RealTimeIcon />,
   'feature-message-queue': <MessageQueueIcon />,
+  'feature-functions': <FunctionsIcon />,
   // Misc
   check: <CheckIcon />,
   cv: <CVIcon />,
