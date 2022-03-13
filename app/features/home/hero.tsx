@@ -74,7 +74,7 @@ export const HomeHero: FunctionComponent = () => (
           Sign Up for Free
         </Button>
       </Link>
-      <Anchor href="https://docs.kontenbase.com">
+      <Anchor href="https://docs.kontenbase.com" target="_blank">
         <Button
           size="lg"
           radius="md"

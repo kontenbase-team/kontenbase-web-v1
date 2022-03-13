@@ -3,12 +3,11 @@ import { featuresDetailData } from '~/data'
 import { FeatureHero } from '~/features'
 
 export default function RouteFeaturesAuth() {
-  const data = featuresDetailData[1] // Auth
+  const feature = featuresDetailData[1] // Auth
 
   return (
     <Layout>
-      <h1>Route Features Auth</h1>
-      <FeatureHero data={data} />
+      <FeatureHero feature={feature} />
     </Layout>
   )
 }
