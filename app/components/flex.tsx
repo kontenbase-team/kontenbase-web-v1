@@ -2,7 +2,7 @@ import { Box } from '@mantine/core'
 import { FunctionComponent } from 'react'
 
 interface FlexProps {
-  sx: any
+  sx?: any
   children: React.ReactNode
 }
 
