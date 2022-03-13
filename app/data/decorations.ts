@@ -16,7 +16,7 @@ export const decorationData = [
     background: backgroundYellow,
   },
   {
-    bottom: 145,
+    bottom: 50,
     right: -50,
     width: 80,
     height: 80,
@@ -25,8 +25,8 @@ export const decorationData = [
     boxShadow: shadowYellow,
   },
   {
-    top: -5,
-    left: -100,
+    top: -10,
+    left: -80,
     width: 100,
     height: 100,
     borderRadius: 100,
@@ -52,7 +52,7 @@ export const decorationData = [
   },
   {
     left: -75,
-    bottom: 0,
+    bottom: -50,
     width: 150,
     height: 150,
     borderRadius: 150,

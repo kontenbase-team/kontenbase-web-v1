@@ -40,6 +40,7 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
         justifyContent: 'space-between',
         gap: '1rem',
         flexWrap: 'wrap',
+        minHeight: 400,
       }}
     >
       <Group direction="column" sx={{ maxWidth: 480 }}>
@@ -101,7 +102,6 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
           sx={{
             width: '100%',
             maxWidth: 600,
-            minHeight: 380,
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: theme.colors.gray[2],
