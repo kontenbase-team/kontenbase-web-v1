@@ -12,19 +12,35 @@ export const featureAuthData = {
   codeExamples: [
     {
       label: 'Register',
-      code: `register`,
+      code: `const { user, error } = await kontenbase.auth.register({
+  firstName: 'Your',
+  lastName: 'Name',
+  email: 'yourname@mail.com',
+  password: 'secure_your_password123',
+})`,
     },
     {
       label: 'Log in',
-      code: `login`,
+      code: `const { user, error } = await kontenbase.auth.login({
+  email: 'yourname@mail.com',
+  password: 'secure_your_password123',
+})`,
     },
     {
       label: 'Log out',
-      code: `logout`,
+      code: `const { user, error } = await kontenbase.auth.logout()`,
+    },
+    {
+      label: 'Get user',
+      code: `const { user, error } = await kontenbase.auth.user()`,
+    },
+    {
+      label: 'Update user',
+      code: `const { user, error } = await kontenbase.auth.update({ firstName: 'Our' })`,
     },
     {
       label: 'Reset password',
-      code: `reset`,
+      code: `const { data, error } = await kontenbase.auth.resetPassword('yourname@mail.com')`,
     },
   ],
 }
