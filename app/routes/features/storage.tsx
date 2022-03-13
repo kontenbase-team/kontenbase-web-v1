@@ -1,9 +1,13 @@
 import { Layout } from '~/components'
+import { featuresDetailData } from '~/data'
+import { FeatureHero } from '~/features'
 
 export default function RouteFeaturesStorage() {
+  const feature = featuresDetailData[2] // Storage
+
   return (
     <Layout>
-      <h1>Route Features Storage</h1>
+      <FeatureHero feature={feature} />
     </Layout>
   )
 }
