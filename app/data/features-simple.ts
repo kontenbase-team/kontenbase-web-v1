@@ -25,7 +25,7 @@ export const featuresSimpleData = [
   },
   {
     icon: 'feature-real-time',
-    title: 'Real Time',
+    title: 'Real-Time',
     description:
       'Built in real-time support via WebSocket with battle tested performance!',
     to: '/features/real-time',

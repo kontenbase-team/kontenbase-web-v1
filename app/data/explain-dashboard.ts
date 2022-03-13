@@ -41,9 +41,9 @@ export const explainDashboardData = [
     isAvailable: true,
   },
   {
-    label: 'Real Time',
+    label: 'Real-Time',
     imageUrl: '/images/features/real-time.png',
-    title: 'Real Time with WebSocket',
+    title: 'Real-Time with WebSocket',
     description: 'Built in real-time support with battle tested performance!',
     docsUrl: 'https://docs.kontenbase.com',
     extraInfo: '',

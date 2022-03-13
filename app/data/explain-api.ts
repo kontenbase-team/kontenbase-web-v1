@@ -47,7 +47,7 @@ export const explainAPIData = [
 })`,
   },
   {
-    label: 'Real Time',
+    label: 'Real-Time',
     code: `kontenbase.realtime.subscribe(
   'articles',
   { event: 'CREATE_RECORD', where: { tags: 'software' } },

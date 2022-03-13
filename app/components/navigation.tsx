@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import {
   Box,
   Button,
@@ -15,7 +16,7 @@ import { FunctionComponent } from 'react'
 import { Link, useLocation } from 'remix'
 
 import { ButtonToggleTheme } from '~/components'
-import { navigationData } from '~/data'
+import { navigationData, navigationFeaturesData } from '~/data'
 
 interface NavigationProps {}
 
@@ -29,10 +30,11 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
   return (
     <Box
       component="nav"
-      sx={(theme) => ({
+      sx={{
+        userSelect: 'none',
         paddingTop: theme.spacing.xs,
         paddingBottom: theme.spacing.md,
-      })}
+      }}
     >
       <Container
         size="lg"
@@ -72,6 +74,35 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
                 </Link>
               )
             })}
+            {/* Navigation Menu: Features */}
+            <Menu
+              size="lg"
+              trigger="hover"
+              placement="end"
+              shadow="xl"
+              withArrow
+              control={
+                <Text
+                  sx={{
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    color: location.pathname.includes('features')
+                      ? theme.colors.red[7]
+                      : dark
+                      ? theme.white
+                      : theme.black,
+                  }}
+                >
+                  Features
+                </Text>
+              }
+            >
+              {navigationFeaturesData.map((item) => (
+                <Menu.Item key={item.text} component={Link} to={item.to}>
+                  {item.text}
+                </Menu.Item>
+              ))}
+            </Menu>
           </Group>
         </MediaQuery>
 
