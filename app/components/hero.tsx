@@ -15,6 +15,7 @@ export const Hero: FunctionComponent<HeroProps> = ({ children }) => (
       flexDirection: 'column',
       alignItems: 'center',
       gap: '1rem',
+      textAlign: 'center',
     })}
   >
     {children}

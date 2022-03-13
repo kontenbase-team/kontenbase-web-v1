@@ -68,7 +68,7 @@ export const ExplainDashboard: FunctionComponent = () => {
                       borderStyle: 'solid',
                       borderColor: theme.colors.gray[2],
                       borderRadius: theme.radius.md,
-                      img: { margin: 0 },
+                      img: { margin: '0 !important' },
                     })}
                   />
                 </Box>

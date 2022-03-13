@@ -6,6 +6,7 @@ import {
   Group,
   ThemeIcon,
   Title,
+  Image,
   Text,
   useMantineTheme,
 } from '@mantine/core'
@@ -21,6 +22,7 @@ interface FeatureHeroProps {
     title: string
     description: string
     docsUrl: string
+    imageUrl: string
   }
 }
 
@@ -61,6 +63,7 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
         <Title
           order={1}
           sx={{
+            textAlign: 'left',
             margin: '0 !important',
             color: theme.colors.red[7],
           }}
@@ -69,12 +72,7 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
         </Title>
         <Text> {feature.description}</Text>
 
-        <Group
-          sx={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <Group>
           <Link to="/signup">
             <Button
               size="md"
@@ -98,7 +96,22 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
         </Group>
       </Group>
 
-      <Box>Screenshot</Box>
+      <Box>
+        <Image
+          src={feature.imageUrl}
+          alt={feature.name}
+          fit="contain"
+          radius="md"
+          sx={{
+            width: 600,
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: theme.colors.gray[2],
+            borderRadius: theme.radius.md,
+            img: { margin: '0 !important' },
+          }}
+        />
+      </Box>
     </Container>
   )
 }

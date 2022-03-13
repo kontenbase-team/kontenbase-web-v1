@@ -6,6 +6,7 @@ export const featuresDetailData = [
     description:
       'Auto generated REST API & SDK from database schema. Change schema on the fly! SDK for better developer experience.',
     docsUrl: 'https://docs.kontenbase.com/overview/sdk',
+    imageUrl: '/images/features/rest-api.png',
   },
   {
     icon: 'feature-auth',
@@ -14,6 +15,7 @@ export const featuresDetailData = [
     description:
       'Built in basic authentication, 3rd party auth, and authorization like role management without coding. Fast and secure!',
     docsUrl: 'https://docs.kontenbase.com/auth/register',
+    imageUrl: '/images/features/auth.png',
   },
   {
     icon: 'feature-storage',
@@ -22,6 +24,7 @@ export const featuresDetailData = [
     description:
       'Organize files and assets with storage API. Attach, upload, and download them through the services. Store any files possible.',
     docsUrl: 'https://docs.kontenbase.com/storage/upload',
+    imageUrl: '/images/features/storage.png',
   },
   {
     icon: 'feature-real-time',
@@ -30,5 +33,6 @@ export const featuresDetailData = [
     description:
       'Built in real-time support via WebSocket with battle tested performance!',
     docsUrl: 'https://docs.kontenbase.com/realtime/subscribe',
+    imageUrl: '/images/features/real-time.png',
   },
 ]
