@@ -1,13 +1,11 @@
 import { Layout } from '~/components'
-import { featuresDetailData } from '~/data'
+import { featureRealTimeData } from '~/data'
 import { FeatureHero } from '~/features'
 
 export default function RouteFeaturesRealTime() {
-  const feature = featuresDetailData[3] // Real-Time
-
   return (
     <Layout>
-      <FeatureHero feature={feature} />
+      <FeatureHero feature={featureRealTimeData} />
     </Layout>
   )
 }
