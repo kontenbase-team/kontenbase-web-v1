@@ -1,6 +1,6 @@
 export const explainAPICodeImport = `import { KontenbaseClient } from '@kontenbase/sdk'
 
-const kontenbase = new KontenbaseClient({ apiKey: 'xyz' })
+const kontenbase = new KontenbaseClient({ apiKey: 'abcdefghijk123456789' })
 
 `
 
