@@ -4,7 +4,6 @@ import {
   Button,
   Group,
   Title,
-  Image,
   Anchor,
   MediaQuery,
 } from '@mantine/core'
@@ -12,6 +11,7 @@ import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
 import { Decoration, Icon } from '~/components'
+import { HomeHeroVideo } from '~/features'
 
 export const HomeHero: FunctionComponent = () => (
   <Box
@@ -87,25 +87,7 @@ export const HomeHero: FunctionComponent = () => (
     </Group>
 
     <HomeHeroDecoration>
-      <Box
-        sx={(theme) => ({
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          borderColor: theme.colors.gray[2],
-          borderRadius: theme.radius.lg,
-          maxWidth: '960px',
-          img: {
-            borderRadius: theme.radius.lg,
-            objectFit: 'contain',
-            margin: 0,
-          },
-        })}
-      >
-        <img
-          alt="Kontenbase Screenshot"
-          src="/images/kontenbase-home-hero.png"
-        />
-      </Box>
+      <HomeHeroVideo />
     </HomeHeroDecoration>
   </Box>
 )
