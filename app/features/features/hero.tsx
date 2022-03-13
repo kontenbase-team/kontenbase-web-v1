@@ -35,20 +35,14 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
     <Container
       size="lg"
       sx={{
-        paddingTop: '3rem',
+        paddingTop: '5rem',
         display: 'flex',
         justifyContent: 'space-between',
         gap: '1rem',
         flexWrap: 'wrap',
       }}
     >
-      <Group
-        direction="column"
-        sx={{
-          maxWidth: 480,
-          justifyContent: 'center',
-        }}
-      >
+      <Group direction="column" sx={{ maxWidth: 480 }}>
         <Box
           sx={{
             display: 'flex',
@@ -107,6 +101,7 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
           sx={{
             width: '100%',
             maxWidth: 600,
+            minHeight: 380,
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: theme.colors.gray[2],
