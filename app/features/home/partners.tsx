@@ -24,8 +24,8 @@ export const HomePartners: FunctionComponent<HomePartnersProps> = () => (
           key={partner.slug}
           sx={{
             img: {
-              maxWidth: 200,
-              maxHeight: 70,
+              maxWidth: '200px !important',
+              maxHeight: '70px !important',
             },
           }}
         >
