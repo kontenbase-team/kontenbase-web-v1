@@ -6,6 +6,7 @@ import {
   HomeExamples,
   HomeFeatures,
   HomeHero,
+  HomePartners,
   HomeVersus,
 } from '~/features'
 
@@ -13,6 +14,7 @@ export default function Index() {
   return (
     <Layout>
       <HomeHero />
+      <HomePartners />
       <HomeFeatures />
       <HomeDashboardAPI />
       <HomeActionMiddle />
