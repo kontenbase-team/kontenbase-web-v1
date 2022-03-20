@@ -74,7 +74,7 @@ export const ExplainDashboard: FunctionComponent = () => {
                   />
                 </Box>
                 <Group direction="column" sx={{ maxWidth: '420px' }}>
-                  <Title order={3}>{item.title}</Title>
+                  <Title order={4}>{item.title}</Title>
                   <Text>{item.description}</Text>
                   {item.extraInfo && (
                     <Card

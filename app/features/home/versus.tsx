@@ -128,7 +128,7 @@ export const VersusCards = () => {
           padding: '1rem',
           fontSize: '2rem',
           fontWeight: '900',
-          margin: isDesktop ? '0 -1rem' : '1rem -1rem',
+          margin: isDesktop ? '0 -1rem 5rem -1rem' : '1rem -1rem',
           zIndex: 1,
           minWidth: '100px',
           minHeight: '100px',

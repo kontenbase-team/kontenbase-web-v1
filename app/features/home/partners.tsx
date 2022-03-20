@@ -12,20 +12,33 @@ export const HomePartners: FunctionComponent<HomePartnersProps> = () => (
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '5rem',
+      padding: '5rem 1rem',
       gap: '3rem',
       textAlign: 'center',
     }}
   >
     <h1>Powering tech enterprise and startups</h1>
-    <Group spacing="xl" sx={{ gap: '2rem', justifyContent: 'center' }}>
+    <Group
+      spacing="xl"
+      sx={{
+        justifyContent: 'center',
+        gap: '1.5rem',
+        '@media (min-width: 540px)': {
+          gap: '2rem',
+        },
+      }}
+    >
       {partnersData.map((partner) => (
         <Box
           key={partner.slug}
           sx={{
             img: {
-              maxWidth: '200px !important',
-              maxHeight: '70px !important',
+              maxWidth: '150px !important',
+              maxHeight: '52px !important',
+              '@media (min-width: 540px)': {
+                maxWidth: '200px !important',
+                maxHeight: '70px !important',
+              },
             },
           }}
         >

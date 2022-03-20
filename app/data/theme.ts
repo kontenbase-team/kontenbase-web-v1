@@ -27,7 +27,7 @@ export const themeData = {
       h2: {
         margin: 0,
         fontWeight: 800,
-        fontSize: '2rem',
+        fontSize: '1.5rem',
         '@media (min-width: 540px)': {
           fontSize: '3rem',
         },
@@ -35,7 +35,10 @@ export const themeData = {
       h3: {
         margin: 0,
         fontWeight: 800,
-        fontSize: '1.75rem',
+        fontSize: '1.2rem',
+        '@media (min-width: 540px)': {
+          fontSize: '1.75rem',
+        },
       },
       h4: {
         margin: 0,

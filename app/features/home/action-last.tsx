@@ -1,4 +1,12 @@
-import { Image, Button, Container, Group, Title, Anchor } from '@mantine/core'
+import {
+  Image,
+  Button,
+  Container,
+  Group,
+  Title,
+  Anchor,
+  Box,
+} from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
@@ -11,7 +19,7 @@ export const HomeActionLast: FunctionComponent = () => (
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '3rem',
+      padding: '5rem 1rem',
       gap: '3rem',
       textAlign: 'center',
     }}
@@ -20,22 +28,43 @@ export const HomeActionLast: FunctionComponent = () => (
       Try our managed service with battle tested technology stack
     </Title>
 
-    <Group spacing="xl" sx={{ justifyContent: 'center', maxWidth: '780px' }}>
+    <Group
+      spacing="xl"
+      sx={{
+        justifyContent: 'center',
+        maxWidth: '780px',
+        gap: '1.5rem',
+        '@media (min-width: 540px)': {
+          gap: '2rem',
+        },
+      }}
+    >
       {stacksData.map((item) => (
         <Anchor key={item.name} href={item.url} target="_blank">
-          <Image
-            key={item.name}
-            src={item.imageUrl}
-            alt={item.name}
-            fit="contain"
-            height={60}
+          <Box
             sx={{
-              filter: 'grayscale(1) contrast(0.5)',
-              '&:hover': {
-                filter: 'grayscale(0)',
+              img: {
+                maxHeight: '35px !important',
+                '@media (min-width: 540px)': {
+                  maxHeight: '70px !important',
+                },
               },
             }}
-          />
+          >
+            <Image
+              key={item.name}
+              src={item.imageUrl}
+              alt={item.name}
+              fit="contain"
+              height={60}
+              sx={{
+                filter: 'grayscale(1) contrast(0.5)',
+                '&:hover': {
+                  filter: 'grayscale(0)',
+                },
+              }}
+            />
+          </Box>
         </Anchor>
       ))}
     </Group>

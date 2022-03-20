@@ -31,9 +31,10 @@ export const HomeHero: FunctionComponent = () => (
       order={1}
       sx={{
         maxWidth: '16ch',
-        fontSize: '3rem !important',
+        fontSize: '2rem !important',
+        marginTop: '0 !important',
         '@media (min-width: 540px)': {
-          fontSize: '3.5rem',
+          fontSize: '3.5rem !important',
         },
       }}
     >
@@ -52,7 +53,14 @@ export const HomeHero: FunctionComponent = () => (
     <Text
       size="xl"
       color="dimmed"
-      sx={{ maxWidth: '38ch', fontWeight: 500, fontSize: '1.5rem' }}
+      sx={{
+        maxWidth: '38ch',
+        fontWeight: 500,
+        fontSize: '1rem',
+        '@media (min-width: 540px)': {
+          fontSize: '1.5rem',
+        },
+      }}
     >
       Kontenbase allows you to easily create backend API, auth, and storage in
       less than 1 minute without coding.
@@ -66,7 +74,7 @@ export const HomeHero: FunctionComponent = () => (
     >
       <Link to="/signup">
         <Button
-          size="lg"
+          size="md"
           radius="md"
           variant="gradient"
           gradient={{ from: 'red', to: 'orange', deg: 105 }}
@@ -76,7 +84,7 @@ export const HomeHero: FunctionComponent = () => (
       </Link>
       <Anchor href="https://docs.kontenbase.com" target="_blank">
         <Button
-          size="lg"
+          size="md"
           radius="md"
           variant="outline"
           leftIcon={<Icon name="docs" />}

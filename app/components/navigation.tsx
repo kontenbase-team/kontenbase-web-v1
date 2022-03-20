@@ -47,7 +47,14 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
         <Group id="nav-logo">
           <Link to="/">
             <Image
-              height={42}
+              sx={{
+                img: {
+                  height: '30px !important',
+                  '@media (min-width: 540px)': {
+                    height: '42px !important',
+                  },
+                },
+              }}
               src={
                 dark ? '/images/logo-on-dark.svg' : '/images/logo-on-light.svg'
               }
