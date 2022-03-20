@@ -50,6 +50,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
               sx={{
                 img: {
                   height: '30px !important',
+                  margin: '0 !important',
                   '@media (min-width: 540px)': {
                     height: '42px !important',
                   },
