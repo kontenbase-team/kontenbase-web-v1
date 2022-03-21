@@ -16,7 +16,7 @@ export const HomeActionMiddle: FunctionComponent = () => (
     })}
   >
     <Title order={2} sx={(theme) => ({ color: theme.colors.gray[1] })}>
-      Ready to try the power of{' '}
+      Are you ready to try the power of{' '}
       <Text color="red" inherit component="span">
         no code
       </Text>

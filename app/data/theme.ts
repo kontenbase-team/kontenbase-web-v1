@@ -19,15 +19,15 @@ export const themeData = {
       h1: {
         marginBottom: 0,
         fontWeight: 800,
-        fontSize: '1.5rem',
+        fontSize: '2.5rem',
         '@media (min-width: 540px)': {
-          fontSize: '2rem',
+          fontSize: '3.5rem',
         },
       },
       h2: {
         margin: 0,
         fontWeight: 800,
-        fontSize: '1.5rem',
+        fontSize: '2rem',
         '@media (min-width: 540px)': {
           fontSize: '3rem',
         },
@@ -35,9 +35,9 @@ export const themeData = {
       h3: {
         margin: 0,
         fontWeight: 800,
-        fontSize: '1.2rem',
+        fontSize: '1.5rem',
         '@media (min-width: 540px)': {
-          fontSize: '1.75rem',
+          fontSize: '2rem',
         },
       },
       h4: {
