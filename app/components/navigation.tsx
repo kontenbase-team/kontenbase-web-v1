@@ -178,7 +178,11 @@ export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
     ))}
     <Divider />
     <Menu.Label>Account</Menu.Label>
-    <Menu.Item>Sign In</Menu.Item>
-    <Menu.Item color="red">Sign Up</Menu.Item>
+    <Menu.Item component={Link} to="/signin">
+      Sign In
+    </Menu.Item>
+    <Menu.Item component={Link} to="/signup" color="red">
+      Sign Up
+    </Menu.Item>
   </Menu>
 )
