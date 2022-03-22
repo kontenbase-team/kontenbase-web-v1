@@ -3,10 +3,10 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  extends: [],
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:react/jsx-runtime',
+    '@remix-run/eslint-config',
+    '@remix-run/eslint-config/node',
     'prettier',
   ],
   globals: {
