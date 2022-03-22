@@ -10,6 +10,12 @@ import {
   HomeVersus,
 } from '~/features'
 
+import type { SEOHandle } from '@balavishnuvj/remix-seo'
+
+export const handle: SEOHandle = {
+  getSitemapEntries: async () => [{ route: `/`, priority: 1 }],
+}
+
 export default function Index() {
   return (
     <Layout>
