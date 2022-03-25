@@ -1,6 +1,7 @@
 import { Text, Button, Title, Box } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
+import { appData } from '~/data'
 
 export const HomeActionMiddle: FunctionComponent = () => (
   <Box
@@ -31,15 +32,17 @@ export const HomeActionMiddle: FunctionComponent = () => (
       product and let us do the scale!
     </Text>
 
-    <Link to="/signup">
-      <Button
-        size="lg"
-        radius="md"
-        variant="gradient"
-        gradient={{ from: 'red', to: 'orange', deg: 105 }}
-      >
-        Sign Up for Free
-      </Button>
-    </Link>
+    {appData.isAuthEnabled && (
+      <Link to="/signup">
+        <Button
+          size="lg"
+          radius="md"
+          variant="gradient"
+          gradient={{ from: 'red', to: 'orange', deg: 105 }}
+        >
+          Sign Up for Free
+        </Button>
+      </Link>
+    )}
   </Box>
 )

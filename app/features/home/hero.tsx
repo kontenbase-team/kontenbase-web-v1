@@ -11,6 +11,7 @@ import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
 import { Decoration, Icon } from '~/components'
+import { appData } from '~/data'
 import { HomeHeroVideo } from '~/features'
 
 export const HomeHero: FunctionComponent = () => (
@@ -31,7 +32,7 @@ export const HomeHero: FunctionComponent = () => (
       order={1}
       sx={{
         maxWidth: '16ch',
-        fontSize: '2rem !important',
+        fontSize: '2.5rem !important',
         marginTop: '0 !important',
         '@media (min-width: 540px)': {
           fontSize: '3.5rem !important',
@@ -72,16 +73,18 @@ export const HomeHero: FunctionComponent = () => (
         alignItems: 'center',
       }}
     >
-      <Link to="/signup">
-        <Button
-          size="md"
-          radius="md"
-          variant="gradient"
-          gradient={{ from: 'red', to: 'orange', deg: 105 }}
-        >
-          Sign Up for Free
-        </Button>
-      </Link>
+      {appData.isAuthEnabled && (
+        <Link to="/signup">
+          <Button
+            size="md"
+            radius="md"
+            variant="gradient"
+            gradient={{ from: 'red', to: 'orange', deg: 105 }}
+          >
+            Sign Up for Free
+          </Button>
+        </Link>
+      )}
       <Anchor href="https://docs.kontenbase.com" target="_blank">
         <Button
           size="md"

@@ -10,7 +10,7 @@ import {
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
-import { stacksData } from '~/data'
+import { appData, stacksData } from '~/data'
 
 export const HomeActionLast: FunctionComponent = () => (
   <Container
@@ -69,15 +69,17 @@ export const HomeActionLast: FunctionComponent = () => (
       ))}
     </Group>
 
-    <Link to="/signup">
-      <Button
-        size="lg"
-        radius="md"
-        variant="gradient"
-        gradient={{ from: 'red', to: 'orange', deg: 105 }}
-      >
-        Sign Up for Free
-      </Button>
-    </Link>
+    {appData.isAuthEnabled && (
+      <Link to="/signup">
+        <Button
+          size="lg"
+          radius="md"
+          variant="gradient"
+          gradient={{ from: 'red', to: 'orange', deg: 105 }}
+        >
+          Sign Up for Free
+        </Button>
+      </Link>
+    )}
   </Container>
 )

@@ -14,6 +14,7 @@ import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
 import { Icon } from '~/components'
+import { appData } from '~/data'
 
 interface FeatureHeroProps {
   feature: {
@@ -70,16 +71,18 @@ export const FeatureHero: FunctionComponent<FeatureHeroProps> = ({
         <Text> {feature.description}</Text>
 
         <Group>
-          <Link to="/signup">
-            <Button
-              size="md"
-              radius="md"
-              variant="gradient"
-              gradient={{ from: 'red', to: 'orange', deg: 105 }}
-            >
-              Sign Up for Free
-            </Button>
-          </Link>
+          {appData.isAuthEnabled && (
+            <Link to="/signup">
+              <Button
+                size="md"
+                radius="md"
+                variant="gradient"
+                gradient={{ from: 'red', to: 'orange', deg: 105 }}
+              >
+                Sign Up for Free
+              </Button>
+            </Link>
+          )}
           <Anchor href={feature.docsUrl} target="_blank">
             <Button
               size="md"

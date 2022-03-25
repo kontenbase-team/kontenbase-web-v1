@@ -16,7 +16,7 @@ import { FunctionComponent } from 'react'
 import { Link, useLocation } from 'remix'
 
 import { ButtonToggleTheme } from '~/components'
-import { navigationData, navigationFeaturesData } from '~/data'
+import { appData, navigationData, navigationFeaturesData } from '~/data'
 
 interface NavigationProps {}
 
@@ -64,7 +64,10 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
         </Group>
 
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-          <Group id="nav-links" sx={{ marginLeft: '5rem' }}>
+          <Group
+            id="nav-links"
+            sx={{ marginLeft: appData.isAuthEnabled ? '5rem' : '-8rem' }}
+          >
             {navigationData.map((item) => {
               const isCurrentPage = location.pathname === item.to
               const color = dark ? theme.white : theme.black
@@ -117,24 +120,26 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
         <Group spacing="sm">
           <ButtonToggleTheme />
 
-          <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-            <Group id="nav-auth">
-              <Link to="/signin">
-                <Button radius="md" variant="subtle" color="red">
-                  Sign In
-                </Button>
-              </Link>
-              <Link to="/signup">
-                <Button
-                  radius="md"
-                  variant="gradient"
-                  gradient={{ from: 'red', to: 'orange', deg: 105 }}
-                >
-                  Sign Up for Free
-                </Button>
-              </Link>
-            </Group>
-          </MediaQuery>
+          {appData.isAuthEnabled && (
+            <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+              <Group id="nav-auth">
+                <Link to="/signin">
+                  <Button radius="md" variant="subtle" color="red">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button
+                    radius="md"
+                    variant="gradient"
+                    gradient={{ from: 'red', to: 'orange', deg: 105 }}
+                  >
+                    Sign Up for Free
+                  </Button>
+                </Link>
+              </Group>
+            </MediaQuery>
+          )}
 
           <MediaQuery largerThan="md" styles={{ display: 'none' }}>
             <Box>
@@ -169,6 +174,7 @@ export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
         {item.text}
       </Menu.Item>
     ))}
+
     <Divider />
     <Menu.Label>Features</Menu.Label>
     {navigationFeaturesData.map((item) => (
@@ -176,13 +182,18 @@ export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
         {item.text}
       </Menu.Item>
     ))}
-    <Divider />
-    <Menu.Label>Account</Menu.Label>
-    <Menu.Item component={Link} to="/signin">
-      Sign In
-    </Menu.Item>
-    <Menu.Item component={Link} to="/signup" color="red">
-      Sign Up
-    </Menu.Item>
+
+    {appData.isAuthEnabled && (
+      <>
+        <Divider />
+        <Menu.Label>Account</Menu.Label>
+        <Menu.Item component={Link} to="/signin">
+          Sign In
+        </Menu.Item>
+        <Menu.Item component={Link} to="/signup" color="red">
+          Sign Up
+        </Menu.Item>
+      </>
+    )}
   </Menu>
 )

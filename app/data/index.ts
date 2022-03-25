@@ -1,3 +1,4 @@
+export * from './app'
 export * from './decorations'
 export * from './examples'
 export * from './explain-api-links'

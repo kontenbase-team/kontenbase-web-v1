@@ -14,7 +14,7 @@ import { FunctionComponent, useState } from 'react'
 import { Link } from 'remix'
 
 import { Flex, Icon } from '~/components'
-import { pricingData, pricingFeaturesData } from '~/data'
+import { appData, pricingData, pricingFeaturesData } from '~/data'
 
 type TCurrency = 'USD' | 'IDR'
 
@@ -88,11 +88,13 @@ export const PricingTableDesktop: FunctionComponent<
   const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
+  const headerHeight = appData.isAuthEnabled ? 220 : 175
+
   return (
     <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
       <SimpleGrid spacing={0} cols={5} sx={{ marginBottom: '1rem' }}>
         <Box>
-          <Box sx={{ height: 220 }} />
+          <Box sx={{ height: headerHeight }} />
           {pricingFeaturesData.map((item) => (
             <Group key={item.name}>
               {item.icon ? (
@@ -132,7 +134,11 @@ export const PricingTableDesktop: FunctionComponent<
 
         {pricingData.map((plan) => (
           <Group key={plan.name} direction="column" spacing={0}>
-            <Group direction="column" spacing="xs" sx={{ height: 220 }}>
+            <Group
+              direction="column"
+              spacing="xs"
+              sx={{ height: headerHeight }}
+            >
               <Title order={3}>{plan.name}</Title>
               <Group spacing={5}>
                 <Text
@@ -145,7 +151,7 @@ export const PricingTableDesktop: FunctionComponent<
                 <span>/project/month</span>
               </Group>
               <Text>{plan.info}</Text>
-              <AdaptiveLinkButton plan={plan} />
+              {appData.isAuthEnabled && <AdaptiveLinkButton plan={plan} />}
             </Group>
 
             {plan.features.map((item) => (
@@ -167,9 +173,11 @@ export const PricingTableDesktop: FunctionComponent<
               </Box>
             ))}
 
-            <Box sx={{ marginTop: '1rem' }}>
-              <AdaptiveLinkButton plan={plan} />
-            </Box>
+            {appData.isAuthEnabled && (
+              <Box sx={{ marginTop: '1rem' }}>
+                <AdaptiveLinkButton plan={plan} />
+              </Box>
+            )}
           </Group>
         ))}
       </SimpleGrid>
@@ -186,6 +194,8 @@ export const PricingTableMobile: FunctionComponent<
   const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
+  const headerHeight = appData.isAuthEnabled ? 180 : 150
+
   return (
     <MediaQuery largerThan="md" styles={{ display: 'none' }}>
       <Box>
@@ -197,7 +207,7 @@ export const PricingTableMobile: FunctionComponent<
             sx={{ marginBottom: '5rem' }}
           >
             <Box>
-              <Box sx={{ height: 180 }} />
+              <Box sx={{ height: headerHeight }} />
               {pricingFeaturesData.map((item) => (
                 <Group key={item.name}>
                   {item.icon ? (
@@ -240,7 +250,11 @@ export const PricingTableMobile: FunctionComponent<
 
             <Box>
               <Group key={plan.name} direction="column" spacing={0}>
-                <Group direction="column" spacing="xs" sx={{ height: 180 }}>
+                <Group
+                  direction="column"
+                  spacing="xs"
+                  sx={{ height: headerHeight }}
+                >
                   <Title order={3}>{plan.name}</Title>
                   <Group spacing={5}>
                     <Text
@@ -253,7 +267,7 @@ export const PricingTableMobile: FunctionComponent<
                     <span>/project/month</span>
                   </Group>
                   <Text>{plan.info}</Text>
-                  <AdaptiveLinkButton plan={plan} />
+                  {appData.isAuthEnabled && <AdaptiveLinkButton plan={plan} />}
                 </Group>
 
                 {plan.features.map((item) => (
@@ -275,9 +289,11 @@ export const PricingTableMobile: FunctionComponent<
                   </Box>
                 ))}
 
-                <Box sx={{ marginTop: '1rem' }}>
-                  <AdaptiveLinkButton plan={plan} />
-                </Box>
+                {appData.isAuthEnabled && (
+                  <Box sx={{ marginTop: '1rem' }}>
+                    <AdaptiveLinkButton plan={plan} />
+                  </Box>
+                )}
               </Group>
             </Box>
           </SimpleGrid>
