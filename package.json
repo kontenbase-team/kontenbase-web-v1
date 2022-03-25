@@ -1,6 +1,6 @@
 {
   "name": "kontenbase-web",
-  "description": "Kontenbase Website",
+  "description": "Kontenbase Website v1",
   "license": "MIT",
   "private": true,
   "sideEffects": false,

@@ -17,7 +17,7 @@ export const HomePartners: FunctionComponent<HomePartnersProps> = () => (
       textAlign: 'center',
     }}
   >
-    <h1>Powering tech enterprise and startups</h1>
+    <h2>Powering tech enterprise and startups</h2>
     <Group
       spacing="xl"
       sx={{
