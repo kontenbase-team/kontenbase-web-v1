@@ -8,21 +8,30 @@ import { useHotkeys, useLocalStorageValue } from '@mantine/hooks'
 import NProgress from 'nprogress'
 import { useEffect } from 'react'
 import {
+  json,
   Links,
   LinksFunction,
   LiveReload,
+  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
   useTransition,
 } from 'remix'
 
-import type { MetaFunction } from 'remix'
 import { themeData } from '~/data'
+import { getEnv } from '~/utils/env.server'
+
+import type { MetaFunction } from 'remix'
 
 import globalStylesUrl from '~/styles/global.css'
 import nProgressStyles from '~/styles/nprogress.css'
+
+export type LoaderData = {
+  ENV: ReturnType<typeof getEnv>
+}
 
 export const links: LinksFunction = () => [
   {
@@ -34,6 +43,14 @@ export const links: LinksFunction = () => [
     href: nProgressStyles,
   },
 ]
+
+export const loader: LoaderFunction = async () => {
+  const data: LoaderData = {
+    ENV: getEnv(),
+  }
+
+  return json(data)
+}
 
 export const meta: MetaFunction = () => {
   const name = 'Kontenbase'
@@ -68,6 +85,8 @@ export const meta: MetaFunction = () => {
 }
 
 export default function App() {
+  const data = useLoaderData<LoaderData>()
+
   const transition = useTransition()
 
   useEffect(() => {
@@ -97,6 +116,12 @@ export default function App() {
         <Links />
       </head>
       <body style={{ margin: 0 }}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(data.ENV)};`,
+          }}
+        />
+
         <ColorSchemeProvider
           colorScheme={colorScheme}
           toggleColorScheme={toggleColorScheme}
