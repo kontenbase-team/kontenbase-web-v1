@@ -1,7 +1,7 @@
 const backgroundYellow =
   'radial-gradient(140% 73% at 50% 22%, #FFD43E 0%, #f03e3e 100%)'
 const backgroundGray =
-  'radial-gradient(140% 73% at 50% 22%, #7C77B8 0%, #130F40 100%)'
+  'radial-gradient(140% 73% at 50% 22%, #888888 0%, #0d0d0d 100%)'
 
 const shadowYellow = '0 0 50px 10px hsla(50,100%,50%,0.5)'
 const shadowGray = '0 0 30px 10px hsla(250,50%,15%,0.25)'
