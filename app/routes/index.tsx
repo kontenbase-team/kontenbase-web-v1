@@ -1,3 +1,5 @@
+import { ActionFunction, useActionData, useTransition } from 'remix'
+
 import { Layout } from '~/components'
 import {
   HomeActionLast,
@@ -8,6 +10,8 @@ import {
   HomeHero,
   HomePartners,
   HomeVersus,
+  subscribeAction,
+  SubscribeSection,
 } from '~/features'
 
 import type { SEOHandle } from '@balavishnuvj/remix-seo'
@@ -16,7 +20,12 @@ export const handle: SEOHandle = {
   getSitemapEntries: async () => [{ route: `/`, priority: 1 }],
 }
 
+export const action: ActionFunction = subscribeAction
+
 export default function Index() {
+  const transition = useTransition()
+  const actionData = useActionData()
+
   return (
     <Layout>
       <HomeHero />
@@ -27,6 +36,7 @@ export default function Index() {
       <HomeExamples />
       <HomeVersus />
       <HomeActionLast />
+      <SubscribeSection transition={transition} actionData={actionData} />
     </Layout>
   )
 }
