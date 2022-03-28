@@ -1,6 +1,7 @@
 import { Text, Button, Title, Box } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
+
 import { appData } from '~/data'
 
 export const HomeActionMiddle: FunctionComponent = () => (

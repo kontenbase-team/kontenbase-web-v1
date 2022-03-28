@@ -1,20 +1,21 @@
 import {
-  Image,
+  Anchor,
+  AspectRatio,
+  Box,
   Button,
+  Card,
   Container,
+  Group,
+  Image,
+  Tabs,
   Text,
   Title,
-  Anchor,
-  Tabs,
-  Box,
-  Card,
-  Group,
   useMantineColorScheme,
 } from '@mantine/core'
 import { Prism } from '@mantine/prism'
 import { FunctionComponent } from 'react'
 
-import { CustomTabs, Icon } from '~/components'
+import { CustomTabs, Icon, VideoYouTube } from '~/components'
 import {
   explainAPICodeImport,
   explainAPIData,
@@ -49,30 +50,19 @@ export const ExplainDashboard: FunctionComponent = () => {
   const dark = colorScheme === 'dark'
 
   return (
-    <Box sx={{ minHeight: 400 }}>
+    <Box sx={{ minHeight: 400, width: '100%' }}>
       <CustomTabs>
         {explainDashboardData
           .filter((item) => item.isAvailable)
           .map((item) => (
             <Tabs.Tab key={item.label} label={item.label}>
-              <Group align="flex-start" spacing="xl">
-                <Box>
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.label}
-                    fit="contain"
-                    radius="md"
-                    sx={(theme) => ({
-                      width: '100%',
-                      maxWidth: 600,
-                      borderWidth: '1px',
-                      borderStyle: 'solid',
-                      borderColor: theme.colors.gray[2],
-                      borderRadius: theme.radius.md,
-                      img: { margin: '0 !important' },
-                    })}
-                  />
-                </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: '1rem',
+                  width: '100%',
+                }}
+              >
                 <Group direction="column" sx={{ maxWidth: '420px' }}>
                   <Title order={4}>{item.title}</Title>
                   <Text>{item.description}</Text>
@@ -89,7 +79,45 @@ export const ExplainDashboard: FunctionComponent = () => {
                     </Card>
                   )}
                 </Group>
-              </Group>
+                {item.videoYouTubeId ? (
+                  <Box
+                    sx={(theme) => ({
+                      width: '100%',
+                      background: dark
+                        ? theme.colors.gray[9]
+                        : theme.colors.gray[1],
+                    })}
+                  >
+                    <AspectRatio ratio={16 / 9}>
+                      <VideoYouTube
+                        position="absolute"
+                        data={{
+                          title: item.label,
+                          videoEmbedId: item.videoYouTubeId,
+                        }}
+                      />
+                    </AspectRatio>
+                  </Box>
+                ) : (
+                  <Box>
+                    <Image
+                      src={item.imageUrl}
+                      alt={item.label}
+                      fit="contain"
+                      radius="md"
+                      sx={(theme) => ({
+                        width: '100%',
+                        maxWidth: 600,
+                        borderWidth: '1px',
+                        borderStyle: 'solid',
+                        borderColor: theme.colors.gray[2],
+                        borderRadius: theme.radius.md,
+                        img: { margin: '0 !important' },
+                      })}
+                    />
+                  </Box>
+                )}
+              </Box>
             </Tabs.Tab>
           ))}
       </CustomTabs>

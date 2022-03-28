@@ -1,4 +1,4 @@
-import { Box, Image, Modal, useMantineTheme } from '@mantine/core'
+import { AspectRatio, Box, Image, Modal, useMantineTheme } from '@mantine/core'
 import { FunctionComponent, useState } from 'react'
 
 import { Flex, VideoYouTube } from '~/components'
@@ -14,21 +14,22 @@ export const HomeHeroVideo: FunctionComponent<HomeHeroVideoProps> = () => {
       <Modal
         centered
         size="xl"
-        hideCloseButton
+        withCloseButton={false}
         transition="fade"
         transitionDuration={600}
         transitionTimingFunction="ease"
         opened={opened}
         onClose={() => setOpened(false)}
       >
-        <Box sx={{ minHeight: '450px' }}>
+        <AspectRatio ratio={16 / 9}>
           <VideoYouTube
+            position="absolute"
             data={{
               title: 'Kontenbase - Alpha - Product Demo',
               videoEmbedId: '0eDLqFZPxXw',
             }}
           />
-        </Box>
+        </AspectRatio>
       </Modal>
 
       <Box

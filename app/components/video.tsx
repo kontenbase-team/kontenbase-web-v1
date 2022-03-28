@@ -2,6 +2,7 @@ import { Box } from '@mantine/core'
 import { FunctionComponent } from 'react'
 
 interface VideoYouTubeProps {
+  position: any
   data: {
     title: string
     videoEmbedId: string
@@ -9,6 +10,7 @@ interface VideoYouTubeProps {
 }
 
 export const VideoYouTube: FunctionComponent<VideoYouTubeProps> = ({
+  position,
   data,
 }) => (
   <Box
@@ -18,7 +20,7 @@ export const VideoYouTube: FunctionComponent<VideoYouTubeProps> = ({
       top: '0',
       height: '100%',
       width: '100%',
-      position: 'absolute',
+      position: position,
     }}
     title={data.title}
     src={`https://www.youtube.com/embed/${data.videoEmbedId}?playlist=${data.videoEmbedId}&controls=1&modestbranding=1&rel=0&disablekb=1`}

@@ -2,11 +2,12 @@ import { Container } from '@mantine/core'
 import { gql } from '@urql/core'
 import { json, useLoaderData } from 'remix'
 
-import type { MetaFunction, LoaderFunction } from 'remix'
 import { Layout } from '~/components'
 import { BlogHero, BlogContent } from '~/features'
 import { TBlogArticle } from '~/types'
 import { hashnodeClient, createMeta, ReactGA } from '~/utils'
+
+import type { MetaFunction, LoaderFunction } from 'remix'
 
 export const meta: MetaFunction = () =>
   createMeta({
