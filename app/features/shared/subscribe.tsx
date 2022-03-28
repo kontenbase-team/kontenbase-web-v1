@@ -11,6 +11,8 @@ import {
 import axios from 'axios'
 import { Form, json } from 'remix'
 
+import { getEnvServer } from '~/utils'
+
 import type { ActionFunction } from 'remix'
 
 interface SubscribeSectionProps {
@@ -35,10 +37,14 @@ export const SubscribeSection = (props: SubscribeSectionProps) => (
 
     <Box sx={{ marginTop: '1rem' }}>
       {props.actionData?.error && (
-        <Alert color="red">{props.actionData?.message}</Alert>
+        <Alert radius="md" color="red">
+          {props.actionData?.message}
+        </Alert>
       )}
       {props.actionData?.subscriber?.email && (
-        <Alert color="green">{props.actionData?.message}</Alert>
+        <Alert radius="md" color="green">
+          {props.actionData?.message}
+        </Alert>
       )}
     </Box>
   </Container>
@@ -86,8 +92,6 @@ export const SubscribeBoxForm = ({ transition }: { transition: any }) => {
           radius="md"
           type="submit"
           disabled={transition.state === 'submitting'}
-          variant="gradient"
-          gradient={{ from: 'red', to: 'orange', deg: 105 }}
         >
           {subscribeText}
         </Button>
@@ -96,6 +100,9 @@ export const SubscribeBoxForm = ({ transition }: { transition: any }) => {
   )
 }
 
+/**
+ * Regular function to request to Buttondown
+ */
 export const subscribeNew = async ({
   email,
   name,
@@ -114,10 +121,12 @@ export const subscribeNew = async ({
     const response = await axios.post(
       'https://api.buttondown.email/v1/subscribers',
       payload,
-      { headers: { Authorization: `Token ${ENV.BUTTONDOWN_API_KEY}` } }
+      {
+        headers: {
+          Authorization: `Token ${getEnvServer('BUTTONDOWN_API_KEY')}`,
+        },
+      }
     )
-
-    console.log({ response, token: ENV.BUTTONDOWN_API_KEY })
 
     return response.data
   } catch (error: any) {
@@ -126,6 +135,9 @@ export const subscribeNew = async ({
   }
 }
 
+/**
+ * Remix Action
+ */
 export const subscribeAction: ActionFunction = async ({ request }) => {
   try {
     const form = await request.formData()
