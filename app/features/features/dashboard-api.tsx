@@ -61,6 +61,10 @@ export const ExplainDashboard: FunctionComponent = () => {
                   display: 'flex',
                   gap: '1rem',
                   width: '100%',
+                  flexDirection: 'column',
+                  '@media (min-width: 960px)': {
+                    flexDirection: 'row',
+                  },
                 }}
               >
                 <Group direction="column" sx={{ maxWidth: '420px' }}>
