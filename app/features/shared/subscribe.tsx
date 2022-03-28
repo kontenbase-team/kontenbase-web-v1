@@ -61,9 +61,7 @@ export const SubscribeBoxForm = ({ transition }: { transition: any }) => {
           flexWrap: 'wrap',
           flexDirection: 'column',
           '@media (max-width: 640px)': {
-            '& *': {
-              width: '100%',
-            },
+            '& *, & button': { width: '100%' },
           },
           '@media (min-width: 640px)': {
             flexDirection: 'row',
