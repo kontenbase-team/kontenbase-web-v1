@@ -8,7 +8,7 @@ export const teamData = [
         avatarUrl: '',
       },
       {
-        name: 'Egi Tri Aginta Ginting',
+        name: 'Tri Aginta Ginting',
         role: 'Development Team Lead',
         avatarUrl: '',
       },

@@ -10,7 +10,7 @@ export const featureRESTAPISDKData = {
   imageUrl: '/images/features/rest-api.png',
   subTitle: 'Never write basic API again',
   subDescription:
-    'We introspect your database schema within KOntenbase and provide the APIs & SDK instantly. So you can focus on building your product. Let Kontenbase handle the CRUD!',
+    'We introspect your database schema within Kontenbase and provide the APIs & SDK instantly. So you can focus on building your product. Let Kontenbase handle the CRUD!',
   codeExamples: [
     {
       label: 'Create a record',
