@@ -54,7 +54,7 @@ export const loader: LoaderFunction = async () => {
 
 export const meta: MetaFunction = () => {
   const name = 'Kontenbase'
-  const title = 'Kontenbase'
+  const title = 'Kontenbase — No Code Backend API, Fast and Easy!'
   const description =
     'No code backend API, fast and easy! Easily create backend API, auth, and storage in less than 1 minute without coding.'
   const url = 'https://kontenbase.com/'
