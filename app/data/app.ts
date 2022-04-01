@@ -1,3 +1,3 @@
 export const appData = {
-  isAuthEnabled: false,
+  isAuthEnabled: true,
 }
