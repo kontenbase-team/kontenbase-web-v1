@@ -49,11 +49,7 @@ export const ContactContent: FunctionComponent = () => (
         <Title order={3}>Team</Title>
         <Text>
           Kontenbase team is a collaboration between internal developers and
-          contributors around the world. Want to join?{' '}
-          <Anchor href="https://kontenbase.com/jobs" target="_blank">
-            Apply here
-          </Anchor>
-          .
+          various contributors.
         </Text>
       </Group>
 

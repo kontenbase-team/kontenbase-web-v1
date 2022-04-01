@@ -4,7 +4,7 @@ export const navigationData = [
   { to: '/contact', text: 'Contact' },
   { to: '/blog', text: 'Blog' },
   { to: '/docs', text: 'Docs' },
-  { to: '/jobs', text: 'Jobs' },
+  // { to: '/jobs', text: 'Jobs' },
 ]
 
 export const navigationFeaturesData = [
