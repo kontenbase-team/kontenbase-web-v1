@@ -118,9 +118,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
         </MediaQuery>
 
         <Group spacing="sm" sx={{ alignItems: 'center' }}>
-          <SocialMediaLinks
-            enabledLinks={['Twitter', 'GitHub', 'YouTube', 'Discord']}
-          />
+          <SocialMediaLinks enabledLinks={['Twitter', 'GitHub', 'Discord']} />
 
           <ButtonToggleTheme />
 
