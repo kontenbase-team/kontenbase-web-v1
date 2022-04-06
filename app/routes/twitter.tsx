@@ -7,4 +7,4 @@ export const handle: SEOHandle = {
 }
 
 export const loader: LoaderFunction = async () =>
-  redirect('https://a.kontenbase.com/discord')
+  redirect('https://a.kontenbase.com/twitter')
