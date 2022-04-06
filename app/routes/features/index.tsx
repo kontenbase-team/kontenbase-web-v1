@@ -1,0 +1,4 @@
+import { LoaderFunction, redirect } from 'remix'
+
+export const loader: LoaderFunction = async () =>
+  redirect('/features/rest-api-sdk')
