@@ -1,11 +1,10 @@
 import { Container } from '@mantine/core'
 import { gql } from '@urql/core'
-import { marked } from 'marked'
 import { json, useLoaderData } from 'remix'
 
 import { BlogArticle, Layout } from '~/components'
-import { hashnodeClient } from '~/lib'
-import { Article, TBlogArticle } from '~/types'
+import { graphcmsClient } from '~/lib'
+import { Article } from '~/types'
 import { createMeta, ReactGA } from '~/utils'
 
 import type { MetaFunction, LoaderFunction } from 'remix'
@@ -26,29 +25,33 @@ export const meta: MetaFunction = ({ data: article, params }) => {
 }
 
 export const loader: LoaderFunction = async ({ params }) => {
-  const BlogPostSlugQuery = gql`
-    query BlogPostSlug($slug: String!) {
-      post(hostname: "kontenbase", slug: $slug) {
-        cuid
+  const ONE_BLOG_ARTICLE_BY_SLUG = gql`
+    query oneBlogArticleBySlug($slug: String!) {
+      article(where: { slug: $slug }) {
+        id
         slug
         title
+        publishedAt
         brief
-        coverImage
-        dateAdded
-        contentMarkdown
+        coverImage {
+          url
+        }
+        content {
+          html
+        }
       }
     }
   `
-  const response = await hashnodeClient
-    .query(BlogPostSlugQuery, { slug: params.slug })
+  const response = await graphcmsClient
+    .query(ONE_BLOG_ARTICLE_BY_SLUG, {
+      slug: params.slug,
+    })
     .toPromise()
 
-  const article: TBlogArticle = response.data.post
-
-  if (!article) return json(null)
+  const article: Article = response.data.article
 
   return json({
-    ...article,
+    article,
   })
 }
 
@@ -75,6 +78,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
     <Layout>
       <Container size="lg" sx={{ marginTop: '1rem', marginBottom: '1rem' }}>
         <p>Failed to get the blog article. Please refresh to try again.</p>
+        <pre>{JSON.stringify(error, null, 2)}</pre>
       </Container>
     </Layout>
   )

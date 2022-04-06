@@ -11,27 +11,31 @@ interface BlogArticleProps {
 
 export const BlogArticle: FunctionComponent<BlogArticleProps> = ({
   article,
-}) => (
-  <Container size="sm" sx={{ marginTop: '5rem', marginBottom: '5rem' }}>
-    <Image radius="md" src={article.coverImage.url} alt={article.title} />
+}) => {
+  console.log({ article })
 
-    <Box
-      sx={{
-        textAlign: 'center',
-      }}
-    >
-      <Title order={2}>{article.title}</Title>
-      <Text
-        component="time"
-        dateTime={article.publishedAt}
-        sx={{ fontWeight: 'bold' }}
+  return (
+    <Container size="sm" sx={{ marginTop: '5rem', marginBottom: '5rem' }}>
+      <Image radius="md" src={article?.coverImage?.url} alt={article.title} />
+
+      <Box
+        sx={{
+          textAlign: 'center',
+        }}
       >
-        {getDate(article.publishedAt)}
-      </Text>
-    </Box>
+        <Title order={2}>{article.title}</Title>
+        <Text
+          component="time"
+          dateTime={article.publishedAt}
+          sx={{ fontWeight: 'bold' }}
+        >
+          {getDate(article.publishedAt)}
+        </Text>
+      </Box>
 
-    <Box sx={{ marginTop: '2rem', fontSize: '1.2rem' }}>
-      {parse(String(article?.content?.html))}
-    </Box>
-  </Container>
-)
+      <Box sx={{ marginTop: '2rem', fontSize: '1.2rem' }}>
+        {parse(String(article?.content?.html))}
+      </Box>
+    </Container>
+  )
+}
