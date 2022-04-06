@@ -69,19 +69,22 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
             sx={{ marginLeft: appData.isAuthEnabled ? '5rem' : '-8rem' }}
           >
             {navigationData.map((item) => {
-              const isCurrentPage = location.pathname === item.to
-              const color = dark ? theme.white : theme.black
-
               return (
                 <NavLink key={item.to} to={item.to}>
-                  <Text
-                    sx={{
-                      fontWeight: 'bold',
-                      color: isCurrentPage ? theme.colors.red[7] : color,
-                    }}
-                  >
-                    {item.text}
-                  </Text>
+                  {({ isActive }) => (
+                    <Text
+                      sx={{
+                        fontWeight: 'bold',
+                        color: isActive
+                          ? theme.colors.red[7]
+                          : dark
+                          ? theme.white
+                          : theme.black,
+                      }}
+                    >
+                      {item.text}
+                    </Text>
+                  )}
                 </NavLink>
               )
             })}
