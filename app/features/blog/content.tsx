@@ -11,14 +11,16 @@ import {
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
-import { TBlogArticle } from '~/types'
+import { Article } from '~/types'
 import { getDate } from '~/utils'
 
 interface BlogContentProps {
-  data: TBlogArticle[]
+  articles: Article[]
 }
 
-export const BlogContent: FunctionComponent<BlogContentProps> = ({ data }) => {
+export const BlogContent: FunctionComponent<BlogContentProps> = ({
+  articles,
+}) => {
   const theme = useMantineTheme()
 
   return (
@@ -30,19 +32,23 @@ export const BlogContent: FunctionComponent<BlogContentProps> = ({ data }) => {
       }}
     >
       <Group direction="column" sx={{ gap: '5rem' }}>
-        {data.map((article: any) => (
+        {articles.map((article) => (
           <SimpleGrid
-            key={article.cuid}
+            key={article.id}
             spacing="xl"
             cols={2}
             sx={{ width: '100%' }}
             breakpoints={[{ maxWidth: theme.breakpoints.sm, cols: 1 }]}
           >
-            <Image radius="md" src={article.coverImage} alt={article.title} />
+            <Image
+              radius="md"
+              src={article.coverImage.url}
+              alt={article.title}
+            />
             <Group direction="column" sx={{ width: '100%' }}>
               <Title order={3}>{article.title}</Title>
-              <time dateTime={article.dateAdded}>
-                {getDate(article.dateAdded)}
+              <time dateTime={article.publishedAt}>
+                {getDate(article.publishedAt)}
               </time>
               <Text>{article.brief}</Text>
               <Link to={article.slug} prefetch="intent">

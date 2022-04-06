@@ -4,57 +4,63 @@ import { json, useLoaderData } from 'remix'
 
 import { Layout } from '~/components'
 import { BlogHero, BlogContent } from '~/features'
-import { TBlogArticle } from '~/types'
-import { hashnodeClient, createMeta, ReactGA } from '~/utils'
+import { graphcmsClient } from '~/lib'
+import { Article } from '~/types'
+import { createMeta, ReactGA } from '~/utils'
 
 import type { MetaFunction, LoaderFunction } from 'remix'
 
 export const meta: MetaFunction = () =>
   createMeta({
     title: 'Kontenbase - Blog',
-    description: 'Blog articles and posts by Kontenbase.',
+    description: 'Blog articles and updates by Kontenbase.',
     route: 'blog',
   })
 
 export const loader: LoaderFunction = async () => {
-  const BlogPostsQuery = gql`
-    query {
-      user(username: "kontenbase") {
-        publication {
-          posts(page: 0) {
-            cuid
-            slug
-            title
-            brief
-            coverImage
-            dateAdded
-          }
+  const ALL_BLOG_ARTICLES = gql`
+    query allBlogArticles {
+      articles {
+        id
+        slug
+        title
+        publishedAt
+        brief
+        coverImage {
+          url
+        }
+        content {
+          html
         }
       }
     }
   `
-  const response = await hashnodeClient.query(BlogPostsQuery).toPromise()
-  const articles: TBlogArticle[] = response.data.user.publication.posts
+  const response = await graphcmsClient.query(ALL_BLOG_ARTICLES).toPromise()
+  const { articles } = response.data
 
-  return json(articles)
+  return json({
+    articles,
+  })
+}
+
+type LoaderData = {
+  articles: Article[]
 }
 
 export default function Blog() {
   ReactGA.send({ hitType: 'pageview', page: '/blog' })
 
-  // eslint-disable-next-line no-unused-vars
-  const data = useLoaderData<TBlogArticle[]>()
+  const { articles } = useLoaderData<LoaderData>()
 
   return (
     <Layout>
       <BlogHero />
-      <BlogContent data={data} />
+      <BlogContent articles={articles} />
     </Layout>
   )
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
-  // eslint-disable-next-line no-console
   console.error(error)
 
   return (
@@ -68,6 +74,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
         }}
       >
         <p>Failed to get blog articles, please refresh to try again.</p>
+        <pre>{JSON.stringify(error, null, 2)}</pre>
       </Container>
     </Layout>
   )
