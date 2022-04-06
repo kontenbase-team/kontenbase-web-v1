@@ -2,7 +2,8 @@ export type Article = {
   id: string
   slug: string
   title: string
-  publishedAt: string
+  date: string
+  publishedAt?: string
   brief: string
   coverImage: {
     url: string

@@ -33,7 +33,7 @@ export const loader: LoaderFunction = async ({ params }) => {
         id
         slug
         title
-        publishedAt
+        date
         brief
         coverImage {
           url

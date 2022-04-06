@@ -47,9 +47,7 @@ export const BlogContent: FunctionComponent<BlogContentProps> = ({
             />
             <Group direction="column" sx={{ width: '100%' }}>
               <Title order={3}>{article.title}</Title>
-              <time dateTime={article.publishedAt}>
-                {getDate(article.publishedAt)}
-              </time>
+              <time dateTime={article.date}>{getDate(article.date)}</time>
               <Text>{article.brief}</Text>
               <Link to={article.slug} prefetch="intent">
                 <Button>Read more</Button>

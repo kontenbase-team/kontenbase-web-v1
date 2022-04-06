@@ -24,10 +24,10 @@ export const BlogArticle: FunctionComponent<BlogArticleProps> = ({
         <Title order={2}>{article.title}</Title>
         <Text
           component="time"
-          dateTime={article.publishedAt}
+          dateTime={article.date}
           sx={{ fontWeight: 'bold' }}
         >
-          {getDate(article.publishedAt)}
+          {getDate(article.date)}
         </Text>
       </Box>
 

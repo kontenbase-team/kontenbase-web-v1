@@ -20,11 +20,11 @@ export const meta: MetaFunction = () =>
 export const loader: LoaderFunction = async () => {
   const ALL_BLOG_ARTICLES = gql`
     query allBlogArticles {
-      articles {
+      articles(orderBy: date_DESC) {
         id
         slug
         title
-        publishedAt
+        date
         brief
         coverImage {
           url

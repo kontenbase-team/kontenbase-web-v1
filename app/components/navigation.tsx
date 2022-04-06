@@ -13,7 +13,7 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { FunctionComponent } from 'react'
-import { Link, useLocation } from 'remix'
+import { Link, NavLink, useLocation } from 'remix'
 
 import { ButtonToggleTheme, SocialMediaLinks } from '~/components'
 import { appData, navigationData, navigationFeaturesData } from '~/data'
@@ -73,7 +73,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
               const color = dark ? theme.white : theme.black
 
               return (
-                <Link key={item.to} to={item.to}>
+                <NavLink key={item.to} to={item.to}>
                   <Text
                     sx={{
                       fontWeight: 'bold',
@@ -82,7 +82,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
                   >
                     {item.text}
                   </Text>
-                </Link>
+                </NavLink>
               )
             })}
             {/* Navigation Menu: Features */}
@@ -109,7 +109,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
               }
             >
               {navigationFeaturesData.map((item) => (
-                <Menu.Item key={item.text} component={Link} to={item.to}>
+                <Menu.Item key={item.text} component={NavLink} to={item.to}>
                   {item.text}
                 </Menu.Item>
               ))}
