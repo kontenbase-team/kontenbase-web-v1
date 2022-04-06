@@ -10,6 +10,7 @@ import {
   HomeHero,
   HomePartners,
   HomeVersus,
+  SocialSection,
   subscribeAction,
   SubscribeSection,
 } from '~/features'
@@ -36,6 +37,7 @@ export default function Index() {
       <HomeExamples />
       <HomeVersus />
       <HomeActionLast />
+      {/* <SocialSection /> */}
       <SubscribeSection transition={transition} actionData={actionData} />
     </Layout>
   )
