@@ -145,8 +145,6 @@ export const subscribeAction: ActionFunction = async ({ request }) => {
     if (email && name) {
       const data = await subscribeNew({ email, name })
 
-      console.log({ data })
-
       if (data?.email) {
         return json({
           message: `${data?.email} is subscribed! Check the inbox to confirm`,

@@ -12,8 +12,6 @@ interface BlogArticleProps {
 export const BlogArticle: FunctionComponent<BlogArticleProps> = ({
   article,
 }) => {
-  console.log({ article })
-
   return (
     <Container size="sm" sx={{ marginTop: '5rem', marginBottom: '5rem' }}>
       <Image radius="md" src={article?.coverImage?.url} alt={article.title} />
