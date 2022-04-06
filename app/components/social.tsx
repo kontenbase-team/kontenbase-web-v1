@@ -32,7 +32,7 @@ export const SocialMediaLinks: FunctionComponent<SocialMediaLinksProps> = ({
 export const SocialMediaLink: FunctionComponent<SocialMediaLinkProps> = ({
   link,
 }) => (
-  <Anchor href={link.url}>
+  <Anchor href={link.url} sx={{ lineHeight: 'initial' }}>
     <Icon name={link.name.toLowerCase()} />
   </Anchor>
 )

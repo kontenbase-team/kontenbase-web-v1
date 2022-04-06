@@ -15,7 +15,7 @@ import {
 import { FunctionComponent } from 'react'
 import { Link, useLocation } from 'remix'
 
-import { ButtonToggleTheme } from '~/components'
+import { ButtonToggleTheme, SocialMediaLinks } from '~/components'
 import { appData, navigationData, navigationFeaturesData } from '~/data'
 
 interface NavigationProps {}
@@ -117,24 +117,23 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
           </Group>
         </MediaQuery>
 
-        <Group spacing="sm">
+        <Group spacing="sm" sx={{ alignItems: 'center' }}>
+          <SocialMediaLinks
+            enabledLinks={['Twitter', 'GitHub', 'YouTube', 'Discord']}
+          />
+
           <ButtonToggleTheme />
 
           {appData.isAuthEnabled && (
             <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
               <Group id="nav-auth">
-                <Link to="/signin">
-                  <Button radius="md" variant="subtle" color="red">
-                    Sign In
-                  </Button>
-                </Link>
                 <Link to="/signup">
                   <Button
                     radius="md"
                     variant="gradient"
                     gradient={{ from: 'red', to: 'orange', deg: 105 }}
                   >
-                    Sign Up for Free
+                    Start for Free
                   </Button>
                 </Link>
               </Group>
