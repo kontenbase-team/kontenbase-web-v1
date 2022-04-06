@@ -32,7 +32,7 @@ export const sitemapData = [
   {
     text: 'Company',
     links: [
-      { to: '/about', text: 'About' },
+      // { to: '/about', text: 'About' },
       { to: '/contact', text: 'Contact' },
       { to: '/blog', text: 'Blog' },
       // { to: '/terms', text: 'Terms' },
