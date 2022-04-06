@@ -25,11 +25,12 @@ export const Footer: FunctionComponent<FooterProps> = () => (
           <Link to="/">
             <Image width={150} src="/images/logo-on-dark.svg" />
           </Link>
-          <Text>
+          <Text sx={{ marginBottom: '1rem' }}>
             Create backend API, auth, and storage in less than 1 minute with
             Kontenbase no-code platform. Also called Backend as a Service
             (BaaS).
           </Text>
+          <ProductHuntBadge />
         </Box>
 
         <Sitemap />
@@ -47,8 +48,30 @@ export const Footer: FunctionComponent<FooterProps> = () => (
         }}
       >
         <SocialMediaLinks />
+
         <Text>Copyright &copy; 2022 Kontenbase. All rights reserved</Text>
       </Group>
     </Container>
   </Box>
 )
+
+interface ProductHuntBadgeProps {}
+
+export const ProductHuntBadge: FunctionComponent<
+  ProductHuntBadgeProps
+> = () => {
+  return (
+    <a
+      href="https://www.producthunt.com/posts/kontenbase-alpha?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-kontenbase&#0045;alpha"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img
+        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=339570"
+        alt="Kontenbase&#0032;&#0040;Alpha&#0041; - No&#0032;code&#0032;backend&#0032;API&#0046;&#0032;Fast&#0032;and&#0032;easy&#0033; | Product Hunt"
+        width="250"
+        height="54"
+      />
+    </a>
+  )
+}
