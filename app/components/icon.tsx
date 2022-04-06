@@ -22,6 +22,7 @@ import {
   FaTh as PolyworkIcon,
   FaTwitter as TwitterIcon,
   FaYoutube as YouTubeIcon,
+  FaProductHunt as ProductHuntIcon,
   // Company
   FaProjectDiagram as KontenbaseIcon,
   // Person
@@ -70,6 +71,7 @@ export const iconMaps = {
   facebook: <FacebookIcon />,
   youtube: <YouTubeIcon />,
   polywork: <PolyworkIcon />,
+  producthunt: <ProductHuntIcon />,
   // Chat
   slack: <SlackIcon />,
   twist: <TwistIcon />,
