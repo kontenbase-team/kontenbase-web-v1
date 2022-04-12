@@ -90,7 +90,7 @@ export const HomeHero: FunctionComponent = () => (
           size="md"
           radius="md"
           variant="outline"
-          leftIcon={<Icon name="docs" />}
+          leftIcon={<Icon name="calendar" />}
         >
           Schedule Demo
         </Button>

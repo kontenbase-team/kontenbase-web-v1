@@ -44,6 +44,7 @@ import {
   FaBookOpen as DocsIcon,
   FaArrowRight as ArrowRightIcon,
   FaArrowLeft as ArrowLeftIcon,
+  FaCalendar as CalendarIcon,
 } from 'react-icons/fa'
 import { MdFunctions as FunctionsIcon } from 'react-icons/md'
 import {
@@ -101,6 +102,7 @@ export const iconMaps = {
   docs: <DocsIcon />,
   'arrow-right': <ArrowRightIcon />,
   'arrow-left': <ArrowLeftIcon />,
+  calendar: <CalendarIcon />,
   // Products
   'amazon-ec2': <AmazonEC2Icon />,
   'amazon-s3': <AmazonS3Icon />,
