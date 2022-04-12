@@ -9,6 +9,7 @@ import {
   Group,
 } from '@mantine/core'
 import axios from 'axios'
+import { FunctionComponent } from 'react'
 import { Form, json } from 'remix'
 
 import { getEnvServer } from '~/utils'
@@ -20,35 +21,41 @@ interface SubscribeSectionProps {
   actionData?: any
 }
 
-export const SubscribeSection = (props: SubscribeSectionProps) => (
-  <Container
-    size="sm"
-    sx={{
-      marginTop: '5rem',
-      marginBottom: '5rem',
-    }}
-  >
-    <Box sx={{ marginBottom: '1rem' }}>
-      <Title order={2}>Subscribe to our newsletter</Title>
-      <Text>Get updates and join our early adopter program</Text>
-    </Box>
+export const SubscribeSection: FunctionComponent<SubscribeSectionProps> = ({
+  transition,
+  actionData,
+}) => {
+  return (
+    <Container
+      size="sm"
+      sx={{
+        marginTop: '5rem',
+        marginBottom: '5rem',
+      }}
+    >
+      <Box sx={{ marginBottom: '1rem' }}>
+        <Title order={2}>Subscribe to our newsletter</Title>
+        <Text>Get updates and join our newsletter</Text>
+      </Box>
 
-    <SubscribeBoxForm transition={props.transition} />
+      <SubscribeBoxForm transition={transition} />
 
-    <Box sx={{ marginTop: '1rem' }}>
-      {props.actionData?.error && (
-        <Alert radius="md" color="red">
-          {props.actionData?.message}
-        </Alert>
-      )}
-      {props.actionData?.subscriber?.email && (
-        <Alert radius="md" color="green">
-          {props.actionData?.message}
-        </Alert>
-      )}
-    </Box>
-  </Container>
-)
+      <Box sx={{ marginTop: '1rem' }}>
+        {actionData && (
+          <Alert radius="md" color="green">
+            Thank you for subscribing. Please check your inbox.
+          </Alert>
+        )}
+
+        {!actionData && (
+          <Alert radius="md" color="red">
+            Sorry somethine went wrong. Please try again.
+          </Alert>
+        )}
+      </Box>
+    </Container>
+  )
+}
 
 export const SubscribeBoxForm = ({ transition }: { transition: any }) => {
   const subscribeText =
@@ -110,20 +117,14 @@ export const subscribeNew = async ({
 }) => {
   try {
     const payload = {
+      api_key: `${getEnvServer('CONVERTKIT_API_KEY')}`,
       email,
-      metadata: { name },
-      notes: 'early',
-      tags: ['early'],
+      first_name: name,
     }
 
     const response = await axios.post(
-      'https://api.buttondown.email/v1/subscribers',
-      payload,
-      {
-        headers: {
-          Authorization: `Token ${getEnvServer('BUTTONDOWN_API_KEY')}`,
-        },
-      }
+      'https://api.convertkit.com/v3/forms/3160913/subscribe',
+      payload
     )
 
     return response.data
@@ -145,9 +146,11 @@ export const subscribeAction: ActionFunction = async ({ request }) => {
     if (email && name) {
       const data = await subscribeNew({ email, name })
 
+      console.log(JSON.stringify(data, null, 2))
+
       if (data?.email) {
         return json({
-          message: `${data?.email} is subscribed! Check the inbox to confirm`,
+          message: `${data?.email} is subscribed! Check your inbox to confirm`,
           subscriber: data,
         })
       }

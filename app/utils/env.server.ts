@@ -8,7 +8,7 @@ function getEnv() {
     APP_ENV: process.env.APP_ENV, // local | development | staging | production
     API_URL: process.env.API_URL, // localhost | api.domain.com
     VERCEL: process.env.VERCEL,
-    BUTTONDOWN_API_KEY: process.env.BUTTONDOWN_API_KEY,
+    CONVERTKIT_API_KEY: process.env.CONVERTKIT_API_KEY,
     GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
   }
 }
