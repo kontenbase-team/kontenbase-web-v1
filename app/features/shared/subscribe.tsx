@@ -41,17 +41,20 @@ export const SubscribeSection: FunctionComponent<SubscribeSectionProps> = ({
       <SubscribeBoxForm transition={transition} />
 
       <Box sx={{ marginTop: '1rem' }}>
-        {actionData && (
+        {actionData?.subscription && (
           <Alert radius="md" color="green">
-            Thank you for subscribing. Please check your inbox.
+            {actionData?.message ||
+              'Thank you for subscribing. Please check your inbox.'}
           </Alert>
         )}
 
-        {/* {actionData?.error && (
+        {actionData?.error && (
           <Alert radius="md" color="red">
             Sorry something went wrong. Please try again.
           </Alert>
-        )} */}
+        )}
+
+        {/* {actionData && <pre>{JSON.stringify(actionData, null, 2)}</pre>} */}
       </Box>
     </Container>
   )
@@ -146,15 +149,16 @@ export const subscribeAction: ActionFunction = async ({ request }) => {
     if (email && name) {
       const data = await subscribeNew({ email, name })
 
-      console.log(JSON.stringify(data, null, 2))
-
-      if (data?.email) {
+      if (data?.subscription) {
         return json({
-          message: `${data?.email} is subscribed! Check your inbox to confirm`,
-          subscriber: data,
+          message: `${email} is subscribed! Please check your inbox to confirm.`,
+          ...data,
         })
       }
-      return json({ error: true, message: data })
+      return json({
+        error: true,
+        message: data,
+      })
     }
     return json({
       error: true,

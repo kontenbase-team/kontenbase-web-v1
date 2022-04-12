@@ -10,7 +10,6 @@ import {
   HomeHero,
   HomePartners,
   HomeVersus,
-  SocialSection,
   subscribeAction,
   SubscribeSection,
 } from '~/features'
