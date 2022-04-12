@@ -49,7 +49,7 @@ export const SubscribeSection: FunctionComponent<SubscribeSectionProps> = ({
 
         {!actionData && (
           <Alert radius="md" color="red">
-            Sorry somethine went wrong. Please try again.
+            Sorry something went wrong. Please try again.
           </Alert>
         )}
       </Box>
