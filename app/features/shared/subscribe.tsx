@@ -47,11 +47,11 @@ export const SubscribeSection: FunctionComponent<SubscribeSectionProps> = ({
           </Alert>
         )}
 
-        {!actionData && (
+        {/* {actionData?.error && (
           <Alert radius="md" color="red">
             Sorry something went wrong. Please try again.
           </Alert>
-        )}
+        )} */}
       </Box>
     </Container>
   )
