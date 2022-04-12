@@ -85,16 +85,16 @@ export const HomeHero: FunctionComponent = () => (
           </Button>
         </Link>
       )}
-      <Anchor href="https://docs.kontenbase.com" target="_blank">
+      <Link to="/demo">
         <Button
           size="md"
           radius="md"
           variant="outline"
           leftIcon={<Icon name="docs" />}
         >
-          Documentation
+          Schedule Demo
         </Button>
-      </Anchor>
+      </Link>
     </Group>
 
     <HomeHeroDecoration>
