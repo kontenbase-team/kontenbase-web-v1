@@ -1,3 +1,4 @@
+export * from './anchor'
 export * from './anchor-button'
 export * from './blog-article'
 export * from './button-toggle-theme'

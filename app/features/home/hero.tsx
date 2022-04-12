@@ -1,16 +1,8 @@
-import {
-  Box,
-  Text,
-  Button,
-  Group,
-  Title,
-  Anchor,
-  MediaQuery,
-} from '@mantine/core'
+import { Box, Text, Button, Group, Title, MediaQuery } from '@mantine/core'
 import { FunctionComponent } from 'react'
 import { Link } from 'remix'
 
-import { Decoration, Icon } from '~/components'
+import { Anchor, Decoration, Icon } from '~/components'
 import { appData } from '~/data'
 import { HomeHeroVideo } from '~/features'
 
@@ -85,7 +77,7 @@ export const HomeHero: FunctionComponent = () => (
           </Button>
         </Link>
       )}
-      <Link to="/demo">
+      <Anchor href="https://kontenbase.com/demo">
         <Button
           size="md"
           radius="md"
@@ -94,7 +86,7 @@ export const HomeHero: FunctionComponent = () => (
         >
           Schedule Demo
         </Button>
-      </Link>
+      </Anchor>
     </Group>
 
     <HomeHeroDecoration>
