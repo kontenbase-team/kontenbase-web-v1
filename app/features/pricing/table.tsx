@@ -88,7 +88,7 @@ export const PricingTableDesktop: FunctionComponent<
   const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
-  const headerHeight = appData.isAuthEnabled ? 220 : 175
+  const headerHeight = appData.isAuthEnabled ? 240 : 200
 
   return (
     <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
@@ -141,14 +141,26 @@ export const PricingTableDesktop: FunctionComponent<
             >
               <Title order={3}>{plan.name}</Title>
               <Group spacing={5}>
-                <Text
-                  component="span"
-                  sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                >
-                  {currency === 'USD' ? '$' : 'Rp '}
-                  {plan?.price[currency]}
-                </Text>
-                <span>/project/month</span>
+                {plan?.price?.USD > 0 && (
+                  <>
+                    <Text
+                      component="span"
+                      sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
+                    >
+                      {currency === 'USD' ? '$' : 'Rp '}
+                      {plan?.price[currency]}
+                    </Text>
+                    <span>/project/month</span>
+                  </>
+                )}
+                {plan?.price?.USD === 0 && (
+                  <Text
+                    component="span"
+                    sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
+                  >
+                    Contact Us
+                  </Text>
+                )}
               </Group>
               <Text>{plan.info}</Text>
               {appData.isAuthEnabled && <AdaptiveLinkButton plan={plan} />}
@@ -194,7 +206,7 @@ export const PricingTableMobile: FunctionComponent<
   const backgroundFirst = isDark ? theme.colors.gray[9] : theme.colors.gray[1]
   const backgroundSecond = isDark ? theme.colors.gray[8] : theme.white
 
-  const headerHeight = appData.isAuthEnabled ? 180 : 150
+  const headerHeight = appData.isAuthEnabled ? 200 : 170
 
   return (
     <MediaQuery largerThan="md" styles={{ display: 'none' }}>
@@ -257,14 +269,23 @@ export const PricingTableMobile: FunctionComponent<
                 >
                   <Title order={3}>{plan.name}</Title>
                   <Group spacing={5}>
-                    <Text
-                      component="span"
-                      sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                    >
-                      {currency === 'USD' ? '$' : 'Rp '}
-                      {plan?.price[currency]}
-                    </Text>
-                    <span>/project/month</span>
+                    {plan?.price?.USD > 0 && (
+                      <>
+                        <Text
+                          component="span"
+                          sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
+                        >
+                          {currency === 'USD' ? '$' : 'Rp '}
+                          {plan?.price[currency]}
+                        </Text>
+                        <span>/project/month</span>
+                      </>
+                    )}
+                    {plan?.price?.USD === 0 && (
+                      <Text component="span" sx={{ fontSize: '1.5rem' }}>
+                        Contact Us
+                      </Text>
+                    )}
                   </Group>
                   <Text>{plan.info}</Text>
                   {appData.isAuthEnabled && <AdaptiveLinkButton plan={plan} />}

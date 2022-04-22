@@ -13,7 +13,7 @@ export const pricingData = [
   {
     name: 'Free',
     price: { USD: 0, IDR: 0 },
-    info: 'Shared Container',
+    info: '(Shared Container)',
     button: {
       text: 'Sign up for Free',
       to: '/signup',
@@ -23,7 +23,7 @@ export const pricingData = [
   {
     name: 'Hobby',
     price: { USD: 5, IDR: '75k' },
-    info: 'Shared Container',
+    info: '(Shared Container)',
     button: {
       text: 'Sign up for Hobby',
       to: '/signup',
@@ -33,29 +33,38 @@ export const pricingData = [
   {
     name: 'Pro',
     price: { USD: 25, IDR: '360k' },
-    info: 'Dedicated Container',
+    info: '+ Pay per Usage (Dedicated Container)',
     button: {
       text: 'Sign up for Pro',
       to: '/signup',
     },
-    features: [null, '8 GB', '50 GB', null, '50,000', null, '100 GB', '50 GB'],
+    features: [
+      null,
+      '8 GB + $0.5 per GB',
+      '50 GB + $0.09 per GB',
+      null,
+      '50,000',
+      null,
+      '100 GB + $0.05 per GB',
+      '50 GB + $0.09 per GB',
+    ],
   },
   {
-    name: 'Pay as you go',
-    price: { USD: 99, IDR: '1.499k' },
-    info: 'Self Hosted / On Premise',
+    name: 'Enterprise',
+    price: { USD: 0, IDR: '0' },
+    info: '(Self Hosted or On Premise)',
     button: {
       text: 'Coming Soon',
     },
     features: [
       null,
-      '$0.5 per GB',
-      '$0.09 per GB',
+      'Unlimited',
+      'Unlimited',
       null,
       'Unlimited',
       null,
-      '$0.05 per GB',
-      '$0.09 per GB',
+      'Unlimited',
+      'Unlimited',
     ],
   },
 ]
