@@ -171,7 +171,7 @@ export const PricingTableDesktop: FunctionComponent<
                 key={item}
                 sx={{
                   width: '100%',
-                  padding: '1rem',
+                  padding: '1rem 0',
                   background: item ? backgroundSecond : backgroundFirst,
                 }}
               >
