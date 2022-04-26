@@ -112,7 +112,7 @@ export const VersusCards = () => {
         </Card>
 
         <Box sx={{ textAlign: 'center' }}>
-          <Title order={3}>Start from $5-$25/month, then pay as you go</Title>
+          <Title order={3}>Start from free or $5-$25/month</Title>
           <Text>Grow as your company go without hidden cost!</Text>
         </Box>
       </Box>
@@ -166,7 +166,7 @@ export const VersusCards = () => {
         </Card>
 
         <Box sx={{ textAlign: 'center' }}>
-          <Title order={3}>$219.18/month with unmanaged service</Title>
+          <Title order={3}>$219.18/month managed by you</Title>
           <Text>Also additional costs to maintain on growth</Text>
         </Box>
       </Box>
