@@ -141,7 +141,7 @@ export const PricingTableDesktop: FunctionComponent<
             >
               <Title order={3}>{plan.name}</Title>
               <Group spacing={5}>
-                {plan?.price?.USD > 0 && (
+                {plan?.price?.USD >= 0 && (
                   <>
                     <Text
                       component="span"
@@ -153,7 +153,7 @@ export const PricingTableDesktop: FunctionComponent<
                     <span>/project/month</span>
                   </>
                 )}
-                {plan?.price?.USD === 0 && (
+                {plan?.price?.USD < 0 && (
                   <Text
                     component="span"
                     sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
@@ -269,7 +269,7 @@ export const PricingTableMobile: FunctionComponent<
                 >
                   <Title order={3}>{plan.name}</Title>
                   <Group spacing={5}>
-                    {plan?.price?.USD > 0 && (
+                    {plan?.price?.USD >= 0 && (
                       <>
                         <Text
                           component="span"
@@ -281,7 +281,7 @@ export const PricingTableMobile: FunctionComponent<
                         <span>/project/month</span>
                       </>
                     )}
-                    {plan?.price?.USD === 0 && (
+                    {plan?.price?.USD < 0 && (
                       <Text component="span" sx={{ fontSize: '1.5rem' }}>
                         Contact Us
                       </Text>

@@ -51,7 +51,7 @@ export const pricingData = [
   },
   {
     name: 'Enterprise',
-    price: { USD: 0, IDR: '0' },
+    price: { USD: -1, IDR: -1 },
     info: '(Self Hosted or On Premise)',
     button: {
       text: 'Coming Soon',
