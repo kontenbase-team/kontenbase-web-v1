@@ -11,11 +11,13 @@ import {
   Menu,
   useMantineColorScheme,
   useMantineTheme,
+  Badge,
 } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 import { FunctionComponent } from 'react'
 import { Link, NavLink, useLocation } from 'remix'
 
-import { ButtonToggleTheme, SocialMediaLinks } from '~/components'
+import { ButtonToggleTheme, Flex, SocialMediaLinks } from '~/components'
 import { appData, navigationData, navigationFeaturesData } from '~/data'
 
 interface NavigationProps {}
@@ -26,6 +28,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
   const { colorScheme } = useMantineColorScheme()
   const theme = useMantineTheme()
   const dark = colorScheme === 'dark'
+  const isWideEnough = useMediaQuery('(min-width: 380px)')
 
   return (
     <Box
@@ -42,25 +45,38 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          padding: '0 10px !important',
         }}
       >
         <Group id="nav-logo">
-          <Link to="/">
-            <Image
-              sx={{
-                img: {
-                  height: '30px !important',
-                  margin: '0 !important',
-                  '@media (min-width: 540px)': {
-                    height: '42px !important',
+          <Flex
+            sx={{
+              gap: '0.5rem',
+              alignItems: 'center',
+            }}
+          >
+            <Link to="/">
+              <Image
+                sx={{
+                  img: {
+                    height: '30px !important',
+                    margin: '0 !important',
+                    '@media (min-width: 540px)': {
+                      height: '42px !important',
+                    },
                   },
-                },
-              }}
-              src={
-                dark ? '/images/logo-on-dark.svg' : '/images/logo-on-light.svg'
-              }
-            />
-          </Link>
+                }}
+                src={
+                  dark
+                    ? '/images/logo-on-dark.svg'
+                    : '/images/logo-on-light.svg'
+                }
+              />
+            </Link>
+            <Badge className="" size="xs" variant="filled">
+              Alpha
+            </Badge>
+          </Flex>
         </Group>
 
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
@@ -90,7 +106,7 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
             })}
             {/* Navigation Menu: Features */}
             <Menu
-              size="lg"
+              size="md"
               trigger="hover"
               placement="end"
               shadow="xl"
@@ -120,10 +136,13 @@ export const Navigation: FunctionComponent<NavigationProps> = () => {
           </Group>
         </MediaQuery>
 
-        <Group spacing="sm" sx={{ alignItems: 'center' }}>
-          <SocialMediaLinks
-            enabledLinks={['ProductHunt', 'Twitter', 'Discord']}
-          />
+        <Group spacing="xs" sx={{ alignItems: 'center' }}>
+          {isWideEnough && (
+            <SocialMediaLinks
+              sx={{ gap: '0.5rem' }}
+              enabledLinks={['ProductHunt', 'Twitter', 'Discord']}
+            />
+          )}
 
           <ButtonToggleTheme />
 
@@ -158,7 +177,7 @@ interface NavigationMenuProps {}
 
 export const NavigationMenu: FunctionComponent<NavigationMenuProps> = () => (
   <Menu
-    size="lg"
+    size="md"
     shadow="xl"
     control={
       <Button

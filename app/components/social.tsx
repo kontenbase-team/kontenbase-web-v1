@@ -6,6 +6,7 @@ import { socialMediaLinks } from '~/data'
 
 interface SocialMediaLinksProps {
   enabledLinks?: string[]
+  sx: any
 }
 
 interface SocialMediaLinkProps {
@@ -14,6 +15,7 @@ interface SocialMediaLinkProps {
 
 export const SocialMediaLinks: FunctionComponent<SocialMediaLinksProps> = ({
   enabledLinks,
+  sx,
 }) => {
   // Check if there are enabledLinks array
   const filteredLinks = enabledLinks?.length
@@ -21,7 +23,7 @@ export const SocialMediaLinks: FunctionComponent<SocialMediaLinksProps> = ({
     : socialMediaLinks
 
   return (
-    <Group>
+    <Group sx={sx}>
       {filteredLinks.map((link) => (
         <SocialMediaLink key={link.name} link={link} />
       ))}

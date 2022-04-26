@@ -73,7 +73,7 @@ export const VersusCards = () => {
           withBorder
           shadow="md"
           radius="md"
-          padding="xl"
+          // padding="xl"
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -143,7 +143,7 @@ export const VersusCards = () => {
           withBorder
           shadow="md"
           radius="md"
-          padding="xl"
+          // padding="xl"
           sx={{
             display: 'flex',
             flexDirection: 'column',
