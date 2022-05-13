@@ -8,6 +8,7 @@ import {
   HomeExamples,
   HomeFeatures,
   HomeHero,
+  HomePowered,
   HomePartners,
   HomeVersus,
   subscribeAction,
@@ -29,6 +30,7 @@ export default function Index() {
   return (
     <Layout>
       <HomeHero />
+      <HomePowered />
       <HomePartners />
       <HomeFeatures />
       <HomeDashboardAPI />

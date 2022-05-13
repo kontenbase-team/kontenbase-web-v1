@@ -12,12 +12,12 @@ export const HomePartners: FunctionComponent<HomePartnersProps> = () => (
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '5rem 1rem',
+      padding: '2rem 1rem',
       gap: '3rem',
       textAlign: 'center',
     }}
   >
-    <h2>Powering tech enterprise and startups</h2>
+    <h3>Powering tech enterprise and startups</h3>
     <Group
       spacing="xl"
       sx={{
