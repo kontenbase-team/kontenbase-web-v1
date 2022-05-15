@@ -43,7 +43,7 @@ export const pricingData = [
       '8 GB + $0.5 per GB',
       '50 GB + $0.09 per GB',
       null,
-      '50,000',
+      '50,000 + $0.001 per user',
       null,
       '100 GB + $0.05 per GB',
       '50 GB + $0.09 per GB',
